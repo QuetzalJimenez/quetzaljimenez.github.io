@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JArreglos</h1>
+<h2>Ordenación</h2>
+<p>Click en la opción</p>
+
+<button onclick="myFunction1()">Llamar al arreglo</button>
+<button onclick="myFunction2()">Imprimir el arreglo</button>
+<button onclick="myFunction3()">Ordenar de mayor a menor</button>
+<button onclick="myFunction4()">Reversa</button>
+<button onclick="myFunction5()">Imprimir tabla</button>
+
+<p id="demo"></p>
+
+<script>
+    var arreglo = [0,0,0,0,0,0,0,0,0,0];
+    var arreglo1 = [0,0,0,0,0,0,0,0,0,0];
+    var arreglo = arreglo1;
+    var table = "<table border=1>";
+
+    function myFunction1() {//LLAMAR
+        document.getElementById("demo").innerHTML = "Entraste a la primera opción";
+        for (var i = 0; i < arreglo.length; i++){
+            arreglo[i] = Math.floor(Math.random() * 100) + 1; 
+            arreglo[i] = arreglo1[i];
+        }
+        document.getElementById("demo").innerHTML += "<br>El contenido del arreglo: " + arreglo.join(", ");
+    }
+
+    function myFunction2() {//IMPRIMIR
+        document.getElementById("demo").innerHTML = "Entraste a la segunda opción";
+        document.getElementById("demo").innerHTML += "<br>El contenido del arreglo: " + arreglo.join(", ");
+    }
+
+    function myFunction3() {//ORDENAR
+        document.getElementById("demo").innerHTML = "Entraste a la tercera opción";
+        arreglo.sort(function(a, b){return b - a});
+        document.getElementById("demo").innerHTML += "<br>El contenido del arreglo: " + arreglo.join(", ");
+    }
+
+    function myFunction4() {//REVERTIR
+        document.getElementById("demo").innerHTML = "Entraste a la cuarta opción";
+        arreglo.reverse();
+        document.getElementById("demo").innerHTML += "<br>El contenido del arreglo: " + arreglo.join(", ");
+    }
+
+    function myFunction5() {//TABLA
+        var Filas = 1; 
+        var Columnas = arreglo.length;
+
+        for (var i = 0; i < Filas; i++) {
+            table += "<tr>";
+            for (var j = 0; j < Columnas; j++) {
+                table += "<td>" + arreglo[j] + "</td>";
+            }
+            table += "</tr>";
+        }
+
+        table += "</table>";
+        document.getElementById("demo").innerHTML = table;
+    }
+</script>
+</body>
+</html>

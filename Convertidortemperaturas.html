@@ -1,0 +1,33 @@
+<html>
+
+<head>
+  <title>Bienvenida del usuario</title>
+
+  <script type="text/javascript">
+    function alertName() {
+      var centigrados = parseInt(document.getElementById('filas').value);
+      var Farenheith = Math.floor((centigrados * 1.8) + 32);
+      var Kelvin = Math.floor(centigrados + 273);
+
+      document.write("<p>La conversión de grados centígrados C° a grados Fahrenheit F° es: " + Farenheith + "</p>");
+      document.write("<p>La conversión de grados centígrados C° a grados Kelvin K° es: " + Kelvin + "</p>");
+
+      return false;
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <form id="myform" onsubmit="return alertName();">
+
+    <p>GRADOS CENTIGRADOS<input id="filas" name="filas" type="text" /></p>
+    <p>CONVERTIR A FARENHEITH(F°) KELVIN(K°)</p>
+    <p><input type="submit" />Convertidor temperaturas</p>
+
+  </form>
+
+</body>
+
+</html>

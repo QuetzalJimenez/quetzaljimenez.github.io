@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Validación de Usuario y Contraseña</title>
+    <script>
+        function validarUsuario() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "admin") {
+                alert("Acceso concedido. Bienvenido, admin!");
+            } else {
+                alert("Nombre de usuario o contraseña incorrectos. Acceso denegado.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Ingrese su nombre de usuario y contraseña</h2>
+    <form>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username"><br><br>
+
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <input type="button" value="Ingresar" onclick="validarUsuario()">
+    </form>
+</body>
+</html>

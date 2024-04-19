@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Bienvenida del usuario</title>
+</head>
+
+<body>
+
+  <form id="myform" onsubmit="return alertName();">
+
+    <p>Numero de Filas<input id="filas" name="filas" type="text" /></p>
+    <p>Numero de Columnas<input id="columnas" name="columnas" type="text" /></p>
+    <p>Caracter<input id="caracter" name="caracter" type="text" /></p>
+    <p><input type="submit" value="Generar Tabla" /></p>
+
+  </form>
+
+  <table id="tabla"></table>
+
+  <script type="text/javascript">
+    function alertName() {
+      var filas = parseInt(document.getElementById('filas').value);
+      var columnas = parseInt(document.getElementById('columnas').value);
+      var caracter = document.getElementById('caracter').value;
+      var tabla = document.getElementById('tabla');
+
+      tabla.innerHTML = ''; 
+
+      for (var i = 0; i < filas; i++) {
+        var fila = tabla.insertRow();
+        for (var j = 0; j < columnas; j++) {
+          var celda = fila.insertCell();
+          celda.textContent = caracter;
+        }
+      }
+
+      return false; 
+    }
+  </script>
+
+</body>
+
+</html>
