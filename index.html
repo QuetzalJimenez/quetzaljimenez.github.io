@@ -7,42 +7,28 @@
     <title>Transición de imagen con CSS</title>
     <style>
         .imagen {
-            width: 200px; 
-            transition: width 0.5s; 
+            width: 200px;
+            transition: width 0.5s;
             background-color: red;
-            cursor: pointer; 
+            cursor: pointer;
         }
-
 
         .imagen:hover {
-            width: 300px; 
+            width: 300px;
         }
 
-        #boton {
+        .boton {
             width: auto;
             height: auto;
             background-color: rgba(107, 180, 248, 0.938);
             transition: width 0.5s;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: rgba(255, 255, 255, 0.849);
+            display: inline-block; 
+            text-decoration: none; 
+            margin-bottom: 10px; 
         }
     </style>
-    <script>
-  
-        function ampliarImagen(imagen) {
-            imagen.style.width = "400px";
-        }
-
-        
-        function restaurarImagen(imagen) {
-            imagen.style.width = "200px"; 
-        }
-
-
-        function redireccionarEnlace(enlace) {
-            window.location.href = enlace; 
-        }
-    </script>
 </head>
 
 <body>
@@ -50,45 +36,47 @@
     <h1>Transición de imagen con CSS</h1>
 
     <h2>Actividad 1</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Generadorparrafos.html')">
+    <a href="https://quetzaljimenez.github.io/Generadorparrafos.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 2</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Imprimirtabla.html')">
+    </a>
+    
+       <h2>Actividad 2</h2>
+    <a href="https://quetzaljimenez.github.io/Imprimirtabla.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 3</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Imprimirtablacaracter.HTML')">
+    </a>
+    
+       <h2>Actividad 3</h2>
+    <a href="https://quetzaljimenez.github.io/Imprimirtablacaracter.HTML" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 4</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Tablanumerosaleatorios.html')">
+    </a>
+    
+       <h2>Actividad 4</h2>
+    <a href="https://quetzaljimenez.github.io/Tablanumerosaleatorios.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 5</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Convertidortemperaturas.html')">
+    </a>
+    
+       <h2>Actividad 5</h2>
+    <a href="https://quetzaljimenez.github.io/Convertidortemperaturas.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 6</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Validar usuario contraseña.html')">
+    </a>
+    
+       <h2>Actividad 6</h2>
+    <a href="https://quetzaljimenez.github.io/Validar usuario contraseña.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Actividad 7</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/Arreglo numeros.html')">
+    </a>
+    
+       <h2>Actividad 7</h2>
+    <a href="https://quetzaljimenez.github.io/Arreglo numeros.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
-    <br>
-    <h2>Infografía JAVASCRIPT</h2>
-    <div id="boton" class="imagen" onmouseover="ampliarImagen(this)" onmouseout="restaurarImagen(this)" onclick="redireccionarEnlace('quetzaljimenez.github.io/InfografiaJAVA.html')">
+    </a>
+    
+       <h2>Infografía JAVA</h2>
+    <a href="https://quetzaljimenez.github.io/InfografiaJAVA.html" class="boton imagen">
         <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </div>
+    </a>
+    
 
 </body>
 
 </html>
+
