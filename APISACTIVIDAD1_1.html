@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+  <div id="myPlot" style="width:100%;max-width:700px"></div>
+  <div id="myPlot1" style="width:100%;max-width:700px; margin-top: 20px;"></div>
+  <script>
+    const xArray = ["PHYSICS", "PROGRAMATION 1", "MATHEMATICS", "ENGLISH 5", "WEB PROGRAMMING 1"];
+    const Columnas = 5; // Define the number of columns
+    var yArray = [];
+    for (var j = 1; j <= Columnas; j++) {
+      yArray.push(Math.floor(Math.random() * 10)); // Generate random grades
+    }
+    
+    const data = [{
+      x: xArray,
+      y: yArray,
+      type: "bar",
+      orientation: "v",
+      marker: { color: "rgba(0,0,255,0.6)" }
+    }];
+    const layout = { title: "GRADES IN THE SECOND PARCIAL SECOND SEMESTER IT CAREER" };
+    Plotly.newPlot("myPlot", data, layout);
+
+    const xArray1 = ["PHYSICS", "PROGRAMATION 1", "MATHEMATICS", "ENGLISH 5", "WEB PROGRAMMING 1"];
+    var yArray1 = [];
+    for (var j = 1; j <= Columnas; j++) {
+      yArray1.push(Math.floor(Math.random() * 10)); // Generate random grades
+    }
+    const data1 = [{
+      x: xArray1,
+      y: yArray1,
+      type: "bar",
+      orientation: "v",
+      marker: { color: "rgba(0,255,0,0.6)" }
+    }];
+    Plotly.newPlot("myPlot1", data1, layout);
+  </script>
+</body>
+</html>
