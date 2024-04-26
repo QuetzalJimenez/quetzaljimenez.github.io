@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<script>
+// Function to generate plot
+function generatePlot(start, end, func) {
+    // Validate input
+    if (isNaN(start) || isNaN(end)) {
+        alert("Por favor, introduce números válidos para el inicio y el fin.");
+        return;
+    }
+
+    // Valores
+    const xValues = [];
+    const yValues = [];
+    for (let x = start; x <= end; x += 0.1) {
+        xValues.push(x);
+        let y;
+        switch(func) {
+            case 1: // sin
+                y = Math.sin(x);
+                break;
+            case 2: // cos
+                y = Math.cos(x);
+                break;
+            case 3: // tan
+                y = Math.tan(x);
+                break;
+            case 4: // cot
+                y = 1 / Math.tan(x);
+                break;
+            default:
+                alert("Opción no válida");
+                return;
+        }
+        yValues.push(y);
+    }
+    // Posibilidades
+    const data = [{x: xValues, y: yValues, mode: "lines"}];
+    const layout = {title: "y = f(x)"};
+    Plotly.newPlot("myPlot", data, layout);
+}
+
+// Valor del usuario
+let start = prompt("Introduce el valor de inicio para la gráfica:");
+let end = prompt("Introduce el valor de fin para la gráfica:");
+let func = prompt("Selecciona la función a graficar:\n1. Seno\n2. Coseno\n3. Tangente\n4. Cotangente");
+
+// Generador
+generatePlot(parseFloat(start), parseFloat(end), parseInt(func));
+</script>
+</body>
+</html>

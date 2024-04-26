@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<body>
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<script>
+// Function to generate plot
+function generatePlot(start, end) {
+    // Validate input
+    if (isNaN(start) || isNaN(end)) {
+        alert("Por favor, introduce números válidos para el inicio y el fin.");
+        return;
+    }
+
+    let exp = "Math.sin(x)";
+    // Generate values
+    const xValues = [];
+    const yValues = [];
+    for (let x = start; x <= end; x += 0.1) {
+        xValues.push(x);
+        yValues.push(eval(exp));
+    }
+    // Display using Plotly
+    const data = [{x: xValues, y: yValues, mode: "lines"}];
+    const layout = {title: "y = " + exp};
+    Plotly.newPlot("myPlot", data, layout);
+}
+
+// Prompt user for start and end values
+let start = prompt("Introduce el valor de inicio para la gráfica:");
+let end = prompt("Introduce el valor de fin para la gráfica:");
+
+// Generate plot
+generatePlot(parseFloat(start), parseFloat(end));
+</script>
+</body>
+</html>
