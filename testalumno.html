@@ -1,0 +1,169 @@
+<html>
+<head>
+    <title>Bienvenida del usuario</title>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type = "text/javascript">
+	    function resultados() {
+	   	
+		/*/INDICE DE VIOLENCIA FEMINICIDA
+		0-12 FASE DE APERTURA
+		13-24 FASE DE DOMINIO
+		25-36 FASE DE DEMOSTRACION
+		37-48 FASE DE RECONOCIMIENTO
+		49-60 FASE DE RIESGO INMINENTE
+		61    CONSUMACION
+		*/
+    var preguntas = 21;
+    var puntos = 0;
+    for (var numero = 1; numero <= preguntas; numero++) {
+        puntos += parseInt(document.querySelector('input[name="p' + numero + '"]:checked').value);
+    }
+
+    alert("Los puntos que ha obtenido de la encuesta son: " + puntos);
+    if (puntos >= 0 && puntos <= 12) {
+        alert("Se encuentra en fase de APERTURA");
+    } else if (puntos >= 13 && puntos <= 24) {
+        alert("Se encuentra en fase de DOMINIO");
+    } else if (puntos >= 25 && puntos <= 36) {
+        alert("Se encuentra en fase de DEMOSTRACION");
+    } else if (puntos >= 37 && puntos <= 48) {
+        alert("Se encuentra en fase de RECONOCIMIENTO");
+    } else if (puntos >= 49 && puntos <= 60) {
+        alert("Se encuentra en fase de RIESGO INMINENTE");
+    } else if (puntos >= 61) {
+        alert("Se encuentra en fase de CONSUMACION");
+    }
+    return false; // Prevent form submission
+}
+
+    </script>
+</head>
+<body>
+	<h2>TEST PARA MEDIR EL NIVEL DE RIESGO DE VIOLENCIA PARA MUJERES EN EL ESTADO DE SLP</h2>
+  <p>INSTRUCCIONES: Lee cuidadosamente y responde una sola opción</p>
+<form id="myform" onsubmit="return resultados();">
+	1.- Dentro de tu núcleo familiar (padre, madre, hermanos) en algún momento vivieron violencia
+(amenazas, gritos, golpes)?
+<input id="p1" name="p1" type="radio"  value=3> SI
+<input id="p1" name="p1" type="radio"  value=2> A VECES
+<input id="p1" name="p1" type="radio"  value=1> RARA VEZ
+<input id="p1" name="p1" type="radio"  value=0> NO
+<br>
+2.-¿Tu pareja te cela?
+SI<input id="p2" name="p2" type="radio" value=3>
+A VECES<input id="p2"  name="p2" type="radio" value=2>
+RARA VEZ<input id="p2"  name="p2" type="radio" value=1>
+NO<input id="p2"  name="p2" type="radio" value=0>
+<br>
+3.-¿Has sufrido descalificaciones o humillaciones en público por parte de tu pareja?
+SI<input id="p3"  name="p3" type="radio" value=3>
+A VECES<input id="p3"  name="p3" type="radio" value=2>
+RARA VEZ<input id="p3"  name="p3" type="radio" value=1>
+NO<input id="p3"  name="p3" type="radio" value=0>
+<br>
+4.-¿Tu pareja te responsabiliza de los problemas que tienen?
+SI<input id="p4"  name="p4" type="radio" value=3>
+A VECES<input id="p4"  name="p4" type="radio" value=2>
+RARA VEZ<input id="p4"  name="p4" type="radio" value=1>
+NO<input id="p4"  name="p4" type="radio" value=0>
+<br>
+5.-¿Te controla, todo el tiempo o quiere saber dónde estás?
+SI<input id="p5"  name="p5" type="radio" value=3>
+A VECES<input id="p5"  name="p5" type="radio" value=2>
+RARA VEZ<input id="p5"  name="p5" type="radio" value=1>
+NO<input id="p5"  name="p5" type="radio" value=0>
+<br>
+6.-¿Te chantajea, manipula o soborna para hacer cosas?
+SI<input id="p6"  name="p6" type="radio" value=3>
+A VECES<input id="p6"  name="p6" type="radio" value=2>
+RARA VEZ<input id="p6"  name="p6" type="radio" value=1>
+NO<input id="p6"  name="p6" type="radio" value=0>
+<br>
+7.-¿Te limita o prohibe hacer cosas?
+SI<input id="p7"  name="p7" type="radio" value=3>
+A VECES<input id="p7"  name="p7" type="radio" value=2>
+RARA VEZ<input id="p7"  name="p7" type="radio" value=1>
+NO<input id="p7"  name="p7" type="radio" value=0>
+<br>
+8.-¿Te controla o limita el recurso económico, o amenaza con quitártelo a ti y tus hijos?
+SI<input id="p8"  name="p8" type="radio" value=3>
+A VECES<input id="p8"  name="p8" type="radio" value=2>
+RARA VEZ<input id="p8"  name="p8" type="radio" value=1>
+NO<input id="p8"  name="p8" type="radio" value=0>
+<br>
+9.-Durante las discusiones, ¿tu pareja se pone violenta y ha destruido objetos?
+SI<input id="p9"  name="p9" type="radio" value=3>
+A VECES<input id="p9"  name="p9" type="radio" value=2>
+RARA VEZ<input id="p9"  name="p9" type="radio" value=1>
+NO<input id="p9"  name="p9" type="radio" value=0>
+<br>10.-¿Tu pareja te obliga a tener relaciones sexuales sin tu consentimiento o sin protección?
+SI<input id="p10"  name="p10" type="radio" value=3>
+A VECES<input id="p10"  name="p10" type="radio" value=2>
+RARA VEZ<input id="p10"  name="p10" type="radio" value=1>
+NO<input id="p10"  name="p10" type="radio" value=0>
+<br>11.-¿Tu pareja te acaricia violentamente?
+SI<input id="p11"  name="p11" type="radio" value=3>
+A VECES<input id="p11"  name="p11" type="radio" value=2>
+RARA VEZ<input id="p11"   name="p11" type="radio" value=1>
+NO<input id="p11"  name="p11" type="radio" value=0>
+<br>12.-¿Cuando discutes con tu pareja, te hace agresiones físicas (empujones, patadas, puñetazos, jalones, te azota) con alguna arma (blanca o fuego) que te dejan marcas?
+SI<input id="p12"  name="p12" type="radio" value=3>
+A VECES<input id="p12"  name="p12" type="radio" value=2>
+RARA VEZ<input id="p12"  name="p12" type="radio" value=1>
+NO<input id="p12"  name="p12" type="radio" value=0>
+<br>13.-¿Has recibido atención médica y/o psicológica por la violencia ejercida por tu pareja?
+SI<input id="p13"  name="p13" type="radio" value=3>
+A VECES<input id="p13"  name="p13" type="radio" value=2>
+RARA VEZ<input id="p13"  name="p13" type="radio" value=1>
+NO<input id="p13"  name="p13" type="radio" value=0>
+<br>14.-¿Habías realizado denuncias anteriormente por violencia familiar, acoso laboral y/o sexual o lesiones?
+SI<input id="p14"  name="p14" type="radio" value=3>
+A VECES<input id="p14"  name="p14" type="radio" value=2>
+RARA VEZ<input id="p14"  name="p14" type="radio" value=1>
+NO<input id="p14"  name="p14" type="radio" value=0>
+<br>15.-¿Debido a la violencia decidiste separarte o terminar la relación?
+SI<input id="p15"  name="p15" type="radio" value=3>
+A VECES<input id="p15"  name="p15" type="radio" value=2>
+RARA VEZ<input id="p15"  name="p15" type="radio" value=1>
+NO<input id="p15"  name="p15" type="radio" value=0>
+<br>16.-¿Seguiste con el proceso de tu denunca o la retiraste?
+SI<input id="p16"  name="p16" type="radio" value=3>
+A VECES<input id="p16"  name="p16" type="radio" value=2>
+RARA VEZ<input id="p16"  name="p16" type="radio" value=1>
+NO<input id="p16"  name="p16" type="radio" value=0>
+<br>17.-¿Por qué motivo retiraste la denuncia?
+AMOR<input id="p17"  name="p17" type="radio" value=3>
+AMENAZAS<input id="p17"  name="p17" type="radio" value=2>
+MIEDO<input id="p17"  name="p17" type="radio" value=1>
+FALTA DE INTERES DE LAS AUTORIDADES<input id="p17" name="p17" type="radio" value=0>
+<br>18.-Los episodios de violencia ¿son más frecuentes y extremos?
+SI<input id="p18"  name="p18" type="radio" value=3>
+A VECES<input id="p18"  name="p18" type="radio" value=2>
+RARA VEZ<input id="p18"  name="p18" type="radio" value=1>
+NO<input id="p18"  name="p18" type="radio" value=0>
+<br>19.-¿Has recibido hostigamiento constante o amenazas de muerte por parte de tu agresor?
+SI<input id="p19"  name="p19" type="radio" value=3>
+A VECES<input id="p19"  name="p19" type="radio" value=2>
+RARA VEZ<input id="p19"  name="p19" type="radio" value=1>
+NO<input id="p19"  name="p19" type="radio" value=0>
+<br>20.-¿Las autoridades emitieron medidas cautelares y de protección para salvaguardar tu integridad (y la de tus hijos)?
+SI<input id="p20"  name="p20" type="radio" value=3>
+A VECES<input id="p20"  name="p20" type="radio" value=2>
+RARA VEZ<input id="p20"  name="p20" type="radio" value=1>
+NO<input id="p20"  name="p20" type="radio" value=0>
+<br>21.-¿Tu agresor ya ha intentado matarte?
+SI<input id="p21"  name="p21" type="radio" value=3>
+A VECES<input id="p21"  name="p21" type="radio" value=2>
+RARA VEZ<input id="p21"  name="p21" type="radio" value=1>
+NO<input id="p21"  name="p21" type="radio" value=0>
+<br><input type="submit" class="btn btn-primary" ></p>
+</form>
+
+
+</body>
+</html>

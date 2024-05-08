@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Juego del Ahorcado</title>
+</head>
+<body>
+    <h2>INGRESE LA PALABRA / (JUEGO DEL AHORCADO)</h2>
+    <form>
+        <label for="word">Palabra:</label>
+        <input type="text" id="word" name="word"><br><br>
+        <input type="button" value="Intentar palabra" onclick="Canva()">
+    </form>
+    <button onclick="dibujar()">Dibujar</button>
+    <button onclick="limpiar()">Eliminar</button>
+
+    <canvas id="myCanvas" width="400" height="400"></canvas>
+
+    <script>
+        var Intentos = 6;
+        var partesDibujadas = 0; // Seguimiento de las partes dibujadas
+
+        function dibujar() {
+            const canvas = document.getElementById("myCanvas");
+            const ctx = canvas.getContext("2d");
+
+            // Dibujar el ahorcado según las partes restantes por dibujar
+            switch (partesDibujadas) {
+case 0:
+// Cabeza
+ctx.beginPath();
+ctx.arc(200, 100, 20, 0, 2 * Math.PI);
+ ctx.stroke();
+break;
+case 1:
+// Cuerpo
+ctx.beginPath();
+ctx.moveTo(200, 120);
+ctx.lineTo(200, 200);
+ctx.stroke();
+ break;
+case 2:
+// Brazo izquierdo
+ctx.beginPath();
+ctx.moveTo(200, 140);
+ctx.lineTo(160, 170);
+ctx.stroke();
+ break;
+ case 3:
+// Brazo derecho
+ctx.beginPath();
+ctx.moveTo(200, 140);
+ctx.lineTo(240, 170);
+ctx.stroke();
+ break;
+case 4:
+// Pierna izquierda
+ ctx.beginPath();
+ctx.moveTo(200, 200);
+ctx.lineTo(180, 240);
+ctx.stroke();
+break;
+case 5:
+// Pierna derecha
+ctx.beginPath();
+ctx.moveTo(200, 200);
+ ctx.lineTo(220, 240);
+.stroke();
+break;
+default:
+// Todas las partes han sido dibujadas
+break;
+}
+
+partesDibujadas++; // Incrementar el contador de partes dibujadas
+}
+
+function Canva() {
+var word = document.getElementById("word").value;
+var checkword = "JAVASCRIPT"; // Definir la palabra a comprobar
+if (word.toUpperCase() === checkword) {
+alert("¡Has encontrado la palabra, felicidades!");
+limpiar();
+} else {
+// Reducir el número de intentos
+Intentos--;
+if (Intentos === 0) {
+alert("¡Has perdido! La palabra correcta era 'JAVASCRIPT'.");
+ limpiar();
+} else {
+alert("Esa no es la palabra. Te quedan " + Intentos + " intentos.");
+}
+// Dibujar una parte adicional del ahorcado
+dibujar();
+}
+}
+
+function limpiar() {
+partesDibujadas = 0; // Reiniciar el contador de partes dibujadas
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
+        }
+    </script>
+</body>
+</html>
