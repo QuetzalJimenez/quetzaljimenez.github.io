@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <iframe frameborder="0" width="500" height="400"></iframe>
+    <script>
+        var doc = new jsPDF();
+
+        doc.rect(20, 20, 10, 10); // empty square
+
+        doc.rect(40, 20, 10, 10, 'F'); // filled square
+
+        doc.setDrawColor(255,0,0);
+        doc.rect(60, 20, 10, 10); // empty red square
+
+        doc.setDrawColor(255,0,0);
+        doc.rect(80, 20, 10, 10, 'FD'); // filled square with red borders
+
+        doc.setDrawColor(0);
+        doc.setFillColor(255,0,0);
+        doc.rect(100, 20, 10, 10, 'F'); // filled red square
+
+        doc.setDrawColor(0);
+        doc.setFillColor(255,0,0);
+        doc.rect(120, 20, 10, 10, 'FD'); // filled red square with black borders
+
+        doc.setDrawColor(0);
+        doc.setFillColor(255, 255, 255);
+        doc.roundedRect(140, 20, 10, 10, 3, 3, 'FD'); // Black square with rounded corners
+
+        var string = doc.output('datauristring');
+
+        $('iframe').attr('src', string);
+    </script>
+</body>
+</html>

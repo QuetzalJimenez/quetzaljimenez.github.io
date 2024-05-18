@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"></script>
+</head>
+<body>
+    <iframe frameborder="0" width="500" height="400"></iframe>
+    <script>
+        var name = prompt('What is your name?');
+        var multiplier = prompt('Enter a number:');
+        multiplier = parseInt(multiplier);
+
+        var doc = new jsPDF();
+        doc.setFontSize(22);
+        doc.text(20, 20, 'Questions');
+        doc.setFontSize(16);
+        doc.text(20, 30, 'This belongs to: ' + name);
+
+        for (var i = 1; i <= 12; i++) {
+            doc.text(20, 30 + (i * 10), i + ' x ' + multiplier + ' = ___');
+        }
+
+        doc.addPage();
+        doc.setFontSize(22);
+        doc.text(20, 20, 'Answers');
+        doc.setFontSize(16);
+
+        for (var i = 1; i <= 12; i++) {
+            doc.text(20, 30 + (i * 10), i + ' x ' + multiplier + ' = ' + (i * multiplier));
+        }
+
+        var string = doc.output('datauristring');
+
+        $(document).ready(function() {
+            $('iframe').attr('src', string);
+        });
+    </script>
+</body>
+</html>

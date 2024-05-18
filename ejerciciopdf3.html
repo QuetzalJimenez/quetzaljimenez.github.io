@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <script>
+        function generatePDF() {
+            var doc = new jsPDF();
+
+            doc.setTextColor(100);
+            doc.text(20, 20, 'This is gray.');
+
+            doc.setTextColor(150);
+            doc.text(20, 30, 'This is light gray.');
+
+            doc.setTextColor(255, 0, 0);
+            doc.text(20, 40, 'This is red.');
+
+            doc.setTextColor(0, 255, 0);
+            doc.text(20, 50, 'This is green.');
+
+            doc.setTextColor(0, 0, 255);
+            doc.text(20, 60, 'This is blue.');
+
+            // Save the PDF and open it in a new window/tab
+            doc.save('Test.pdf');
+        }
+
+        // Automatically generate the PDF when the page loads
+        $(document).ready(function() {
+            generatePDF();
+        });
+    </script>
+</body>
+</html>
