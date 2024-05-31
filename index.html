@@ -1,164 +1,100 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Transición de imagen con CSS</title>
+    <title>GUIA DE LA PÁGINA AL USUARIO</title>
     <style>
-        .imagen {
-            width: 200px;
-            transition: width 0.5s;
-            background-color: red;
-            cursor: pointer;
+        /* Estilos para el diseño básico */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-
-        .imagen:hover {
-            width: 300px;
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
         }
-
-        .boton {
-            width: auto;
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .box {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            overflow: hidden; /* Para ocultar la transición que se sale del contenedor */
+            transition: transform 0.3s ease; /* Transición de agrandamiento */
+        }
+        .box:hover {
+            transform: scale(1.1); /* Agrandamiento al pasar el ratón sobre el elemento */
+        }
+        .box img {
+            width: 100%;
             height: auto;
-            background-color: rgba(107, 180, 248, 0.938);
-            transition: width 0.5s;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            color: rgba(255, 255, 255, 0.849);
-            display: inline-block; 
-            text-decoration: none; 
-            margin-bottom: 10px; 
+            display: block;
+        }
+        .box a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        @media screen and (max-width: 600px) {
+            .box {
+                width: 100%;
+            }
         }
     </style>
 </head>
-
 <body>
-
-    <h1>PORTAFOLIO FINAL DE EVIDENCIAS</h1>
-
-    <h2>Actividad 1</h2>
-    <a href="https://quetzaljimenez.github.io/Generadorparrafos.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 2</h2>
-    <a href="https://quetzaljimenez.github.io/Imprimirtabla.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 3</h2>
-    <a href="https://quetzaljimenez.github.io/Imprimirtablacaracter.HTML" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 4</h2>
-    <a href="https://quetzaljimenez.github.io/Tablanumerosaleatorios.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 5</h2>
-    <a href="https://quetzaljimenez.github.io/Convertidortemperaturas.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 6</h2>
-    <a href="https://quetzaljimenez.github.io/Validar usuario contraseña.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Actividad 7</h2>
-    <a href="https://quetzaljimenez.github.io/Arreglo numeros.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-       <h2>Infografía JAVA</h2>
-    <a href="https://quetzaljimenez.github.io/InfografiaJAVA.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD1.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD1.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD1_1.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD2.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD3.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD3_1.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD3_2.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>ApisActividad</h2>
-    <a href="https://quetzaljimenez.github.io/APISACTIVIDAD4.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Juego del ahorcado</h2>
-    <a href="https://quetzaljimenez.github.io/Juegodelahorcado.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Test alumno</h2>
-    <a href="https://quetzaljimenez.github.io/testalumno.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Actividad PDF 1</h2>
-    <a href="https://quetzaljimenez.github.io/EjemploPDF.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Actividad PDF 2</h2>
-    <a href="https://quetzaljimenez.github.io/ejerciciopdf2.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Actividad PDF 3</h2>
-    <a href="https://quetzaljimenez.github.io/ejerciciopdf3.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-    <h2>Actividad PDF 4</h2>
-    <a href="https://quetzaljimenez.github.io/ejerciciopdf4.html" class="boton imagen">
-        <img src="java3.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-    
-
-
-    <h1>PORTAFOLIO SEGUNDO PARCIAL CSS</h1>
-    <a href="https://portafolioevidenciasqj.000webhostapp.com/CSS/CSSFinal/animacion.html" class="boton imagen">
-        <img src="imagen2CSS.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
-
-
-    <h1>PORTAFOLIO PRIMER PARCIAL HTML</h1>
-    <a href="https://portafolioevidenciasqj.000webhostapp.com/" class="boton imagen">
-        <img src="imagen1HTML.png" alt="Imagen de ejemplo" class="imagen">
-    </a>
-
+    <div class="container">
+        <h2>GUIA DEL USUARIO</h2>
+        <div class="content">
+            <div class="box">
+                <a href="header.html">
+                    <h3>Footer</h3>
+                    <img src="HEADER.png" alt="Imagen 1">
+                </a>
+            </div>
+            <div class="box">
+                <a href="introduccion.html">
+                    <h3>Introducción</h3>
+                    <img src="INTRODUCCION.png" alt="Imagen 2">
+                </a>
+            </div>
+            <div class="box">
+                <a href="contacto.html">
+                    <h3>Contacto</h3>
+                    <img src="CONTACTO.png" alt="Imagen 3">
+                </a>
+            </div>
+            <div class="box">
+                <a href="ubicacion.html">
+                    <h3>Ubicación</h3>
+                    <img src="UBICACION.png" alt="Imagen 4">
+                </a>
+            </div>
+            <div class="box">
+                <a href="footer.html">
+                    <h3>Footer</h3>
+                    <img src="FOOTER.png" alt="Imagen 5">
+                </a>
+            </div>
+            <div class="box">
+                <a href="index.html">
+                    <h3>Index</h3>
+                    <img src="INDEX.png" alt="Imagen 6">
+                </a>
+            </div>
+        </div>
+    </div>
 </body>
-
 </html>
+
+
