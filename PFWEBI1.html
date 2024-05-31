@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C.C. Industrial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header .logo img {
+            height: 50px;
+            margin-left: 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        main {
+            padding: 20px;
+        }
+        .contact-info {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-info h1, .contact-info h2 {
+            color: #0044cc;
+        }
+        .contact-info p {
+            line-height: 1.6;
+        }
+        .contact-info a {
+            color: #0044cc;
+            transition: transform 0.3s ease;
+        }
+        .contact-info a:hover {
+            transform: scale(1.1);
+        }
+        .location {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .location img {
+            width: 100px;
+            height: auto;
+            margin-left: 20px;
+            border-radius: 5px;
+        }
+        .contact-form {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .contact-form h2 {
+            color: #0044cc;
+        }
+        .contact-form label {
+            display: block;
+            margin-top: 10px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .contact-form button {
+            background-color: #0044cc;
+            color: white;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #003399;
+        }
+        .map {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        footer {
+            background-color: #0044cc;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="cci.png" alt="CCI Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="contact-info">
+            <h1>C.C. Industrial</h1>
+            <div class="location">
+                <div>
+                    <h2>Matriz</h2>
+                    <p>Carretera 57 México Piedras Negras No. 4311<br>Villa de Pozos, San Luis Potosí, S.L.P. C.P 78421</p>
+                    <p>Tels: (444) 168-0879, 168-0881, 168-0882, 166-7601, 824-1844, 824-2495, 100-5913</p>
+                    <p>Teléfono para pedidos de Emergencia: 244 72 08</p>
+                    <p>Email: cc_industrial@hotmail.com</p>
+                    <p>Web: <a href="http://www.cc-industrial.com" target="_blank">www.cc-industrial.com</a></p>
+                </div>
+                <img src="matriz.jpg" alt="Imagen Matriz">
+            </div>
+            <div class="location">
+                <div>
+                    <h2>Sucursal</h2>
+                    <p>Calle 51 No. 254 Colonia Prados de San Vicente, Primera Sección</p>
+                    <p>Tels: (444) 830-2166, 659-6432, 830-3598, 659-6435</p>
+                </div>
+                <img src="sucursal.jpg" alt="Imagen Sucursal">
+            </div>
+        </section>
+        <section class="contact-form">
+            <h2>Donde contactarlo</h2>
+            <form id="contactForm">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+                
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="empresa">Empresa y cargo:</label>
+                <input type="text" id="empresa" name="empresa" required>
+                
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+                
+                <button type="submit">Enviar</button>
+                <button type="reset">Borrar</button>
+            </form>
+        </section>
+        <section class="map">
+            <h2>Ubicación</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473156.9040185667!2d-101.46646499633788!3d22.10544215018957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842aa4821cb98c97%3A0x2298e58653af8c98!2sCC%20INDUSTRIAL!5e0!3m2!1ses-419!2sus!4v1717121647946!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 C.C. Industrial. Todos los derechos reservados.</p>
+    </footer>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Formulario enviado');
+        });
+    </script>
+</body>
+</html>
