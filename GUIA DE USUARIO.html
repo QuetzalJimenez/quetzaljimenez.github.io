@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUIA DE LA PÁGINA AL USUARIO</title>
+    <style>
+        /* Estilos para el diseño básico */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .box {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            overflow: hidden; /* Para ocultar la transición que se sale del contenedor */
+            transition: transform 0.3s ease; /* Transición de agrandamiento */
+        }
+        .box:hover {
+            transform: scale(1.1); /* Agrandamiento al pasar el ratón sobre el elemento */
+        }
+        .box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .box a {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+        }
+        @media screen and (max-width: 600px) {
+            .box {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>GUIA DEL USUARIO</h2>
+        <div class="content">
+            <div class="box">
+                <a href="header.html">
+                    <h3>Footer</h3>
+                    <img src="HEADER.png" alt="Imagen 1">
+                </a>
+            </div>
+            <div class="box">
+                <a href="introduccion.html">
+                    <h3>Introducción</h3>
+                    <img src="INTRODUCCION.png" alt="Imagen 2">
+                </a>
+            </div>
+            <div class="box">
+                <a href="contacto.html">
+                    <h3>Contacto</h3>
+                    <img src="CONTACTO.png" alt="Imagen 3">
+                </a>
+            </div>
+            <div class="box">
+                <a href="ubicacion.html">
+                    <h3>Ubicación</h3>
+                    <img src="UBICACION.png" alt="Imagen 4">
+                </a>
+            </div>
+            <div class="box">
+                <a href="footer.html">
+                    <h3>Footer</h3>
+                    <img src="FOOTER.png" alt="Imagen 5">
+                </a>
+            </div>
+            <div class="box">
+                <a href="index.html">
+                    <h3>Index</h3>
+                    <img src="INDEX.png" alt="Imagen 6">
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
