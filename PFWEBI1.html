@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C.C. Industrial</title>
+    <!-- Inicialización del documento HTML, se especifica el formato y el contenido que tendrá el título que se muestra en los navegadores a la página-->
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -118,11 +119,18 @@
             bottom: 0;
         }
     </style>
+    <!-- Elementos de estilo CSS que se ham programado buscando la interfaz que se quiere para la página apoyando a la experiencial del usuario
+    utilizando las habilidades, los fundamentos y los elementos que se desarrollaron durante las clases y el tiempo de la materia en curso-->
 </head>
+    <!-- Inicialización del body o más conocido como cuerpo de página-->
 <body>
+    <!-- Elemento header que por su traduccion al español se puede determinar como encabezado
+    apoyando a dar un formato más organizado en la que el usuario siempre podrá acceder sin problemas y en cualquier punto que esté de la página-->
     <header>
+        <!-- Limitación de los elementos del header mediante el uso de etiquetas div, para poder manipular estilos o posicionamiento y funcionalidad sin afectar a otros elementos -->
         <div class="logo">
             <img src="cci.png" alt="CCI Logo">
+            <!-- lOGOTIPO -->
         </div>
         <nav>
             <ul>
@@ -133,8 +141,10 @@
                 <li><a href="https://quetzaljimenez.github.io/GUIA%20DE%20USUARIO.html">Guia usuario</a></li>
             </ul>
         </nav>
+        <!-- Lista de elementos que se encuentran en el header -->
     </header>
     <main>
+        <!-- Elementos de contacto, direccionamiento e información princial de la empresa gestionada y posicionada según la programación realizada -->
         <section class="contact-info">
             <h1>C.C. Industrial</h1>
             <div class="location">
@@ -145,9 +155,11 @@
                     <p>Teléfono para pedidos de Emergencia: 244 72 08</p>
                     <p>Email: cc_industrial@hotmail.com</p>
                     <p>Web: <a href="http://www.cc-industrial.com" target="_blank">www.cc-industrial.com</a></p>
+                    <!-- Elementos de texto, referencias a otros sitios en la web, y elementos gráficos para la interfaz-->
                 </div>
                 <img src="matriz.jpg" alt="Imagen Matriz">
             </div>
+            <!-- Elementos de localización y contacto a la empresa y elementos gráficos para la interfaz -->
             <div class="location">
                 <div>
                     <h2>Sucursal</h2>
@@ -159,6 +171,7 @@
         </section>
         <section class="contact-form">
             <h2>Donde contactarlo</h2>
+            <!-- Un formulario creado para generar un mensaje con los datos del usuario y que se le pueda contactar a sus necesidades -->
             <form id="contactForm">
                 <label for="nombre">Nombre:</label>
                 <input type="text" id="nombre" name="nombre" required>
@@ -179,6 +192,7 @@
                 <button type="reset">Borrar</button>
             </form>
         </section>
+        <!-- Elemento para utlizar un formato de mapa desde Google Maps y mostrar la ubicación en este caso exacta de el sitio de interés de la página -->
         <section class="map">
             <h2>Ubicación</h2>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d473156.9040185667!2d-101.46646499633788!3d22.10544215018957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842aa4821cb98c97%3A0x2298e58653af8c98!2sCC%20INDUSTRIAL!5e0!3m2!1ses-419!2sus!4v1717121647946!5m2!1ses-419!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -187,12 +201,17 @@
     <footer>
         <p>© 2024 C.C. Industrial. Todos los derechos reservados.</p>
     </footer>
+    <!-- Footer que se puede determinar como pie de página en el que se declaran los derechos de la propiedad intelectual y la actualización temporal de los mismos -->
     <script>
         document.getElementById('contactForm').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('Formulario enviado');
         });
+        <!-- Evento de encio de formulario por medio de direccionamiento -->
     </script>
     <script>window.$zoho=window.$zoho || {};$zoho.salesiq=$zoho.salesiq||{ready:function(){}}</script><script id="zsiqscript" src="https://salesiq.zohopublic.com/widget?wc=siq78a48548e8189cedf27b4cabe9e07c06763f8148c5153802cd6049ab21245b17" defer></script>
+    <!-- Chatbot que es de la página de Zohoiq, en el que se creó un chat de respuesta al usuario con respuestas o preguntas predeterminadas según el interés 
+    o la comunicación que se quiera lograr con el usuario-->
 </body>
+    <!--Finalización del body o cuerpo de la página que será lo que se muestra en la interfaz al usuario-->
 </html>
