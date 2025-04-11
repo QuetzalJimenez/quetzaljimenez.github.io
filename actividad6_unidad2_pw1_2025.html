@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Unidad 2 | Actividad 6</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD_ACTIVIDAD6">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="13_03_2025">
+    <style>
+        ul li:hover, .dropdown-menu li:hover {
+            background-color: orangered;
+        }
+        .dropdown-menu {
+            border-top: 5px solid orangered;
+        }
+
+        .div1 {
+            margin-top: 20px;
+        }
+
+        .ul1 {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .ul1 .li1 {
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .ul1 .li1:nth-child(1) {
+            background-color: red;
+        }
+
+        .ul1 .li1:nth-child(3) {
+            background-color: green;
+        }
+
+        .ul1 .li1:nth-child(5) {
+            background-color: blue;
+        }
+
+        .ul1 .li1:nth-child(7) {
+            background-color: yellow;
+        }
+
+        .ul1 .li1:nth-child(9) {
+            background-color: pink;
+        }
+
+        .ul1 .li1:nth-child(11) {
+            background-color: grey;
+        }
+
+        .ul1 .li1:nth-child(13) {
+            background-color: aqua;
+        }
+
+        .ul1 .li1:nth-child(15) a {
+            display: none;
+        }
+
+        .collapse {
+            margin-top: 10px;
+        }
+
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+    </style>
+    <!-- Link Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<header class="text-center p-4">
+    <h1>Unidad 2 | Actividad 07: Tema (SubMenú)</h1>
+</header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="submenu" role="button" data-toggle="dropdown">
+                    SubMenú
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Nuestra universidad</a></li>
+                    <li><a class="dropdown-item" href="#">Modelo académico</a></li>
+                    <li><a class="dropdown-item" href="#">Directorio</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Egresados</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Bolsa de trabajo</a></li>
+        </ul>
+    </div>
+</nav>
+
+<nav>
+    <div class="div1 container">
+        <ul class="ul1">
+            <li class="li1" data-toggle="collapse" data-target="#item1">
+                <img src="home.png" alt="homeimg" width="25" height="25"> INICIO <span class="text-muted">(Current)</span>
+            </li>
+            <div id="item1" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item2">
+                <img src="home.png" alt="homeimg" width="25" height="25"> INICIO
+            </li>
+            <div id="item2" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item3">
+                <img src="home.png" alt="homeimg" width="25" height="25">INICIO
+            </li>
+            <div id="item3" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item4">
+                <img src="home.png" alt="homeimg" width="25" height="25">INICIO
+            </li>
+            <div id="item4" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item5">
+                <img src="home.png" alt="homeimg" width="25" height="25">INICIO
+            </li>
+            <div id="item5" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item6">
+                <img src="home.png" alt="homeimg" width="25" height="25">INICIO
+            </li>
+            <div id="item6" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1" data-toggle="collapse" data-target="#item7">
+                <img src="home.png" alt="homeimg" width="25" height="25">INICIO
+            </li>
+            <div id="item7" class="collapse">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+
+            <li class="li1"> <img src="home.png" alt="homeimg" width="25" height="25"> INICIO (Sin enlace) </li>
+            <div id="item8">
+                <p>UPSLP</p>
+                <p>CONÓCENOS</p>
+                <p>OFERTA EDUCATIVA</p>
+                <p>EGRESADOS</p>
+                <p>BOLSA DE TRABAJO</p>
+            </div>
+        </ul>
+    </div>
+</nav>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

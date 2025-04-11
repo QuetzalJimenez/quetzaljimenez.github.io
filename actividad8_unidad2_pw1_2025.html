@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Unidad 2 | Actividad 8</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD_ACTIVIDAD6">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="03_04_2025">
+
+</head><style>
+    .miEstilo { border: 5px solid black; }
+    #miEstilo td { border: 1px dotted gray; }
+    #miEstilo tr:nth-child(even) { background-color: gray; }
+    .miEstilo tr { border: 3px dashed navy; }
+    .miEstilo th, .miEstilo td { border: 1px dotted dodgerblue; }
+    .miEstilo tr:nth-child(odd) { background-color: dodgerblue; }
+    .zoom:hover { font-size: 25px; background-color: palevioletred; }
+    
+    .menuHorizontal a {
+        text-decoration: none;
+        color: crimson;
+    }
+    .menuVertical a {
+        text-decoration: none;
+        color: white;
+    }
+    .menuHorizontal a:hover {
+        text-decoration: underline;
+    }
+    .menuVertical a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Menú horizontal */
+    .menuHorizontal {
+        height: 75%;
+        font-size: 75%;
+        transition: height 750ms, font-size 750ms;
+    }
+    .menuHorizontal:hover {
+        height: 125%;
+        font-size: 125%;
+    }
+    
+    /* Menú vertical */
+    .menuVertical {
+        border: 1px solid black;
+        height: 20px;
+        width: 100px;
+        background-color: deepskyblue;
+        transition: width 650ms, background-color 650ms;
+    }
+    .menuVertical:hover {
+        width: 150px;
+        background-color: deeppink;
+    }
+    
+    /* Animaciones de cubo */
+    #cubo {
+        margin: 50px auto;
+        width: 100px;
+        height: 100px;
+        transform: rotate3d(1, 1, 1, 30deg);
+        transform-style: preserve-3d;
+        transition: transform 3s;
+    }
+    #cubo:hover,
+    #cubo:focus {
+        transform: rotate3d(1, 1, 1, 180deg);
+    }
+    
+    /* Estilo para caras */
+    .cara {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        backface-visibility: inherit;
+        font-size: 50px;
+        color: black;
+    }
+    
+    .front {
+      transform: translateZ(50px);
+    }
+    .back {
+      transform: rotateY(180deg) translateZ(50px);
+    }
+    .top {
+      transform: rotateX(90deg) translateZ(50px);
+    }
+    .bottom {
+      transform: rotateX(-90deg) translateZ(50px);
+    }
+    .left {
+      transform: rotateY(-90deg) translateZ(50px);
+    }
+    .right {
+      transform: rotateY(90deg) translateZ(50px);
+    }
+    
+    .barraProgreso {
+      animation: progressBarra 10s linear infinite;
+    }
+    
+    @keyframes progressBarra {
+      0% { background-color: red; width: 0%; }
+      50% { background-color: gold; width: 50%; }
+      100% { background-color: darkgreen; width: 100%; }
+    }
+    
+    .rainbow {
+      animation: arcoIris 5s linear infinite;
+    }
+    
+    @keyframes arcoIris {
+      0%, 100% { background-color: violet; }
+      16% { background-color: indigo; }
+      33% { background-color: blue; }
+      50% { background-color: green; }
+      66% { background-color: yellow; }
+      83% { background-color: orange; }
+    }
+    </style>
+    </head>
+    <body>
+    <h1> Unidad 2 | Actividad 08 :: Tema (Efectos) </h1>
+    <h2> Tabla con estilo por ID </h2>
+    <table id="miEstilo">
+    <tr> <th> A </th> <th> B </th> <th> C </th> <th> D </th> <th> E </th> </tr>
+    <tr> <td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> </tr>
+    <tr> <td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> </tr>
+    <tr> <td> 11 </td> <td> 12 </td> <td> 13 </td> <td> 14 </td> <td> 15 </td> </tr>
+    <tr> <td> 16 </td> <td> 17 </td> <td> 18 </td> <td> 19 </td> <td> 20 </td> </tr>
+    </table>
+    <h2 class="miEstilo zoom"> Tabla con estilo por CLASS </h2>
+    <table class="miEstilo">
+    <tr> <th class="zoom"> A </th> <th class="zoom"> B </th> <th class="zoom"> C </th> <th class="zoom"> D </th> <th class="zoom"> E </th> </tr>
+    <tr> <td class="zoom"> 1 </td> <td class="zoom"> 2 </td> <td class="zoom"> 3 </td> <td class="zoom"> 4 </td> <td class="zoom"> 5 </td> </tr>
+    <tr> <td class="zoom"> 6 </td> <td class="zoom"> 7 </td> <td class="zoom"> 8 </td> <td class="zoom"> 9 </td> <td class="zoom"> 10 </td> </tr>
+    <tr> <td class="zoom"> 11 </td> <td class="zoom"> 12 </td> <td class="zoom"> 13 </td> <td class="zoom"> 14 </td> <td class="zoom"> 15 </td> </tr>
+    <tr> <td class="zoom"> 16 </td> <td class="zoom"> 17 </td> <td class="zoom"> 18 </td> <td class="zoom"> 19 </td> <td class="zoom"> 20 </td> </tr>
+    </table>
+    </table>
+    
+    <h2>Menú horizontal</h2>
+    <int>
+        <span class="menuHorizontal"><a href="#">Opción No. 1</a></span>
+        <span class="menuHorizontal"><a href="#">Opción No. 2</a></span>
+        <span class="menuHorizontal"><a href="#">Opción No. 3</a></span>
+    </int>
+    
+    <h2>Menú vertical</h2>
+    <div class="menuVertical"><a href="#">Opción No. 1</a></div>
+    <div class="menuVertical"><a href="#">Opción No. 2</a></div>
+    <div class="menuVertical"><a href="#">Opción No. 3</a></div>
+    
+    <h2>Animación</h2>
+    <h3>Cubo</h3>
+    <div id="cubo">
+        <div class="cara front"></div>
+        <div class="cara top"></div>
+        <div class="cara right"></div>
+        <div class="cara left"></div>
+        <div class="cara bottom"></div>
+        <div class="cara back"></div>
+    </div>
+    
+    <h3>Barra de progreso</h3>
+    <div class="barraProgreso">&nbsp;</div>
+    
+    <h3>Rainbow</h3>
+    <div class="rainbow">Suavizado</div>
+    <div class="arcoiris">Normal</div>
+    </body>
+    
