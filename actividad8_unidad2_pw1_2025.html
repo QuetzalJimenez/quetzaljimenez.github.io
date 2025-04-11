@@ -11,7 +11,8 @@
     <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
     <meta name:="Fecha" content="03_04_2025">
 
-</head><style>
+</head>
+<style>
     .miEstilo { border: 5px solid black; }
     #miEstilo td { border: 1px dotted gray; }
     #miEstilo tr:nth-child(even) { background-color: gray; }
@@ -88,21 +89,27 @@
     
     .front {
       transform: translateZ(50px);
+      background-color: rgba(0, 255, 255, 0.493);
     }
     .back {
       transform: rotateY(180deg) translateZ(50px);
+      background-color: rgba(0, 47, 255, 0.493);
     }
     .top {
       transform: rotateX(90deg) translateZ(50px);
+      background-color: rgba(81, 255, 0, 0.493);
     }
     .bottom {
       transform: rotateX(-90deg) translateZ(50px);
+      background-color: rgba(255, 123, 0, 0.493);
     }
     .left {
       transform: rotateY(-90deg) translateZ(50px);
+      background-color: rgba(255, 0, 64, 0.493);
     }
     .right {
       transform: rotateY(90deg) translateZ(50px);
+      background-color: rgba(0, 255, 170, 0.493);
     }
     
     .barraProgreso {
@@ -127,56 +134,51 @@
       66% { background-color: yellow; }
       83% { background-color: orange; }
     }
-    </style>
-    </head>
-    <body>
-    <h1> Unidad 2 | Actividad 08 :: Tema (Efectos) </h1>
-    <h2> Tabla con estilo por ID </h2>
-    <table id="miEstilo">
-    <tr> <th> A </th> <th> B </th> <th> C </th> <th> D </th> <th> E </th> </tr>
-    <tr> <td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> </tr>
-    <tr> <td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> </tr>
-    <tr> <td> 11 </td> <td> 12 </td> <td> 13 </td> <td> 14 </td> <td> 15 </td> </tr>
-    <tr> <td> 16 </td> <td> 17 </td> <td> 18 </td> <td> 19 </td> <td> 20 </td> </tr>
-    </table>
-    <h2 class="miEstilo zoom"> Tabla con estilo por CLASS </h2>
-    <table class="miEstilo">
-    <tr> <th class="zoom"> A </th> <th class="zoom"> B </th> <th class="zoom"> C </th> <th class="zoom"> D </th> <th class="zoom"> E </th> </tr>
-    <tr> <td class="zoom"> 1 </td> <td class="zoom"> 2 </td> <td class="zoom"> 3 </td> <td class="zoom"> 4 </td> <td class="zoom"> 5 </td> </tr>
-    <tr> <td class="zoom"> 6 </td> <td class="zoom"> 7 </td> <td class="zoom"> 8 </td> <td class="zoom"> 9 </td> <td class="zoom"> 10 </td> </tr>
-    <tr> <td class="zoom"> 11 </td> <td class="zoom"> 12 </td> <td class="zoom"> 13 </td> <td class="zoom"> 14 </td> <td class="zoom"> 15 </td> </tr>
-    <tr> <td class="zoom"> 16 </td> <td class="zoom"> 17 </td> <td class="zoom"> 18 </td> <td class="zoom"> 19 </td> <td class="zoom"> 20 </td> </tr>
-    </table>
-    </table>
-    
-    <h2>Menú horizontal</h2>
-    <int>
-        <span class="menuHorizontal"><a href="#">Opción No. 1</a></span>
-        <span class="menuHorizontal"><a href="#">Opción No. 2</a></span>
-        <span class="menuHorizontal"><a href="#">Opción No. 3</a></span>
-    </int>
-    
-    <h2>Menú vertical</h2>
-    <div class="menuVertical"><a href="#">Opción No. 1</a></div>
-    <div class="menuVertical"><a href="#">Opción No. 2</a></div>
-    <div class="menuVertical"><a href="#">Opción No. 3</a></div>
-    
-    <h2>Animación</h2>
-    <h3>Cubo</h3>
-    <div id="cubo">
-        <div class="cara front"></div>
-        <div class="cara top"></div>
-        <div class="cara right"></div>
-        <div class="cara left"></div>
-        <div class="cara bottom"></div>
-        <div class="cara back"></div>
-    </div>
-    
-    <h3>Barra de progreso</h3>
-    <div class="barraProgreso">&nbsp;</div>
-    
-    <h3>Rainbow</h3>
-    <div class="rainbow">Suavizado</div>
-    <div class="arcoiris">Normal</div>
-    </body>
-    
+</style>
+</head>
+<body>
+<h1> Unidad 2 | Actividad 08 :: Tema (Efectos) </h1>
+<h2> Tabla con estilo por ID </h2>
+<table id="miEstilo">
+<tr> <th> A </th> <th> B </th> <th> C </th> <th> D </th> <th> E </th> </tr>
+<tr> <td> 1 </td> <td> 2 </td> <td> 3 </td> <td> 4 </td> <td> 5 </td> </tr>
+<tr> <td> 6 </td> <td> 7 </td> <td> 8 </td> <td> 9 </td> <td> 10 </td> </tr>
+<tr> <td> 11 </td> <td> 12 </td> <td> 13 </td> <td> 14 </td> <td> 15 </td> </tr>
+<tr> <td> 16 </td> <td> 17 </td> <td> 18 </td> <td> 19 </td> <td> 20 </td> </tr>
+</table>
+<h2 class="miEstilo zoom"> Tabla con estilo por CLASS </h2>
+<table class="miEstilo">
+<tr> <th class="zoom"> A </th> <th class="zoom"> B </th> <th class="zoom"> C </th> <th class="zoom"> D </th> <th class="zoom"> E </th> </tr>
+<tr> <td class="zoom"> 1 </td> <td class="zoom"> 2 </td> <td class="zoom"> 3 </td> <td class="zoom"> 4 </td> <td class="zoom"> 5 </td> </tr>
+<tr> <td class="zoom"> 6 </td> <td class="zoom"> 7 </td> <td class="zoom"> 8 </td> <td class="zoom"> 9 </td> <td class="zoom"> 10 </td> </tr>
+<tr> <td class="zoom"> 11 </td> <td class="zoom"> 12 </td> <td class="zoom"> 13 </td> <td class="zoom"> 14 </td> <td class="zoom"> 15 </td> </tr>
+<tr> <td class="zoom"> 16 </td> <td class="zoom"> 17 </td> <td class="zoom"> 18 </td> <td class="zoom"> 19 </td> <td class="zoom"> 20 </td> </tr>
+</table>
+</table>
+<h2>Menú horizontal</h2>
+<int>
+    <span class="menuHorizontal"><a href="#">Opción No. 1</a></span>
+    <span class="menuHorizontal"><a href="#">Opción No. 2</a></span>
+    <span class="menuHorizontal"><a href="#">Opción No. 3</a></span>
+</int>
+<h2>Menú vertical</h2>
+<div class="menuVertical"><a href="#">Opción No. 1</a></div>
+<div class="menuVertical"><a href="#">Opción No. 2</a></div>
+<div class="menuVertical"><a href="#">Opción No. 3</a></div>
+<h2>Animación</h2>
+<h3>Cubo</h3>
+<div id="cubo">
+    <div class="cara front">1</div>
+    <div class="cara top">2</div>
+    <div class="cara right">3</div>
+    <div class="cara left">4</div>
+    <div class="cara bottom">5</div>
+    <div class="cara back">6</div>
+</div>
+<h3>Barra de progreso</h3>
+<div class="barraProgreso">&nbsp;</div>
+<h3>Rainbow</h3>
+<div class="rainbow">Suavizado</div>
+<div class="arcoiris">Normal</div>
+</body>
+</html>
