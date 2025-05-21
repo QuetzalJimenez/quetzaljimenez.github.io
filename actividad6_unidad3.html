@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Unidad 3 | Actividad 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD3_ACTIVIDAD4">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="12_05_2025">
+</head>
+<style>
+    p{
+        background-color: rgb(130, 31, 196);
+        color: red;
+        border: 2px cadetblue;
+    }
+</style>
+  <script>
+    function funcionClick(){
+      document.writeln("Hola Mundo [Click]");
+      document.getElementsByClassName("parrafo");
+    }
+    function funcionDoble(){
+      document.writeln("Hey... Ahora llegaste a mi, yo vengo de la funcion 1 click...");
+    }
+    function ValidarAcceso(){
+    if(navigator.cookieEnable==true){
+        alert("Bienvenido, now you are the hoster: --- --- -- --");
+    }
+    }
+    function mouseOver(obj){
+        obj.style.background="Black";
+    }
+    function mouseOut(obj){
+        obj.style.background="Blue";
+    }
+  </script>
+<body onload="ValidarAcceso()">
+<h1>Unidad 3| Actividad06 : Tema (JavaScript) Función botón</h1>
+<h2>Presiona el boton para ejecutar la funcion</h2>
+<button onclick="funcionClick()">Accion...</button>
+<p id="parrafo" onmouseover="mouseOver()" onmouseout="mouseOut()"></p>
+</body>
+</html>

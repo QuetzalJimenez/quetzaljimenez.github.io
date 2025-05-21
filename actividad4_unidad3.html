@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Unidad 3 | Actividad 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD3_ACTIVIDAD4">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="07_05_2025">
+</head>
+<style>
+        li {
+            text-transform: uppercase;
+            color: white;
+            background-color: navy;
+            padding: 10px;
+            cursor: pointer; /* Indica que es interactivo */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Unidad 3 | Actividad 04 : Tema (JavaScript)</h1>
+    <ol>
+        <li id="valor_1"><strong> UBEPLJ </strong></li>
+        <li id="valor_2">UCEM</li>
+        <li id="valor_3"></li>
+        <li id="valor_4"></li>
+        <li id="valor_5"></li>
+        <li id="valor_6"></li>
+        <li id="valor_7"><strong> ITESM <i> Campus San Luis Potosí </i> </strong></li>
+        <li id="valor_8"></li>
+        <li id="valor_9"></li>
+        <li id="valor_10"></li>
+    </ol>
+    <script>
+        // Seleccionar todos los elementos li
+        let elementos = document.querySelectorAll("li");
+
+        // Asignar eventos de mouseover y mouseout
+        elementos.forEach(elemento => {
+            elemento.addEventListener("mouseover", function() {
+                this.style.backgroundColor = "gold";
+                this.style.color = "black";
+            });
+
+            elemento.addEventListener("mouseout", function() {
+                this.style.backgroundColor = "navy";
+                this.style.color = "white";
+            });
+        });
+    </script>
+</body>
+</html>

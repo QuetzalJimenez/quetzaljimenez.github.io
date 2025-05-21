@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Unidad 3 | Actividad 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD3_ACTIVIDAD7">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="07_05_2025">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h2>Formulario de Controles</h2>
+        <form id="frmControles">
+
+            <!-- Teléfono -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textTelefono">Teléfono</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <span class="input-group-addon">+52</span>
+                        <input id="textTelefono" name="textTelefono" placeholder="(444) 123 4567" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Correo Electrónico -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textCorreo">Correo electrónico</label>
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input id="textCorreo" name="textCorreo" class="form-control" placeholder="ejemplo" type="text" required="">
+                        <span class="input-group-addon">@upslp.edu.mx</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensaje -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="textMensaje">Mensaje</label>
+                <div class="col-md-4">
+                    <textarea class="form-control" id="textMensaje" name="textMensaje">Escribe tu mensaje</textarea>
+                </div>
+            </div>
+
+            <!-- Opciones Múltiples -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="selectMultiple">Elige otras opciones</label>
+                <div class="col-md-5">
+                    <select id="selectMultiple" name="selectMultiple" class="form-control" multiple="multiple">
+                        <option value="1">Mayonesa</option>
+                        <option value="2">Cátup</option>
+                        <option value="3">Mostaza</option>
+                        <option value="4">Ranch</option>
+                        <option value="5">Pepinillos</option>
+                        <option value="6">Jalapeño</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Otros Controles -->
+            <div class="form-group">
+                <div class="col-md-8">
+                    <label>Archivo</label> &nbsp; <input type="file" id="varFile"><br>
+                    <label>Color</label> &nbsp; <input type="color" id="varColor"><br>
+                    <label>Fecha</label> &nbsp; <input type="date" id="varDate"><br>
+                    <label>Tiempo</label> &nbsp; <input type="time" id="varTime"><br>
+                    <label>Semana</label> &nbsp; <input type="week" id="varWeek"><br>
+                    <label>Mes</label> &nbsp; <input type="month" id="varMonth"><br>
+                    <label>Número</label> &nbsp; <input type="number" id="varNumber" min="0" max="100" step="10" value="50"><br>
+                    <label>Rango</label> &nbsp; <input type="range" id="varRange" min="0" max="100" step="1" value="50"><br>
+                </div>
+            </div>
+
+            <!-- Botones -->
+            <div class="form-group">
+                <label class="col-md-4 control-label" for="btnEnviar"></label>
+                <div class="col-md-4">
+                    <input type="submit" id="btnEnviar" name="btnEnviar" class="btn btn-primary" value="Enviar">
+                    <input type="reset" id="btnReiniciar" name="btnReiniciar" class="btn btn-info" value="Reiniciar">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function funcionControles() {
+            let varCadena = "Detalle de los controles:";
+            let varForm = document.forms["frmControles"];
+
+            let varTelefono = varForm.elements["textTelefono"].value; varCadena += "\n - Teléfono: " + varTelefono;
+            let varCorreo = varForm.elements["textCorreo"].value; varCadena += "\n - Correo: " + varCorreo;
+            let varMensaje = varForm.elements["textMensaje"].value; varCadena += "\n - Mensaje: " + varMensaje;
+            let varColor = varForm.elements["varColor"].value; varCadena += "\n - Color: " + varColor;
+            let varDate = varForm.elements["varDate"].value; varCadena += "\n - Fecha: " + varDate;
+            let varNumber = varForm.elements["varNumber"].value; varCadena += "\n - Número: " + varNumber;
+
+            alert(varCadena);
+        }
+
+        document.getElementById("btnEnviar").addEventListener("click", function(event) {
+            event.preventDefault();
+            funcionControles();
+        });
+    </script>
+</body>
+</html>

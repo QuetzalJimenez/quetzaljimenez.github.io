@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Unidad 3 | Actividad 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD3_ACTIVIDAD3">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="29_04_2025">
+</head>
+<style></style>
+<body>
+  <script>
+    document.write("UPSLP");
+  </script>
+  <h1>Unidad 3 | Actividad 03 :: Tema (JavaScript 'Calculadora')</h1>
+  <script>
+    //Menu opc (prompt)
+    let opc = window.prompt("Menú:\n opciones \n1.-Sumar \n 2.-Restar \n 3.-Multiplicar \n 4.-Dividir\nEscribe opcion:");
+    //Alternar operaciones 
+    let v1 = window.prompt("Primer valor");
+    let v2 = window.prompt("Primer valor")
+    switch(opc){
+        case "1":
+        window.alert("Suma");
+        document.write("<code>" +v1+"+"+v2+"=" +(parseFloat(v1)+parseFloat(v2))+ "<code>");
+        break;
+        case "2":
+        window.alert("Resta");
+        document.write("<code>" +v1+"-"+v2+"=" +(v1-v2)+ "<code>");
+        break;
+        case "3":
+        window.alert("Multiplicacion");
+        document.write("<code>" +v1+"*"+v2+"=" +(v1*v2)+ "<code>");
+        break;
+        case "4":
+        window.alert("Division");
+        document.write("<code>" +v1+"÷"+v2+"=" +(v1/v2)+ "<code>");
+        break;
+    }
+    //Operacion-Resultado
+</script>
+</body>
+</html>

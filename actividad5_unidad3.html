@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Unidad 3 | Actividad 1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name:="Actividad" content="PW1_SEMESTREPRIMAVERA_UNIDAD3_ACTIVIDAD4">
+    <meta name:="Nombre" content="QUETZAL OLIN RODRIGUEZ JIMENEZ">
+    <meta name:="Fecha" content="08_05_2025">
+</head>
+<script>
+  function validaDato(){
+    let varDatos = "Datos Capturados\n\n";
+    //let varForm = document.forms("frmRegistro");
+    //let varName = varForm.elements["txtName"].value;
+    //varDatos += "-Nombre de usuario :" + varName.value;
+    varDatos = document.getElementById(Nombre_user).value;
+    log.console("Nombre"+ varDatos);
+  }
+  </script>
+<style type="text/css">
+</style>
+<body>
+  <h1>Unidad 3 | Actividad 05 :: Tema (JavaScript-Forms)</h1>
+  <form class="form-horizontal">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Registro Usuarios</legend>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Nombre_user">Nombre/s</label>  
+      <div class="col-md-4">
+      <input id="Nombre_user" name="Nombre_user" type="text" placeholder="----" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="apellido_user">Apellido/s</label>  
+      <div class="col-md-4">
+      <input id="apellido_user" name="apellido_user" type="text" placeholder="----" class="form-control input-md" required="">
+        
+      </div>
+    </div>
+    
+    <!-- Password input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="password_user">Password </label>
+      <div class="col-md-4">
+        <input id="password_user" name="password_user" type="password" placeholder="----" class="form-control input-md" required="">
+        <span class="help-block">Al menos 12 caracteres (. , _ - y caracteres especiales son permitidos) Al menos 2 mayusculas y 3 caracteres especiales</span>
+      </div>
+    </div>
+    
+    <!-- Multiple Radios (inline) -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="sexo_user">Sexo</label>
+      <div class="col-md-4"> 
+        <label class="radio-inline" for="sexo_user-0">
+          <input type="radio" name="sexo_user" id="sexo_user-0" value="1" checked="checked">
+          Male
+        </label> 
+        <label class="radio-inline" for="sexo_user-1">
+          <input type="radio" name="sexo_user" id="sexo_user-1" value="2">
+          Female
+        </label> 
+        <label class="radio-inline" for="sexo_user-2">
+          <input type="radio" name="sexo_user" id="sexo_user-2" value="3">
+          I prefer not to say
+        </label>
+      </div>
+    </div>
+    
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Cumple_user">Fecha de nacimiento</label>  
+      <div class="col-md-4">
+      <input id="Cumple_user" name="Cumple_user" type="text" placeholder="MM/DD/AA" class="form-control input-md" required="">
+      <span class="help-block">Mes-Dia-Año</span>  
+      </div>
+    </div>
+    
+    <!-- Button Drop Down -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Edad_user">Edad</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="Edad_user" name="Edad_user" class="form-control" placeholder="--" type="text" required="">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+              Mas
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">6</a></li>
+              <li><a href="#">7</a></li>
+              <li><a href="#">8</a></li>
+              <li><a href="#">9</a></li>
+              <li><a href="#">10</a></li>
+              <li><a href="#">11</a></li>
+              <li><a href="#">12</a></li>
+              <li><a href="#">13</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Prepended text-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Telefono_user">Teléfono</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <span class="input-group-addon">+52</span>
+          <input id="Telefono_user" name="Telefono_user" class="form-control" placeholder="nnn-nnn-nnnn" type="text" required="">
+        </div>
+        <p class="help-block">Los 10 (o más dígitos del número) </p>
+      </div>
+    </div>
+    
+    <!-- Appended Input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Correo_user">Correo Electrónico</label>
+      <div class="col-md-4">
+        <div class="input-group">
+          <input id="Correo_user" name="Correo_user" class="form-control" placeholder="Direccion Correo" type="text" required="">
+          <span class="input-group-addon">@upslp.edu.mx</span>
+        </div>
+        <p class="help-block">Tu dirección de correo en la UPSLP</p>
+      </div>
+    </div>
+    <!-- Textarea -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Mensaje_usuario">Mensaje Bienvenida</label>
+      <div class="col-md-4">                     
+        <textarea class="form-control" id="Mensaje_usuario" name="Mensaje_usuario">Deja un mensaje, gracias</textarea>
+      </div>
+    </div>
+    
+    <!-- Button -->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="Button_Enviar">Enviar Formulario</label>
+      <div class="col-md-4">
+        <button id="Button_Enviar" name="Button_Enviar" class="btn btn-info">Enviar</button>
+      </div>
+    </div>
+
+    <button id="Button_Enviar" class="btn btn-info">Enviar</button>
+
+<script>
+  document.getElementById("Button_Enviar").addEventListener("click", function() {
+    location.reload(); // Recarga la página actual
+  });
+</script>
+    
+    </fieldset>
+    </form>    
+</body>
+</html>
