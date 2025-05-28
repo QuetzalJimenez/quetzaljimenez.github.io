@@ -1,0 +1,886 @@
+body{
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.background{
+
+    background: linear-gradient(to bottom, #222, #333);
+    background-size: cover;
+    background-repeat: no-repeat;
+    filter: blur(2px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+}
+
+.divider{
+    border: none;
+    height: 2px;
+    background-color: rgb(165, 165, 165);
+    width: 90%;
+    margin: 50px auto;
+
+}
+
+.navBar{
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(24, 24, 24,1);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8); 
+    height: 70px;
+    padding: 25px;
+    z-index: 100;
+
+}
+
+.navBarlinks {
+    display: flex;
+}
+
+.navBarlinks a {
+    
+    font-size: 18px;
+    margin-right: 10px;
+    margin-left: 40px;
+    text-decoration: none;
+    color: rgb(226, 226, 226);
+    
+    border-bottom: 2px solid transparent;
+    transition: all 0.5s ease;
+    padding-bottom: 0px; 
+}
+
+.navBar a:hover {
+    font-size: 22px;
+    border-bottom: 2px solid rgb(161, 196, 37);
+    padding-bottom: 35px;
+}
+
+.Movies_Section{
+    
+    position: relative;
+    margin-top: 110px;
+    display: flex;
+
+}
+
+.Movies_Container{
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(24, 24, 24,0.9);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 330px;
+    height: 630px;
+    margin-left: 10px;
+}
+
+.Movie_name{
+    font-size: 22px;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+  
+    text-align: center;
+
+    background-color: rgba(24, 24, 24,0.9);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.Movie_item_Matrix{
+
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+
+    background-image: url(The\ Matrix.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+
+    width: 300px;
+    height: 100px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.Movie_item_MatrixReloaded{
+
+    font-size: 22px;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+  
+    text-align: center;
+    margin-top: 15px;
+    margin-left: 15px;
+
+    background-image: url(MatrixReloadedMovies.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Movie_item_MatrixRevolutions{
+
+    font-size: 22px;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+  
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 15px;
+
+    background-image: url(MatrixRevolutionsMovies.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Movie_item_MatrixResurrections{
+
+    font-size: 22px;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+  
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 15px;
+
+    background-image: url(MatrixResurrectionsMovies.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Movie_item_Animatrix{
+
+    font-size: 22px;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+  
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 15px;
+
+    background-image: url(Animatrix.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    border-radius: 2px;
+
+    width: 300px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.Movie_info_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+}
+
+.Movie_info{
+    position: absolute;
+    top: 0;
+    left: 350px;
+    flex: 1;
+    color: white;
+    background-color: rgba(24, 24, 24, 0.9);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    padding: 20px;
+    margin-right: 15px;
+    border-radius: 2px;
+    opacity: 0;
+    display: none;
+    transition: opacity 0.5s ease-in-out; 
+}
+
+.Movie_info.show {
+    display: block;
+    opacity: 1; 
+}
+
+.Title1{
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+    text-align: left;
+}
+.Title2{
+    text-align: left;
+}
+
+.Title3{
+    color: rgb(161, 196, 37);
+    text-align: left;
+}
+
+.Table_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    text-align: left;
+    width: 100%;
+    
+}
+
+.Table_info{
+    width: 70%;
+    border-right: 2px solid gray;
+    
+}
+
+.Table_info td{
+    padding: 10px;
+    border-bottom: 2px solid gray;
+    
+}
+
+.Movie_history_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    
+}
+
+.History_text{
+    color: white;
+    
+    text-align: justify;
+}
+
+.History_info a{
+    text-decoration: none;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+}
+
+.History_info{
+    width: 100%;
+}
+
+.Cast_images_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: flex-start; 
+}
+
+.Cast_boxes_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    align-items: flex-start; 
+}
+
+.Cast_box_KeanuReeves{
+    border-radius: 10px;
+    background-image: url(KeanuReeves.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_CarrieAnneMoss{
+    border-radius: 10px;
+    background-image: url(CarrieAnneMoss.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_LaurenceFishburne{
+    border-radius: 10px;
+    background-image: url(LaurenceFishburne.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.Cast_box_HugoWeaving{
+    border-radius: 10px;
+    background-image: url(HugoWeaving.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_JoePantoliano{
+    border-radius: 10px;
+    background-image: url(JoePantoliano.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_GloriaFoster{
+    border-radius: 10px;
+    background-image: url(GloriaFoster.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_MarcusChong{
+    border-radius: 10px;
+    background-image: url(MarcusChong.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_BelindaMcClory{
+    border-radius: 10px;
+    background-image: url(BelindaMcClory.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_AnthonyRayParker{
+    border-radius: 10px;
+    background-image: url(AnthonyRayParker.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_JulianArahanga{
+    border-radius: 10px;
+    background-image: url(JulianArahanga.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_MattDoran{
+    border-radius: 10px;
+    background-image: url(MattDoran.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_PaulGoddart{
+    border-radius: 10px;
+    background-image: url(PaulGoddart.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_RobertTaylor{
+    border-radius: 10px;
+    background-image: url(RobertTaylor.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_BillYoung{
+    border-radius: 10px;
+    background-image: url(BillYoung.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_RowanWitt{
+    border-radius: 10px;
+    background-image: url(RowanWitt.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_NeilAdrianRayment{
+    border-radius: 10px;
+    background-image: url(NeilAdrianRayment.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_JadaPinkettSmith{
+    border-radius: 10px;
+    background-image: url(Jada\ Pinkett\ Smith.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_MonicaBellucci{
+    border-radius: 10px;
+    background-image: url(MonicaBelluci.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_HaroldPerrineau{
+    border-radius: 10px;
+    background-image: url(HaroldPerrineau.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_RandallDukKim{
+    border-radius: 10px;
+    background-image: url(RandallDukKim.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_HelmutBakaitis{
+    border-radius: 10px;
+    background-image: url(HelmutBakaitis.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_LambertWilson{
+    border-radius: 10px;
+    background-image: url(LambertWilson.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_DanielBernhardt{
+    border-radius: 10px;
+    background-image: url(Daniel\ Bernhardt.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_LeighWhannell{
+    border-radius: 10px;
+    background-image: url(LeighWhannell.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_CollinChou{
+    border-radius: 10px;
+    background-image: url(CollinChou.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_NonaGaye{
+    border-radius: 10px;
+    background-image: url(NonaGaye.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_GinaTorres{
+    border-radius: 10px;
+    background-image: url(GinaTorres.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_AnthonyZerbe{
+    border-radius: 10px;
+    background-image: url(AnthonyZerbe.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_RoyJones{
+    border-radius: 10px;
+    background-image: url(RoyJones.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_MattMcColm{
+    border-radius: 10px;
+    background-image: url(MattMcColm.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_CornelWest{
+    border-radius: 10px;
+    background-image: url(CornelWest.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_SteveBastoni{
+    border-radius: 10px;
+    background-image: url(SteveBastoni.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_AnthonyWong{
+    border-radius: 10px;
+    background-image: url(AnthonyWong.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_IanBliss{
+    border-radius: 10px;
+    background-image: url(IanBliss.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_RupertReid{
+    border-radius: 10px;
+    background-image: url(RupertReid.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_CourtenayTaylor{
+    border-radius: 10px;
+    background-image: url(CourtenayTaylor.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_ClaytonWatson{
+    border-radius: 10px;
+    background-image: url(ClaytonWatson.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_PamelaAdlon{
+    border-radius: 10px;
+    background-image: url(PamelaAdlon.jpg);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_KevinMichaelRichardson {
+    border-radius: 10px;
+    background-image: url(KevinMichaelRichardson.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_JuliaFletcher {
+    border-radius: 10px;
+    background-image: url(JuliaFletcher.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_HedyBurress {
+    border-radius: 10px;
+    background-image: url(HedyBurress.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_DaneDavis {
+    border-radius: 10px;
+    background-image: url(DaneDavis.jpeg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_JohnDiMaggio {
+    border-radius: 10px;
+    background-image: url(JohnDiMaggio.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_TaraStrong {
+    border-radius: 10px;
+    background-image: url(TaraStrong.jpg);
+    background-size: cover;
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_{ 
+    border-radius: 10px;
+    background-image: url();
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    width: 200px;
+    height: 250px;
+    margin: 20px;
+}
+
+.Cast_box_links a{
+    text-decoration: none;
+    color: rgb(161, 196, 37);
+    text-shadow:
+        0 0 5px rgb(161, 196, 37),
+        0 0 10px rgb(161, 196, 37),
+        0 0 20px rgb(161, 196, 37);
+}
+
+
+.Cast_box_links{
+    margin-top: 200px;
+    border-radius: 2px;
+    background-color: rgba(24, 24, 24,0.8);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8);
+    
+    text-align: center;
+    font-size: 18px;
+    
+}
+
+.Nominations_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    width: 100%;
+}
+
+.Curious_facts_container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+}
+
+.Curious_facts_image{
+    width: 400px;
+    height: 1000px;
+    background-image: url(GhostInShell.webp);
+    box-shadow: 0 0 10px 5px rgba(8, 8, 8, 0.8); 
+    border-radius: 2px;
+}
+
+.Curious_facts_info_container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.Curious_facts_info{
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+  .Movies_Section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Movies_Container {
+    margin: 0 auto 20px auto;
+    width: 75%;
+  }
+
+  .Movie_info {
+    position: relative;
+    left: 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .Movie_info_container {
+    flex-direction: column;
+  }
+
+  .Table_info {
+    width: 100%;
+    border-right: none;
+  }
+
+  .Cast_boxes_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .Cast_images_container {
+    align-items: center;
+  }
+}
+
+/* 📱 MOBILE - hasta 480px */
+@media (max-width: 480px) {
+  .Movies_Section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Movies_Container {
+    width: 95%;
+    margin: 0 auto 20px auto;
+  }
+
+  .Movie_info {
+    position: relative;
+    left: 0;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  .Movie_info_container {
+    flex-direction: column;
+  }
+
+  .Table_info {
+    width: 100%;
+    border-right: none;
+  }
+
+  .Cast_boxes_container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .Cast_images_container {
+    align-items: center;
+  }
+
+  .Cast_boxes_container > div {
+    width: 90%;
+    height: 200px;
+  }
+}
+
+
+
