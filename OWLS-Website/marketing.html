@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OWLS — Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="main.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="font-[Inter] bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Marca -->
+      <a href="index.html" class="flex items-center gap-2">
+        <img src="img/owls.jpg" alt="OWLS logo" class="h-10 w-10 rounded-full" />
+        <span class="text-xl font-bold">OWLS</span>
+      </a>
+
+      <!-- Nav -->
+      <nav id="mainNav" class="hidden md:flex gap-6 font-medium">
+        <a href="index.html" class="hover:text-teal-600">Inicio</a>
+        <a href="coordinacion.html" class="hover:text-teal-600">Coordinación</a>
+        <a href="desarrollo-web.html" class="hover:text-teal-600">Desarrollo Web</a>
+        <a href="marketing.html" class="hover:text-teal-600">Marketing</a>
+
+        <!-- Dropdown "Más" -->
+        <div class="relative">
+          <button id="dropdownToggle" 
+                  class="flex items-center gap-1 hover:text-teal-600"
+                  aria-haspopup="true" aria-expanded="false">
+            Más <i class="fa fa-caret-down"></i>
+          </button>
+          <ul id="menuMas" 
+              class="absolute hidden bg-white shadow-md mt-2 rounded-md transition ease-out duration-200 w-48"
+              aria-hidden="true">
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Patrocinadores y reconocimientos</a></li>
+            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Login</a></li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <button id="mobileToggle" class="md:hidden text-gray-700">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Section -->
+  <main>
+  <section class="max-w-7xl mx-auto px-4 py-12">
+    <h1 class="text-3xl font-bold mb-2">Marketing</h1>
+    <p class="text-gray-600 mb-8">Equipo de Marketing y comunicación.</p>
+
+    <!-- Grid de miembros -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      
+      <!-- Miembro -->
+      <article class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center">
+        <img src="img/avatar.png" alt="Foto de Nombre Marketing" 
+             class="w-32 h-32 object-cover rounded-full mb-4" />
+        <div>
+          <h3 class="text-lg font-semibold">Nombre Apellido</h3>
+          <p class="text-teal-600 font-medium">Líder Marketing</p>
+          <p class="text-gray-600 mt-2 text-sm">
+            Breve biografía o información relevante.
+          </p>
+        </div>
+      </article>
+
+      <!-- Miembro -->
+      <article class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center">
+        <img src="img/avatar.png" alt="Foto de Nombre Marketing" 
+             class="w-32 h-32 object-cover rounded-full mb-4" />
+        <div>
+          <h3 class="text-lg font-semibold">Nombre Apellido</h3>
+          <p class="text-teal-600 font-medium">Marketing</p>
+          <p class="text-gray-600 mt-2 text-sm">
+            Breve biografía o información relevante.
+          </p>
+        </div>
+      </article>
+
+      <!-- Miembro -->
+      <article class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center">
+        <img src="img/avatar.png" alt="Foto de Nombre Marketing" 
+             class="w-32 h-32 object-cover rounded-full mb-4" />
+        <div>
+          <h3 class="text-lg font-semibold">Nombre Apellido</h3>
+          <p class="text-teal-600 font-medium">Marketing</p>
+          <p class="text-gray-600 mt-2 text-sm">
+            Breve biografía o información relevante.
+          </p>
+        </div>
+      </article>
+      
+      <!-- Miembro -->
+      <article class="bg-white rounded-lg shadow p-4 flex flex-col items-center text-center">
+        <img src="img/avatar.png" alt="Foto de Nombre Marketing" 
+             class="w-32 h-32 object-cover rounded-full mb-4" />
+        <div>
+          <h3 class="text-lg font-semibold">Nombre Apellido</h3>
+          <p class="text-teal-600 font-medium">Marketing</p>
+          <p class="text-gray-600 mt-2 text-sm">
+            Breve biografía o información relevante.
+          </p>
+        </div>
+      </article>      
+
+      <!-- Más miembros -->
+    </div>
+  </section>
+</main> 
+  
+  <!-- Footer -->
+  <footer class="bg-black text-slate-300 pt-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 pb-6">
+      <!-- Columna 1 -->
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-2">MIEMBROS</h4>
+        <ul class="space-y-1">
+          <li><a href="coordinacion.html" class="hover:text-teal-500">Coordinación</a></li>
+          <li><a href="desarrollo-web.html" class="hover:text-teal-500">Desarrollo Web</a></li>
+          <li><a href="marketing.html" class="hover:text-teal-500">Marketing</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 2 -->
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-2">NOSOTROS</h4>
+        <ul class="space-y-1">
+          <li><a href="#" class="hover:text-teal-500">Acerca de nosotros</a></li>
+          <li><a href="#" class="hover:text-teal-500">Afiliaciones</a></li>
+          <li><a href="#" class="hover:text-teal-500">Comunidad</a></li>
+          <li><a href="#" class="hover:text-teal-500">Preguntas frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna 3 -->
+      <div>
+        <h4 class="text-white text-sm font-semibold mb-2">LEGAL</h4>
+        <ul class="space-y-1">
+          <li><a href="#" class="hover:text-teal-500">Aviso de privacidad</a></li>
+          <li><a href="#" class="hover:text-teal-500">Términos y condiciones</a></li>
+        </ul>
+      </div>
+
+
+    <!-- Columna 4: Contacto -->
+    <div>
+      <h4 class="text-white text-sm font-semibold mb-2">Contacto</h4>
+      <p>Dudas o sugerencias: 
+        <a href="mailto:owls@clubowls.com.mx" class="hover:text-teal-500">owls@clubowls.com.mx</a>
+      </p>
+      <div class="flex flex-wrap gap-3 mt-3 text-lg" aria-label="Redes sociales">
+        <a href="#" aria-label="Facebook" title="Facebook" class="hover:text-teal-500"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="X" title="X (Twitter)" class="hover:text-teal-500"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="TikTok" title="TikTok" class="hover:text-teal-500"><i class="fab fa-tiktok"></i></a>
+        <a href="#" aria-label="Instagram" title="Instagram" class="hover:text-teal-500"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" title="YouTube" class="hover:text-teal-500"><i class="fab fa-youtube"></i></a>
+        <a href="#" aria-label="LinkedIn" title="LinkedIn" class="hover:text-teal-500"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="GitHub" title="GitHub" class="hover:text-teal-500"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Línea inferior -->
+  <div class="border-t border-white/10 py-3 text-center text-sm text-slate-400">
+    ©2026 OWLS Web Devs. Todos los derechos reservados.
+  </div>
+</footer>
