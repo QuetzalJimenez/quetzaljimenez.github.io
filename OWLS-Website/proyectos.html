@@ -1,301 +1,548 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Proyectos - OWLS</title>
+
+  <!-- Tailwind -->
   <link rel="stylesheet" href="dist/output.css">
-  <script src="main.js"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Fuente -->
+  <link href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
   <style>
-    .project-card {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    body{
+      font-family: 'Inter', sans-serif;
     }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    .card-hover{
+      transition: 0.3s;
     }
-    .status-dot {
-      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+    .card-hover:hover{
+      transform: translateY(-5px);
     }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .4; }
+
+    .active-btn{
+      background-color: #0f766e;
+      color: white;
     }
   </style>
 </head>
-<body class="font-[Inter] bg-gray-50 text-gray-900">
 
-  <!-- Header -->
-  <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-      <!-- Marca -->
-      <a href="index.html" class="flex items-center gap-2">
-        <img src="img/owls.jpg" alt="OWLS logo" class="h-10 w-10 rounded-full" />
-        <span class="text-xl font-bold">OWLS</span>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- HEADER -->
+  <header class="bg-white border-b">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <!-- LOGO -->
+      <a href="index.html" class="flex items-center gap-3">
+        <img src="img/owls.jpg"
+          alt="OWLS"
+          class="w-10 h-10 rounded-full">
+
+        <span class="text-2xl font-bold">
+          OWLS
+        </span>
       </a>
-      <!-- Nav -->
-      <nav id="mainNav" class="hidden md:flex gap-6 font-medium">
-        <a href="index.html" class="hover:text-teal-600">Inicio</a>
-        <a href="coordinacion.html" class="hover:text-teal-600">Coordinación</a>
-        <a href="proyectos.html" class="text-teal-600 font-semibold">Proyectos</a>
-        <a href="desarrollo-web.html" class="hover:text-teal-600">Desarrollo Web</a>
-        <a href="marketing.html" class="hover:text-teal-600">Marketing</a>
-        <!-- Dropdown "Más" -->
-        <div class="relative">
-          <button id="dropdownToggle" class="flex items-center gap-1 hover:text-teal-600" aria-haspopup="true" aria-expanded="false">
-            Más <i class="fa fa-caret-down"></i>
-          </button>
-          <ul id="menuMas" class="absolute hidden bg-white shadow-md mt-2 rounded-md transition ease-out duration-200 w-48" aria-hidden="true">
-            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Patrocinadores y reconocimientos</a></li>
-            <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Login</a></li>
-          </ul>
-        </div>
+
+      <!-- NAV -->
+      <nav class="hidden md:flex gap-6 font-medium">
+
+        <a href="index.html" class="hover:text-teal-600">
+          Inicio
+        </a>
+
+        <a href="coordinacion.html" class="hover:text-teal-600">
+          Coordinación
+        </a>
+
+        <a href="proyectos.html" class="text-teal-600 font-semibold">
+          Proyectos
+        </a>
+
+        <a href="desarrollo-web.html" class="hover:text-teal-600">
+          Desarrollo Web
+        </a>
+
+        <a href="marketing.html" class="hover:text-teal-600">
+          Marketing
+        </a>
+
       </nav>
-      <!-- Mobile toggle -->
-      <button id="mobileToggle" class="md:hidden text-gray-700">
+
+      <!-- MOBILE -->
+      <button class="md:hidden text-2xl">
         <i class="fa fa-bars"></i>
       </button>
+
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="bg-gradient-to-r from-gray-900 to-black text-white py-16">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <h1 class="text-5xl font-bold mb-4">Proyectos OWLS</h1>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto">Innovación, aprendizaje y desarrollo real a través de proyectos colaborativos.</p>
+  <!-- HERO -->
+  <section class="bg-black text-white py-16">
+
+    <div class="max-w-4xl mx-auto text-center px-4">
+
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">
+        Proyectos OWLS
+      </h1>
+
+      <p class="text-gray-300 text-lg">
+        Innovación, aprendizaje y desarrollo real.
+      </p>
+
     </div>
+
   </section>
 
-  <div class="max-w-7xl mx-auto px-4 py-12">
-    <!-- Filtros -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
-      <div class="flex gap-2">
-        <button onclick="filterProjects('all')" class="active-filter px-6 py-2.5 rounded-full font-medium bg-teal-600 text-white flex items-center gap-2">
-          <i class="fas fa-th"></i> Todos
+  <!-- CONTENIDO -->
+  <main class="max-w-7xl mx-auto px-4 py-12">
+
+    <!-- FILTROS -->
+    <div class="flex flex-col md:flex-row justify-between gap-4 mb-10">
+
+      <!-- BOTONES -->
+      <div class="flex flex-wrap gap-3">
+
+        <button
+          onclick="filterProjects('all')"
+          class="filter-btn active-btn px-5 py-2 rounded-lg border">
+          Todos
         </button>
-        <button onclick="filterProjects('current')" class="px-6 py-2.5 rounded-full font-medium bg-white border border-gray-300 hover:border-teal-600 transition-colors flex items-center gap-2">
-          <div class="w-3 h-3 bg-emerald-500 rounded-full status-dot"></div>
+
+        <button
+          onclick="filterProjects('current')"
+          class="filter-btn px-5 py-2 rounded-lg border bg-white">
           En Curso
         </button>
-        <button onclick="filterProjects('future')" class="px-6 py-2.5 rounded-full font-medium bg-white border border-gray-300 hover:border-teal-600 transition-colors flex items-center gap-2">
-          <i class="fas fa-clock text-amber-500"></i>
+
+        <button
+          onclick="filterProjects('future')"
+          class="filter-btn px-5 py-2 rounded-lg border bg-white">
           Próximos
         </button>
+
       </div>
 
-      <div class="flex items-center gap-3">
-        <div class="relative">
-          <input type="text" id="searchInput" 
-                 onkeyup="searchProjects()" 
-                 placeholder="Buscar proyectos..." 
-                 class="pl-10 pr-4 py-3 w-80 bg-white border border-gray-300 rounded-2xl focus:outline-none focus:border-teal-600 transition-colors">
-          <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-gray-400"></i>
-        </div>
+      <!-- BUSCADOR -->
+      <div>
+
+        <input
+          type="text"
+          id="searchInput"
+          onkeyup="searchProjects()"
+          placeholder="Buscar proyectos..."
+          class="border rounded-lg px-4 py-2 w-full md:w-80">
+
       </div>
+
     </div>
 
-    <!-- Proyectos Grid -->
-    <div id="projectsGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Proyecto 1 -->
-      <div class="project-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100" data-category="current">
-        <div class="h-56 bg-gradient-to-br from-teal-500 to-cyan-600 relative">
-          <div class="absolute top-4 right-4 bg-white text-teal-700 text-xs font-bold px-3 py-1 rounded-2xl flex items-center gap-1">
-            <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+    <!-- GRID -->
+    <div
+      id="projectsGrid"
+      class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- CARD 1 -->
+      <div
+        class="project-card card-hover bg-white rounded-xl shadow p-5"
+        data-category="current">
+
+        <img
+          src="img/owls.jpg"
+          alt="Proyecto"
+          class="w-full h-48 object-cover rounded-lg mb-4">
+
+        <div class="flex justify-between items-center mb-3">
+
+          <h2 class="text-2xl font-semibold">
+            Plataforma OWLS
+          </h2>
+
+          <span class="bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full">
             EN CURSO
-          </div>
-          <img src="img/owls.jpg" alt="Proyecto Web" class="absolute bottom-4 left-4 w-16 h-16 rounded-2xl border-4 border-white object-cover">
+          </span>
+
         </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2">Plataforma OWLS</h3>
-          <p class="text-gray-600 mb-6 line-clamp-3">Desarrollo de la plataforma web oficial del club con sistema de membresía, ranking y gestión de proyectos.</p>
-          
-          <div class="flex items-center justify-between text-sm mb-6">
-            <div>
-              <span class="text-gray-500">Equipo</span><br>
-              <span class="font-medium">8 miembros</span>
+
+        <p class="text-gray-600 mb-5">
+          Desarrollo de la plataforma oficial del club con sistema de membresía y gestión de proyectos.
+        </p>
+
+        <div class="mb-4">
+
+          <div class="flex justify-between text-sm mb-2">
+
+            <span>Progreso</span>
+
+            <span class="font-semibold text-green-600">
+              65%
+            </span>
+
+          </div>
+
+          <div class="bg-gray-200 rounded-full h-3">
+
+            <div
+              class="bg-green-500 h-3 rounded-full"
+              style="width:65%">
             </div>
-            <div class="text-right">
-              <span class="text-gray-500">Progreso</span><br>
-              <span class="font-semibold text-emerald-600">65%</span>
-            </div>
+
           </div>
-          
-          <div class="w-full bg-gray-200 h-2 rounded-full overflow-hidden">
-            <div class="bg-emerald-500 h-2 rounded-full w-[65%]"></div>
-          </div>
-          
-          <div class="mt-6 flex gap-3">
-            <a href="#" class="flex-1 text-center py-3 bg-teal-600 hover:bg-teal-700 text-white rounded-2xl font-medium transition-colors">Ver detalles</a>
-            <button onclick="this.innerHTML = this.innerHTML === '❤️' ? '♡' : '❤️'" class="px-6 border border-gray-300 hover:border-gray-400 rounded-2xl transition-colors">♡</button>
-          </div>
+
         </div>
+
+        <button
+          class="w-full bg-teal-600 hover:bg-teal-700 text-white py-3 rounded-lg">
+          Ver detalles
+        </button>
+
       </div>
 
-      <!-- Proyecto 2 -->
-      <div class="project-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100" data-category="future">
-        <div class="h-56 bg-gradient-to-br from-purple-600 to-violet-600 relative flex items-center justify-center">
-          <i class="fas fa-mobile-alt text-white text-7xl opacity-75"></i>
-          <div class="absolute top-4 right-4 bg-white/90 text-purple-700 text-xs font-bold px-3 py-1 rounded-2xl">PRÓXIMO</div>
+      <!-- CARD 2 -->
+      <div
+        class="project-card card-hover bg-white rounded-xl shadow p-5"
+        data-category="future">
+
+        <div
+          class="bg-purple-600 text-white h-48 rounded-lg flex items-center justify-center text-6xl mb-4">
+
+          <i class="fa fa-mobile-screen"></i>
+
         </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2">App Móvil OWLS</h3>
-          <p class="text-gray-600 mb-6 line-clamp-3">Aplicación nativa para iOS y Android con notificaciones, seguimiento de proyectos y comunidad en tiempo real.</p>
-          
-          <div class="flex items-center gap-4 text-sm text-gray-500 mb-6">
-            <div class="flex items-center gap-1.5">
-              <i class="fas fa-calendar"></i>
-              <span>Junio 2026</span>
-            </div>
-            <div>4 miembros iniciales</div>
-          </div>
-          
-          <a href="#" class="block text-center py-3 border-2 border-dashed border-gray-300 hover:border-purple-500 text-gray-500 hover:text-purple-600 rounded-2xl font-medium transition-colors">Unirme al equipo</a>
+
+        <div class="flex justify-between items-center mb-3">
+
+          <h2 class="text-2xl font-semibold">
+            App Móvil OWLS
+          </h2>
+
+          <span class="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full">
+            PRÓXIMO
+          </span>
+
         </div>
+
+        <p class="text-gray-600 mb-5">
+          Aplicación móvil para iOS y Android con seguimiento de proyectos y comunidad.
+        </p>
+
+        <button
+          class="w-full border border-purple-500 text-purple-600 hover:bg-purple-50 py-3 rounded-lg">
+          Unirme al equipo
+        </button>
+
       </div>
 
-      <!-- Proyecto 3 -->
-      <div class="project-card bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100" data-category="current">
-        <div class="h-56 bg-gradient-to-br from-amber-500 to-orange-600 relative">
-          <img src="img/slide1.jpg" alt="Marketing" class="w-full h-full object-cover">
-          <div class="absolute top-4 right-4 bg-white text-amber-700 text-xs font-bold px-3 py-1 rounded-2xl">ACTIVO</div>
+      <!-- CARD 3 -->
+      <div
+        class="project-card card-hover bg-white rounded-xl shadow p-5"
+        data-category="current">
+
+        <img
+          src="img/slide1.jpg"
+          alt="Branding"
+          class="w-full h-48 object-cover rounded-lg mb-4">
+
+        <div class="flex justify-between items-center mb-3">
+
+          <h2 class="text-2xl font-semibold">
+            Branding 2026
+          </h2>
+
+          <span class="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full">
+            ACTIVO
+          </span>
+
         </div>
-        <div class="p-6">
-          <h3 class="text-2xl font-semibold mb-2">Campaña de Branding 2026</h3>
-          <p class="text-gray-600 mb-6 line-clamp-3">Estrategia completa de marketing digital, redes sociales y contenido audiovisual para posicionar al club.</p>
-          
-          <div class="flex justify-between items-center">
-            <div class="flex -space-x-3">
-              <img src="img/coord1.jpg" class="w-7 h-7 rounded-full border-2 border-white object-cover">
-              <img src="img/coord2.jpg" class="w-7 h-7 rounded-full border-2 border-white object-cover">
-            </div>
-            <span class="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-medium">Marketing</span>
-          </div>
-        </div>
+
+        <p class="text-gray-600 mb-5">
+          Estrategia de marketing digital y redes sociales para posicionar el club.
+        </p>
+
+        <button
+          class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg">
+          Ver campaña
+        </button>
+
       </div>
 
     </div>
 
-    <!-- Sección Timeline / Próximos proyectos -->
-    <div class="mt-20">
-      <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-        <span>Roadmap 2026</span>
-        <div class="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+    <!-- ROADMAP -->
+    <section class="mt-20">
+
+      <h2 class="text-3xl font-bold mb-10">
+        Roadmap 2026
       </h2>
-      
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-8 rounded-3xl shadow">
-          <div class="text-teal-600 font-mono text-sm mb-2">Q2 2026</div>
-          <h3 class="font-semibold text-xl mb-3">Lanzamiento v1.0 Plataforma</h3>
-          <ul class="space-y-3 text-sm">
-            <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-0.5"></i> Sistema de login y perfiles</li>
-            <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-0.5"></i> Ranking de miembros</li>
-            <li class="flex gap-3"><i class="fas fa-check text-emerald-500 mt-0.5"></i> Gestión de proyectos</li>
-          </ul>
-        </div>
-        
-        <div class="bg-white p-8 rounded-3xl shadow">
-          <div class="text-amber-600 font-mono text-sm mb-2">Q3 2026</div>
-          <h3 class="font-semibold text-xl mb-3">Hackathon OWLS</h3>
-          <p class="text-gray-600">Evento interno de 48 horas para generar nuevos proyectos y soluciones creativas.</p>
-        </div>
-        
-        <div class="bg-white p-8 rounded-3xl shadow">
-          <div class="text-purple-600 font-mono text-sm mb-2">Q4 2026</div>
-          <h3 class="font-semibold text-xl mb-3">OWLS Fest</h3>
-          <p class="text-gray-600">Evento abierto al público con talleres, charlas y demostración de proyectos.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Footer -->
-  <footer class="bg-black text-slate-300 pt-8">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 pb-6">
-      <div>
-        <h4 class="text-white text-sm font-semibold mb-2">MIEMBROS</h4>
-        <ul class="space-y-1">
-          <li><a href="coordinacion.html" class="hover:text-teal-500">Coordinación</a></li>
-          <li><a href="desarrollo-web.html" class="hover:text-teal-500">Desarrollo Web</a></li>
-          <li><a href="marketing.html" class="hover:text-teal-500">Marketing</a></li>
-          <li><a href="proyectos.html" class="hover:text-teal-500">Proyectos</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white text-sm font-semibold mb-2">NOSOTROS</h4>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:text-teal-500">Acerca de nosotros</a></li>
-          <li><a href="#" class="hover:text-teal-500">Afiliaciones</a></li>
-          <li><a href="#" class="hover:text-teal-500">Comunidad</a></li>
-          <li><a href="#" class="hover:text-teal-500">Preguntas frecuentes</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white text-sm font-semibold mb-2">LEGAL</h4>
-        <ul class="space-y-1">
-          <li><a href="#" class="hover:text-teal-500">Aviso de privacidad</a></li>
-          <li><a href="#" class="hover:text-teal-500">Términos y condiciones</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="text-white text-sm font-semibold mb-2">Contacto</h4>
-        <p>Dudas o sugerencias: <a href="mailto:owls@clubowls.com.mx" class="hover:text-teal-500">owls@clubowls.com.mx</a></p>
-        <div class="flex flex-wrap gap-3 mt-3 text-lg">
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-tiktok"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-instagram"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-youtube"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" class="hover:text-teal-500"><i class="fab fa-github"></i></a>
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- ITEM -->
+        <div class="bg-white p-6 rounded-xl shadow">
+
+          <p class="text-teal-600 font-semibold mb-2">
+            Q2 2026
+          </p>
+
+          <h3 class="text-xl font-bold mb-4">
+            Plataforma v1.0
+          </h3>
+
+          <ul class="space-y-2 text-gray-600">
+
+            <li>
+              ✔ Sistema de login
+            </li>
+
+            <li>
+              ✔ Ranking de miembros
+            </li>
+
+            <li>
+              ✔ Gestión de proyectos
+            </li>
+
+          </ul>
+
         </div>
+
+        <!-- ITEM -->
+        <div class="bg-white p-6 rounded-xl shadow">
+
+          <p class="text-orange-500 font-semibold mb-2">
+            Q3 2026
+          </p>
+
+          <h3 class="text-xl font-bold mb-4">
+            Hackathon OWLS
+          </h3>
+
+          <p class="text-gray-600">
+            Evento de innovación de 48 horas para nuevos proyectos.
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-white p-6 rounded-xl shadow">
+
+          <p class="text-purple-500 font-semibold mb-2">
+            Q4 2026
+          </p>
+
+          <h3 class="text-xl font-bold mb-4">
+            OWLS Fest
+          </h3>
+
+          <p class="text-gray-600">
+            Evento abierto con talleres, charlas y demostraciones.
+          </p>
+
+        </div>
+
       </div>
+
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-gray-300 mt-16">
+
+    <div class="max-w-7xl mx-auto px-4 py-10">
+
+      <div class="grid md:grid-cols-4 gap-8">
+
+        <div>
+
+          <h4 class="text-white font-semibold mb-4">
+            Miembros
+          </h4>
+
+          <ul class="space-y-2">
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Coordinación
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Desarrollo Web
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Marketing
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4 class="text-white font-semibold mb-4">
+            Nosotros
+          </h4>
+
+          <ul class="space-y-2">
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Comunidad
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Afiliaciones
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4 class="text-white font-semibold mb-4">
+            Legal
+          </h4>
+
+          <ul class="space-y-2">
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Privacidad
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="hover:text-teal-400">
+                Términos
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div>
+
+          <h4 class="text-white font-semibold mb-4">
+            Contacto
+          </h4>
+
+          <p>
+            owls@clubowls.com.mx
+          </p>
+
+          <div class="flex gap-4 mt-4 text-lg">
+
+            <a href="#">
+              <i class="fab fa-facebook"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-instagram"></i>
+            </a>
+
+            <a href="#">
+              <i class="fab fa-github"></i>
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="border-t border-gray-700 mt-10 pt-5 text-center text-sm">
+
+        © 2026 OWLS Web Devs
+
+      </div>
+
     </div>
-    <div class="border-t border-white/10 py-3 text-center text-sm text-slate-400">
-      ©2026 OWLS Web Devs. Todos los derechos reservados.
-    </div>
+
   </footer>
 
+  <!-- JS -->
   <script>
-    // Filtros
-    function filterProjects(category) {
+
+    // FILTRAR
+    function filterProjects(category){
+
       const cards = document.querySelectorAll('.project-card');
+
       cards.forEach(card => {
-        if (category === 'all') {
+
+        if(category === 'all'){
           card.style.display = 'block';
-        } else {
-          card.style.display = card.getAttribute('data-category') === category ? 'block' : 'none';
         }
-      });
-      
-      // Actualizar botón activo
-      document.querySelectorAll('button').forEach(btn => {
-        if (btn.textContent.includes('Todos') || btn.textContent.includes('Curso') || btn.textContent.includes('Próximos')) {
-          btn.classList.remove('bg-teal-600', 'text-white');
-          btn.classList.add('bg-white', 'border-gray-300');
+        else{
+          card.style.display =
+            card.dataset.category === category
+            ? 'block'
+            : 'none';
         }
+
       });
+
+      // botones
+      const buttons =
+        document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => {
+        btn.classList.remove('active-btn');
+      });
+
+      event.target.classList.add('active-btn');
+
     }
 
-    function searchProjects() {
-      const term = document.getElementById('searchInput').value.toLowerCase();
-      const cards = document.querySelectorAll('.project-card');
-      
+    // BUSCAR
+    function searchProjects(){
+
+      const value =
+        document.getElementById('searchInput')
+        .value
+        .toLowerCase();
+
+      const cards =
+        document.querySelectorAll('.project-card');
+
       cards.forEach(card => {
-        const title = card.querySelector('h3').textContent.toLowerCase();
-        const desc = card.querySelector('p').textContent.toLowerCase();
-        card.style.display = (title + desc).includes(term) ? 'block' : 'none';
+
+        const text =
+          card.innerText.toLowerCase();
+
+        if(text.includes(value)){
+          card.style.display = 'block';
+        }
+        else{
+          card.style.display = 'none';
+        }
+
       });
+
     }
 
-    // Inicialización
-    document.addEventListener('DOMContentLoaded', () => {
-      // Tailwind script ya está cargado
-      console.log('%cPágina de Proyectos OWLS cargada correctamente', 'color: teal; font-weight: bold');
-    });
   </script>
+
 </body>
 </html>
