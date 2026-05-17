@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Heladería Crucitos</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contacto-container {
+            max-width: 800px; /* Tamaño ajustado para una sola columna */
+            margin: 50px auto;
+            padding: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .info-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border-top: 5px solid var(--crucitos-pink);
+            margin-bottom: 30px;
+        }
+        .info-card h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            color: var(--crucitos-pink);
+            font-size: 2rem;
+        }
+        .contact-detail {
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        .contact-detail strong {
+            color: var(--secondary-purple);
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 25px 0;
+            border: 1px solid #eee;
+        }
+        .btn-action {
+            display: inline-block;
+            background-color: var(--crucitos-pink);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .btn-action:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.1);
+        }
+        .facebook-link {
+            display: block;
+            margin-top: 15px;
+            color: #1877F2; /* Color corporativo de Facebook */
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Crucitos</a>
+            <nav>
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="catalogo.html">Catálogo</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" style="height: 35vh; background-image: url('https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?auto=format&fit=crop&w=1350&q=80');">
+        <div class="hero-content">
+            <h1>Contacto</h1>
+            <p>¡Visítanos en Plaza del Valle!</p>
+        </div>
+    </section>
+
+    <main class="contacto-container">
+        <!-- Información de Contacto -->
+        <div class="info-card">
+            <h3>Atención al Cliente</h3>
+            <div class="contact-detail">
+                <strong>WhatsApp:</strong> <br>
+                <a href="https://wa.me/524448250091" style="text-decoration: none; color: inherit;">+52 444 825 0091</a>
+            </div>
+            
+            <a href="https://www.facebook.com/people/Helados-Crucito-Plaza-del-Valle/100063953472002/" target="_blank" class="facebook-link">
+                Facebook: Helados Crucito - Plaza del Valle
+            </a>
+
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3695.6263654126797!2d-101.03067879999999!3d22.140217099999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x842a99292747d6c5%3A0x110b82a427feaef4!2sHelados%20Crucito!5e0!3m2!1ses-419!2smx!4v1778638847924!5m2!1ses-419!2smx" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <a href="https://maps.app.goo.gl/hioFZZM7u6q38SzB8" target="_blank" class="btn-action">
+                Cómo llegar (Google Maps)
+            </a>
+        </div>
+    </main>
+</body>
+</html>
