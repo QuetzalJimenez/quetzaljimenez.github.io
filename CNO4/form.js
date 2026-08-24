@@ -1,6 +1,6 @@
 // form.js
 (function(){
-  emailjs.init("TU_PUBLIC_KEY"); // Reemplaza con tu public key
+  emailjs.init("AZzft7hIe03mKZBGN"); // Reemplaza con tu public key
 })();
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
@@ -12,7 +12,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     mensaje: this.mensaje.value
   };
 
-  emailjs.send("TU_SERVICE_ID","TU_TEMPLATE_ID",data)
+  emailjs.send("service_rds9pev","template_jzzipln",data)
     .then(() => {
       // Redirigir a página de confirmación
       const params = new URLSearchParams(data).toString();
