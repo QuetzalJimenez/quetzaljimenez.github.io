@@ -1,6 +1,5 @@
-// form.js
 (function(){
-  emailjs.init("AZzft7hIe03mKZBGN"); // Reemplaza con tu public key
+  emailjs.init("TU_PUBLIC_KEY"); // tu clave pública
 })();
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
@@ -12,11 +11,12 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     mensaje: this.mensaje.value
   };
 
-  emailjs.send("service_rds9pev","template_jzzipln",data)
+  emailjs.send("TU_SERVICE_ID","TU_TEMPLATE_ID",data)
     .then(() => {
-      // Redirigir a página de confirmación
       const params = new URLSearchParams(data).toString();
       window.location.href = "confirmacion.html?" + params;
     })
-    .catch(err => alert("Error al enviar: " + JSON.stringify(err)));
+    .catch(err => {
+      alert("❌ Error al enviar: " + JSON.stringify(err));
+    });
 });
