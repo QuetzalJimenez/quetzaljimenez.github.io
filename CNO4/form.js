@@ -1,5 +1,5 @@
 (function(){
-  emailjs.init("TU_PUBLIC_KEY"); // tu clave pública
+  emailjs.init("AZzft7hIe03mKZBGN"); // tu clave pública
 })();
 
 document.getElementById("contactForm").addEventListener("submit", function(e){
@@ -11,7 +11,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
     mensaje: this.mensaje.value
   };
 
-  emailjs.send("TU_SERVICE_ID","TU_TEMPLATE_ID",data)
+  emailjs.send("service_rds9pev","template_jzzipln",data)
     .then(() => {
       const params = new URLSearchParams(data).toString();
       window.location.href = "confirmacion.html?" + params;
