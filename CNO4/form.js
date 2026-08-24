@@ -7,7 +7,7 @@ document.getElementById("contactForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   const data = {
-    nombre: this.nombre.value,
+    name: this.name.value,
     correo: this.correo.value,
     mensaje: this.mensaje.value
   };
