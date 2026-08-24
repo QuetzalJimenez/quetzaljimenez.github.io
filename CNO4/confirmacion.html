@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mensaje enviado</title>
+</head>
+<body>
+  <h1>Mensaje enviado correctamente</h1>
+  <p id="datos"></p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("datos").innerText =
+      `Nombre: ${params.get("nombre")} | Correo: ${params.get("correo")} | Mensaje: ${params.get("mensaje")}`;
+  </script>
+</body>
+</html>
