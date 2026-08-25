@@ -6,19 +6,107 @@
   <title>Portafolio | CNO IV – Seguridad Informática</title>
   <link rel="stylesheet" href="style.css">
 </head>
+  <style>
+
+.pdf-button {
+  display: inline-block;
+  padding: 10px 22px;
+
+  background-color: white;
+  color: black;
+
+  text-decoration: none;
+  font-weight: bold;
+
+  border: 2px solid black;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* AL PASAR EL MOUSE */
+.pdf-button:hover {
+  background-color: black;
+  color: white;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+/* AL PRESIONAR */
+.pdf-button:active {
+  transform: translateY(1px);
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+/* AL SELECCIONAR CON TAB */
+.pdf-button:focus {
+  outline: 3px solid #888;
+  outline-offset: 3px;
+}
+
+
+.activity-section {
+  padding-top: 25px;
+  padding-bottom: 25px;
+
+  margin-bottom: 20px;
+}
+
+
+/* Reduce el espacio entre título y contenido */
+.activity-section h1 {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+/* Reduce el espacio del texto */
+.activity-section p {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+
+
+/* Espacio entre botón y PDF */
+.activity-section .pdf-container {
+  margin-top: 20px;
+}
+  </style>
+
 <body>
 
-  <!-- 1. HEADER -->
+  <!-- HEADER -->
   <header>
     <div class="navbar">
+
       <div class="logo">
-        <img src="img/logo.png" alt="Logo" class="logo-image" width= 38px height= 38px>
+        <img src="img/logo.png"
+             alt="Logo"
+             class="logo-image"
+             width="38"
+             height="38">
+
         <div>
           <strong>Quetzal · Alias сумерки</strong>
           <span>CNO IV – Seguridad Informática</span><br>
-          <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
+          <small>
+            Universidad Politécnica de San Luis Potosí · Semestre 2026
+          </small>
         </div>
       </div>
+
       <nav>
         <a href="index.html#inicio">Inicio</a>
         <a href="index.html#presentacion">Presentación</a>
@@ -27,52 +115,101 @@
         <a href="evidencias.html">Evidencias</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
+
     </div>
   </header>
 
+
+  <!-- CONTENIDO -->
   <main>
-    <!-- 2. PRESENTACIÓN -->
-    <section id="inicio" class="hero">
-      <h1>Evidencias Académicas</h1>
+
+    <!-- ACTIVIDAD 01 -->
+    <section class="hero activity-section">
+
+      <h1>Actividad 01</h1>
+
       <p>
-        <strong>Actividad 01</strong>.  
-        Análisis del ciberataque a EQUIFAX (Actividad realizada en equipos)
+        <strong>Análisis del ciberataque a EQUIFAX</strong>
       </p>
-        <nav>
-        <a href="Act01_cno4.pdf">Act01</a>
-      </nav>
+
+      <a href="Act01_cno4.pdf"
+         target="_blank"
+         class="pdf-button">
+        Abrir PDF
+      </a>
+
+      <div class="pdf-container">
+        <iframe
+          src="Act01_cno4.pdf"
+          title="Actividad 01">
+        </iframe>
+      </div>
+
     </section>
 
-    <section id="inicio" class="hero">
-      <h1>Evidencias Académicas</h1>
+
+    <!-- ACTIVIDAD 02 -->
+    <section class="hero activity-section">
+
+      <h1>Actividad 02</h1>
+
       <p>
-        <strong>Actividad 02</strong>.  
-        Aquí empieza mi portafolio de evidencias de CNO4 Ciberseguridad, data: estuve implementando EmailJS, más hay error en el momento de envío de los datos, trabajando en ello.
+        <strong>Evidencia de la Actividad 02 de CNO IV – Ciberseguridad</strong>
       </p>
-        <nav>
-        <a href="Act02_cno4.pdf">Act02</a>
-      </nav>
+
+      <a href="Act02_cno4.pdf"
+         target="_blank"
+         class="pdf-button">
+        Abrir PDF
+      </a>
+
+      <div class="pdf-container">
+        <iframe
+          src="Act02_cno4.pdf"
+          title="Actividad 02">
+        </iframe>
+      </div>
+
     </section>
 
-        <section id="inicio" class="hero">
-      <h1>Evidencias Académicas</h1>
+
+    <!-- ACTIVIDAD 03 -->
+    <section class="hero activity-section">
+
+      <h1>Actividad 03</h1>
+
       <p>
-        <strong>Actividad 03</strong>.  
-        No presiones ESC... Todavía... Documentación 
+        <strong>No presiones ESC... Todavía... Documentación</strong>
       </p>
-        <nav>
-        <a href="Act03_cno4.pdf">Act03</a>
-      </nav>
+
+      <a href="Act03_cno4.pdf"
+         target="_blank"
+         class="pdf-button">
+        Abrir PDF
+      </a>
+
+      <div class="pdf-container">
+        <iframe
+          src="Act03_cno4.pdf"
+          title="Actividad 03">
+        </iframe>
+      </div>
+
     </section>
 
-  <!-- 6. FOOTER -->
+  </main>
+
+
+  <!-- FOOTER -->
   <footer>
-    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
-    <p class="security">Conexión segura · HTTPS</p>
+    <p>
+      © 2026 · Quetzal · Universidad Politécnica de San Luis Potosí
+    </p>
+
+    <p class="security">
+      Conexión segura · HTTPS
+    </p>
   </footer>
 
-  <!-- SCRIPT -->
-  <script src="form.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 </html>
