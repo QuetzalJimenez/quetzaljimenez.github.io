@@ -1,0 +1,1227 @@
+<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise Identity Portal — Security Lab</title>
+
+<style>
+    :root {
+        --bg: #07111f;
+        --panel: #0d1b2e;
+        --panel-2: #10243b;
+        --border: #213955;
+        --text: #e8f0f8;
+        --muted: #8ea4ba;
+
+        --blue: #38bdf8;
+        --blue-dark: #0284c7;
+
+        --green: #22c55e;
+        --yellow: #f59e0b;
+        --red: #ef4444;
+
+        --shadow:
+            0 25px 60px rgba(0,0,0,.45),
+            0 0 0 1px rgba(255,255,255,.03);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        min-height: 100vh;
+
+        font-family:
+            Inter,
+            ui-sans-serif,
+            system-ui,
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            sans-serif;
+
+        color: var(--text);
+
+        background:
+            radial-gradient(
+                circle at 15% 20%,
+                rgba(14,165,233,.12),
+                transparent 35%
+            ),
+            radial-gradient(
+                circle at 85% 80%,
+                rgba(59,130,246,.08),
+                transparent 35%
+            ),
+            linear-gradient(
+                135deg,
+                #040b14,
+                #07111f 50%,
+                #091827
+            );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        padding: 30px;
+    }
+
+    .app {
+        width: 100%;
+        max-width: 1100px;
+
+        display: grid;
+        grid-template-columns: 1fr 380px;
+
+        background: rgba(8, 20, 34, .92);
+
+        border: 1px solid var(--border);
+        border-radius: 18px;
+
+        overflow: hidden;
+
+        box-shadow: var(--shadow);
+
+        backdrop-filter: blur(12px);
+    }
+
+    /* --------------------------------
+       LEFT INFORMATION PANEL
+    -------------------------------- */
+
+    .info {
+        padding: 45px;
+
+        background:
+            linear-gradient(
+                145deg,
+                rgba(14,165,233,.10),
+                transparent 45%
+            ),
+            #081523;
+
+        border-right: 1px solid var(--border);
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        margin-bottom: 50px;
+    }
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 11px;
+
+        background:
+            linear-gradient(
+                135deg,
+                var(--blue),
+                var(--blue-dark)
+            );
+
+        color: #00111c;
+        font-weight: 900;
+
+        box-shadow:
+            0 8px 25px rgba(14,165,233,.25);
+    }
+
+    .brand-text {
+        font-weight: 700;
+        letter-spacing: .3px;
+    }
+
+    .brand-text small {
+        display: block;
+        margin-top: 2px;
+
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+    h1 {
+        font-size: 38px;
+        line-height: 1.1;
+        margin: 0 0 18px;
+        letter-spacing: -1px;
+    }
+
+    .intro {
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 600px;
+    }
+
+    .feature-list {
+        margin-top: 35px;
+        display: grid;
+        gap: 14px;
+    }
+
+    .feature {
+        display: flex;
+        gap: 13px;
+        align-items: flex-start;
+    }
+
+    .feature-icon {
+        width: 30px;
+        height: 30px;
+
+        flex-shrink: 0;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 8px;
+
+        background: rgba(56,189,248,.08);
+        color: var(--blue);
+
+        border: 1px solid rgba(56,189,248,.18);
+    }
+
+    .feature strong {
+        display: block;
+        margin-bottom: 3px;
+        font-size: 14px;
+    }
+
+    .feature span {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .lab-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        margin-top: 40px;
+
+        padding: 8px 12px;
+
+        border-radius: 999px;
+
+        background: rgba(34,197,94,.08);
+        border: 1px solid rgba(34,197,94,.2);
+
+        color: #86efac;
+
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .4px;
+    }
+
+    .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+
+        box-shadow:
+            0 0 12px rgba(34,197,94,.8);
+    }
+
+    /* --------------------------------
+       LOGIN PANEL
+    -------------------------------- */
+
+    .login-panel {
+        padding: 40px 34px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #0c1c2f,
+                #091725
+            );
+    }
+
+    .login-header {
+        margin-bottom: 28px;
+    }
+
+    .login-header h2 {
+        margin: 0 0 7px;
+        font-size: 22px;
+    }
+
+    .login-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+    }
+
+    .security-line {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        margin-bottom: 25px;
+
+        padding: 10px 12px;
+
+        border-radius: 8px;
+
+        background: rgba(34,197,94,.06);
+        border: 1px solid rgba(34,197,94,.14);
+
+        color: #86efac;
+
+        font-size: 11px;
+    }
+
+    .field {
+        margin-bottom: 17px;
+    }
+
+    label {
+        display: block;
+
+        margin-bottom: 7px;
+
+        font-size: 12px;
+        color: #b8c8d8;
+    }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    input {
+        width: 100%;
+
+        padding: 13px 14px;
+
+        border-radius: 8px;
+
+        border: 1px solid var(--border);
+
+        background: #071321;
+
+        color: var(--text);
+
+        outline: none;
+
+        transition:
+            border-color .2s,
+            box-shadow .2s,
+            background .2s;
+    }
+
+    input::placeholder {
+        color: #526a82;
+    }
+
+    input:focus {
+        border-color: var(--blue);
+
+        background: #081726;
+
+        box-shadow:
+            0 0 0 3px rgba(56,189,248,.08);
+    }
+
+    .password-toggle {
+        position: absolute;
+
+        right: 10px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        background: transparent;
+        border: 0;
+
+        color: var(--muted);
+
+        cursor: pointer;
+
+        font-size: 11px;
+    }
+
+    .strength {
+        height: 3px;
+
+        margin-top: 7px;
+
+        border-radius: 5px;
+
+        background: #18293b;
+
+        overflow: hidden;
+    }
+
+    .strength-bar {
+        height: 100%;
+        width: 0%;
+
+        transition: width .25s, background .25s;
+    }
+
+    .options {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        margin: 7px 0 20px;
+
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .options label {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+
+        margin: 0;
+    }
+
+    .options input {
+        width: auto;
+    }
+
+    .submit {
+        width: 100%;
+
+        padding: 13px;
+
+        border: 0;
+        border-radius: 8px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #38bdf8,
+                #0284c7
+            );
+
+        color: #00131f;
+
+        font-weight: 800;
+
+        cursor: pointer;
+
+        transition:
+            transform .15s,
+            box-shadow .15s;
+    }
+
+    .submit:hover {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 8px 25px rgba(14,165,233,.2);
+    }
+
+    .submit:disabled {
+        opacity: .6;
+        cursor: wait;
+        transform: none;
+    }
+
+    .footer-note {
+        margin-top: 22px;
+
+        text-align: center;
+
+        color: #526a82;
+
+        font-size: 10px;
+        line-height: 1.6;
+    }
+
+    /* --------------------------------
+       SIMULATION OUTPUT
+    -------------------------------- */
+
+    #result {
+        display: none;
+
+        margin-top: 18px;
+
+        padding: 13px;
+
+        border-radius: 8px;
+
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .warning {
+        display: block !important;
+
+        color: #fcd34d;
+
+        background: rgba(245,158,11,.07);
+        border: 1px solid rgba(245,158,11,.18);
+    }
+
+    .success {
+        display: block !important;
+
+        color: #86efac;
+
+        background: rgba(34,197,94,.07);
+        border: 1px solid rgba(34,197,94,.18);
+    }
+
+    /* --------------------------------
+       MFA SCREEN
+    -------------------------------- */
+
+    #mfaScreen {
+        display: none;
+    }
+
+    .mfa-code {
+        text-align: center;
+
+        font-size: 26px;
+        letter-spacing: 8px;
+
+        margin: 20px 0;
+
+        color: var(--blue);
+    }
+
+    /* --------------------------------
+       TRAINING OVERLAY
+    -------------------------------- */
+
+    .training-overlay {
+        position: fixed;
+        inset: 0;
+
+        display: none;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 20px;
+
+        background: rgba(2,8,15,.82);
+
+        backdrop-filter: blur(8px);
+
+        z-index: 100;
+    }
+
+    .training-card {
+        width: 100%;
+        max-width: 560px;
+
+        padding: 32px;
+
+        border-radius: 15px;
+
+        background: #0c1c2f;
+
+        border: 1px solid var(--border);
+
+        box-shadow: var(--shadow);
+    }
+
+    .alert-title {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        color: #fbbf24;
+    }
+
+    .alert-title h2 {
+        margin: 0;
+    }
+
+    .indicator {
+        margin-top: 22px;
+
+        display: grid;
+        gap: 9px;
+    }
+
+    .indicator div {
+        padding: 10px 12px;
+
+        border-radius: 7px;
+
+        background: #081523;
+
+        border: 1px solid #172c42;
+
+        color: #a8bdd0;
+
+        font-size: 12px;
+    }
+
+    .indicator strong {
+        color: #e8f0f8;
+    }
+
+    .close-training {
+        width: 100%;
+
+        margin-top: 22px;
+
+        padding: 11px;
+
+        border: 1px solid #2b435d;
+
+        border-radius: 7px;
+
+        background: #10243b;
+
+        color: white;
+
+        cursor: pointer;
+    }
+
+    /* --------------------------------
+       RESPONSIVE
+    -------------------------------- */
+
+    @media (max-width: 800px) {
+        .app {
+            grid-template-columns: 1fr;
+        }
+
+        .info {
+            display: none;
+        }
+
+        .login-panel {
+            padding: 35px 25px;
+        }
+    }
+</style>
+
+</head> <body> <div class="app">
+<!-- LEFT SIDE -->
+<section class="info">
+
+    <div class="brand">
+        <div class="brand-icon">S</div>
+
+        <div class="brand-text">
+            Secure Identity
+            <small>Enterprise Access Platform</small>
+        </div>
+    </div>
+
+    <h1>
+        Identity verification
+        <br>
+        for your organization
+    </h1>
+
+    <p class="intro">
+        This interface is part of an authorized cybersecurity
+        awareness exercise designed to reproduce the visual and
+        behavioral characteristics of a modern authentication portal.
+    </p>
+
+    <div class="feature-list">
+
+        <div class="feature">
+            <div class="feature-icon">✓</div>
+
+            <div>
+                <strong>Protected session</strong>
+                <span>Encrypted-session indicator simulation.</span>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">◆</div>
+
+            <div>
+                <strong>Risk monitoring</strong>
+                <span>Authentication events are monitored by the lab.</span>
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">⌁</div>
+
+            <div>
+                <strong>Multi-factor authentication</strong>
+                <span>Second-factor workflow is simulated.</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="lab-badge">
+        <span class="dot"></span>
+        AUTHORIZED SECURITY LAB
+    </div>
+
+</section>
+
+<!-- RIGHT SIDE -->
+<section class="login-panel">
+
+    <!-- LOGIN -->
+    <div id="loginScreen">
+
+        <div class="login-header">
+            <h2>Sign in</h2>
+            <p>Use your organizational training account.</p>
+        </div>
+
+        <div class="security-line">
+            🔒 Secure authentication environment
+        </div>
+
+        <form id="loginForm">
+
+            <div class="field">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    id="username"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="student@example.test"
+                    required
+                >
+
+            </div>
+
+            <div class="field">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        id="password"
+                        type="password"
+                        autocomplete="off"
+                        placeholder="Training password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="password-toggle"
+                        id="togglePassword">
+                        SHOW
+                    </button>
+
+                </div>
+
+                <div class="strength">
+                    <div
+                        id="strengthBar"
+                        class="strength-bar">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="options">
+
+                <label>
+                    <input type="checkbox">
+                    Remember this device
+                </label>
+
+                <span>Need help?</span>
+
+            </div>
+
+            <button
+                class="submit"
+                id="submitButton"
+                type="submit">
+
+                Continue
+
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+        <div class="footer-note">
+            Authorized cybersecurity training environment.<br>
+            Never use production credentials in this exercise.
+        </div>
+
+    </div>
+
+    <!-- MFA -->
+    <div id="mfaScreen">
+
+        <div class="login-header">
+
+            <h2>Additional verification</h2>
+
+            <p>
+                Your identity requires a second verification step.
+            </p>
+
+        </div>
+
+        <div class="security-line">
+            ✓ Identity verification initiated
+        </div>
+
+        <p style="color:#8ea4ba;font-size:13px;">
+            Enter the training verification code displayed below.
+        </p>
+
+        <div class="mfa-code">
+            42 73 91
+        </div>
+
+        <form id="mfaForm">
+
+            <div class="field">
+
+                <label for="mfa">
+                    Verification code
+                </label>
+
+                <input
+                    id="mfa"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="6"
+                    placeholder="Training code"
+                    required
+                >
+
+            </div>
+
+            <button class="submit" type="submit">
+                Verify identity
+            </button>
+
+        </form>
+
+        <div
+            id="mfaResult"
+            style="
+                display:none;
+                margin-top:15px;
+                color:#fbbf24;
+                font-size:12px;
+            ">
+        </div>
+
+    </div>
+
+</section>
+
+</div> <!-- TRAINING RESULT --> <div id="trainingOverlay" class="training-overlay">
+<div class="training-card">
+
+    <div class="alert-title">
+
+        <div style="font-size:30px;">
+            ⚠
+        </div>
+
+        <h2>
+            Phishing Simulation Detected
+        </h2>
+
+    </div>
+
+    <p style="color:#a8bdd0;line-height:1.6;">
+        This was an authorized security-awareness exercise.
+        The authentication workflow was intentionally designed
+        to resemble a suspicious login page.
+    </p>
+
+    <div class="indicator">
+
+        <div>
+            <strong>01 — Unexpected authentication page</strong><br>
+            Verify the URL and certificate before entering credentials.
+        </div>
+
+        <div>
+            <strong>02 — Password request</strong><br>
+            Never reuse your real password in an untrusted environment.
+        </div>
+
+        <div>
+            <strong>03 — MFA request</strong><br>
+            Unexpected MFA prompts can be a phishing indicator.
+        </div>
+
+        <div>
+            <strong>04 — Lab telemetry</strong><br>
+            The exercise recorded the interaction but deliberately
+            did not collect the password.
+        </div>
+
+    </div>
+
+    <button
+        class="close-training"
+        onclick="closeTraining()">
+
+        Return to laboratory
+
+    </button>
+
+</div>
+
+</div> <script>
+/*
+ * ============================================================
+ * SECURITY AWARENESS LAB
+ * ============================================================
+ *
+ * IMPORTANT:
+ *
+ * The password value is deliberately NEVER read by the
+ * telemetry system.
+ *
+ * No credentials are transmitted.
+ * No password is stored.
+ * No password is logged.
+ *
+ * The application records only security-awareness events.
+ * ============================================================
+ */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+const username =
+    document.getElementById("username");
+
+const password =
+    document.getElementById("password");
+
+const submitButton =
+    document.getElementById("submitButton");
+
+const result =
+    document.getElementById("result");
+
+const strengthBar =
+    document.getElementById("strengthBar");
+
+/*
+ * Generate a harmless laboratory session identifier.
+ */
+
+const labSession =
+    crypto.randomUUID();
+
+/*
+ * Local telemetry.
+ *
+ * We record event names, NOT passwords.
+ */
+
+const telemetry = [];
+
+function recordEvent(type, details = {}) {
+
+    const event = {
+        timestamp: new Date().toISOString(),
+        session: labSession,
+        type: type,
+        ...details
+    };
+
+    telemetry.push(event);
+
+    console.log(
+        "%c[LAB EVENT]",
+        "color:#38bdf8;font-weight:bold",
+        event
+    );
+}
+
+/*
+ * Initial page-view event.
+ */
+
+recordEvent("LOGIN_PAGE_VIEW", {
+    userAgent: navigator.userAgent,
+    language: navigator.language,
+    platform: navigator.platform
+});
+
+/*
+ * Username interaction telemetry.
+ */
+
+username.addEventListener("focus", function() {
+
+    recordEvent("USERNAME_FIELD_FOCUSED");
+
+});
+
+username.addEventListener("change", function() {
+
+    /*
+     * Username is permitted in this training simulation.
+     *
+     * In a production security lab you may instead want
+     * to hash/anonymize it.
+     */
+
+    recordEvent("USERNAME_ENTERED", {
+        username: username.value
+    });
+
+});
+
+/*
+ * IMPORTANT:
+ *
+ * We deliberately DO NOT attach a keylogger or capture
+ * password input values.
+ */
+
+password.addEventListener("focus", function() {
+
+    recordEvent("PASSWORD_FIELD_FOCUSED");
+
+});
+
+/*
+ * Password strength visualization.
+ *
+ * This operates on length only and never stores the
+ * password value.
+ */
+
+password.addEventListener("input", function() {
+
+    const length = password.value.length;
+
+    let percentage = 0;
+    let color = "#ef4444";
+
+    if (length >= 4) {
+        percentage = 35;
+    }
+
+    if (length >= 8) {
+        percentage = 65;
+        color = "#f59e0b";
+    }
+
+    if (length >= 12) {
+        percentage = 100;
+        color = "#22c55e";
+    }
+
+    strengthBar.style.width = percentage + "%";
+    strengthBar.style.background = color;
+
+});
+
+/*
+ * Show / hide password.
+ *
+ * This is normal UI behavior.
+ */
+
+document
+    .getElementById("togglePassword")
+    .addEventListener("click", function() {
+
+        if (password.type === "password") {
+
+            password.type = "text";
+            this.textContent = "HIDE";
+
+        } else {
+
+            password.type = "password";
+            this.textContent = "SHOW";
+
+        }
+
+    });
+
+/*
+ * Login simulation.
+ */
+
+loginForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    recordEvent("LOGIN_SUBMITTED", {
+        username: username.value,
+        passwordCollected: false
+    });
+
+    submitButton.disabled = true;
+    submitButton.textContent = "Verifying...";
+
+    result.className = "warning";
+    result.textContent =
+        "Contacting identity service...";
+
+    setTimeout(function() {
+
+        recordEvent("SIMULATED_AUTHENTICATION");
+
+        result.textContent =
+            "Authentication accepted by simulation. " +
+            "Additional verification required.";
+
+        setTimeout(function() {
+
+            document
+                .getElementById("loginScreen")
+                .style.display = "none";
+
+            document
+                .getElementById("mfaScreen")
+                .style.display = "block";
+
+            recordEvent("MFA_PAGE_DISPLAYED");
+
+        }, 1000);
+
+    }, 1600);
+
+});
+
+/*
+ * MFA simulation.
+ */
+
+document
+    .getElementById("mfaForm")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        const mfa =
+            document.getElementById("mfa");
+
+        /*
+         * We only check that a code was supplied.
+         * We don't need to store it.
+         */
+
+        recordEvent("MFA_SUBMITTED", {
+            codeProvided: mfa.value.length > 0
+        });
+
+        document
+            .getElementById("mfaResult")
+            .style.display = "block";
+
+        document
+            .getElementById("mfaResult")
+            .textContent =
+            "Verification accepted by simulation.";
+
+        /*
+         * Immediately clear the simulated code.
+         */
+
+        mfa.value = "";
+
+        setTimeout(function() {
+
+            recordEvent("TRAINING_COMPLETED");
+
+            document
+                .getElementById("trainingOverlay")
+                .style.display = "flex";
+
+        }, 900);
+
+    });
+
+/*
+ * Close training overlay.
+ */
+
+function closeTraining() {
+
+    document
+        .getElementById("trainingOverlay")
+        .style.display = "none";
+
+    document
+        .getElementById("loginScreen")
+        .style.display = "block";
+
+    document
+        .getElementById("mfaScreen")
+        .style.display = "none";
+
+    loginForm.reset();
+
+    password.value = "";
+
+    strengthBar.style.width = "0%";
+
+    submitButton.disabled = false;
+    submitButton.textContent = "Continue";
+
+    result.style.display = "none";
+
+    recordEvent("TRAINING_RESET");
+
+}
+
+/*
+ * Make telemetry accessible from DevTools.
+ *
+ * Try:
+ *
+ *     labTelemetry()
+ *
+ * in the browser console.
+ */
+
+window.labTelemetry = function() {
+
+    return JSON.parse(
+        JSON.stringify(telemetry)
+    );
+
+};
+
+/*
+ * Final browser-console warning.
+ */
+
+console.log(
+    "%cAUTHORIZED SECURITY LAB",
+    "color:#22c55e;font-size:18px;font-weight:bold"
+);
+
+console.log(
+    "Telemetry available through labTelemetry()."
+);
+
+console.log(
+    "Passwords are intentionally excluded from telemetry."
+);
