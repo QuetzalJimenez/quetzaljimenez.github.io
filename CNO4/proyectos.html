@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proyectos | CNO IV – Seguridad Informática</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root { --accent:#0b3d91; --muted:#666; --card:#fff; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; color:#222; background:#fafafa; }
+    header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem; border-bottom:1px solid #eee; background:#fff; }
+    header h1 { margin:0; font-size:1.25rem; color:#111; }
+    header p { margin:0; color:var(--muted); font-size:0.95rem; }
+    nav a { color:var(--accent); text-decoration:none; margin-left:0.6rem; }
+    main { max-width:980px; margin:1.25rem auto; padding:0 1rem; }
+
+    .project-list { list-style:none; padding:0; margin:0; border-radius:8px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,0.03); }
+    .project-item { display:flex; justify-content:space-between; gap:1rem; padding:14px 16px; background:#fff; border-bottom:1px solid #f0f0f0; align-items:center; }
+    .project-item:last-child { border-bottom:0; }
+    .project-meta { display:flex; flex-direction:column; gap:6px; max-width:66%; }
+    .project-title { font-weight:700; color:var(--accent); text-decoration:none; }
+    .project-desc { color:var(--muted); font-size:0.95rem; }
+    .project-media { display:flex; gap:10px; align-items:center; }
+
+    .pdf-link { border:1px solid #ddd; padding:6px 10px; border-radius:6px; text-decoration:none; color:#222; background:#fff; font-weight:600; }
+    .open { color:var(--accent); text-decoration:none; font-weight:600; }
+
+    /* YouTube preview */
+    .yt-preview { position:relative; border:0; padding:0; background:transparent; cursor:pointer; display:inline-block; }
+    .yt-preview img { width:160px; height:90px; border-radius:6px; object-fit:cover; display:block; }
+    .yt-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:26px; color:#fff; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+
+    /* Modal */
+    .yt-modal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; }
+    .yt-modal[aria-hidden="false"] { display:flex; }
+    .yt-modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.6); }
+    .yt-modal-content { position:relative; width:92%; max-width:960px; border-radius:8px; padding:0; z-index:2; }
+    .yt-close { position:absolute; right:-10px; top:-10px; background:#fff; border-radius:50%; border:1px solid #ddd; width:36px; height:36px; cursor:pointer; font-size:16px; }
+    .yt-iframe-wrap { position:relative; padding-top:56.25%; background:#000; border-radius:8px; overflow:hidden; }
+    .yt-iframe-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+
+    .back { display:inline-block; margin-top:1rem; text-decoration:none; color:#444; border:1px solid #ddd; padding:8px 12px; border-radius:6px; background:#fff; }
+    @media (max-width:640px) {
+      .project-meta { max-width:100%; }
+      .yt-preview img { width:120px; height:68px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <h1>Proyectos</h1>
+      <p>Listado de proyectos del curso. Haz clic en un proyecto para ver su informe o evidencia.</p>
+    </div>
+    <nav aria-label="Navegación secundaria">
+      <a href="index.html">Inicio</a>
+      <a href="evidencias.html">Evidencias</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <ul class="project-list" role="list">
+
+      <!-- PR01: PDF + YouTube preview -->
+      <li id="pr01" class="project-item" role="listitem">
+        <div class="project-meta">
+          <a href="PR01_184286.pdf" target="_blank" rel="noopener" class="project-title">PR01 · Walkthrough Snakeoil</a>
+          <div class="project-desc">Informe y video: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub).</div>
+        </div>
+
+        <div class="project-media">
+          <a href="PR01_184286.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
+
+          <!-- Reemplaza YOUTUBE_VIDEO_ID por el ID real -->
+          <button class="yt-preview" data-video-id="YOUTUBE_VIDEO_ID" aria-label="Ver video PR01">
+            <img src="https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/hqdefault.jpg" alt="Vista previa video PR01">
+            <span class="yt-play">▶</span>
+          </button>
+        </div>
+      </li>
+
+      <!-- PR02 -->
+      <li id="pr02" class="project-item" role="listitem">
+        <div class="project-meta">
+          <a href="PR02_184287.pdf" target="_blank" rel="noopener" class="project-title">PR02 · Título del proyecto 2</a>
+          <div class="project-desc">Descripción breve del proyecto 2.</div>
+        </div>
+        <div class="project-media">
+          <a href="PR02_184287.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
+        </div>
+      </li>
+
+      <!-- PR03 -->
+      <li id="pr03" class="project-item" role="listitem">
+        <div class="project-meta">
+          <a href="PR03_184288.pdf" target="_blank" rel="noopener" class="project-title">PR03 · Título del proyecto 3</a>
+          <div class="project-desc">Descripción breve del proyecto 3.</div>
+        </div>
+        <div class="project-media">
+          <a href="PR03_184288.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
+        </div>
+      </li>
+
+    </ul>
+
+    <a class="back" href="index.html">← Volver al inicio</a>
+  </main>
+
+  <!-- Modal para reproducir YouTube -->
+  <div id="yt-modal" class="yt-modal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
+    <div class="yt-modal-backdrop" data-close></div>
+    <div class="yt-modal-content" role="document">
+      <button class="yt-close" data-close aria-label="Cerrar reproductor">✕</button>
+      <div class="yt-iframe-wrap" id="yt-iframe-wrap" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('yt-modal');
+      const iframeWrap = document.getElementById('yt-iframe-wrap');
+
+      // Abrir modal al hacer clic en miniatura
+      document.querySelectorAll('.yt-preview').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const videoId = this.getAttribute('data-video-id');
+          if (!videoId) return;
+          const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0';
+          iframeWrap.innerHTML = '<iframe src="' + src + '" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+          modal.setAttribute('aria-hidden', 'false');
+          document.documentElement.style.overflow = 'hidden';
+        });
+      });
+
+      // Cerrar modal
+      function closeModal() {
+        modal.setAttribute('aria-hidden', 'true');
+        iframeWrap.innerHTML = '';
+        document.documentElement.style.overflow = '';
+      }
+
+      modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
+      });
+    })();
+  </script>
+
+</body>
+</html>
+
