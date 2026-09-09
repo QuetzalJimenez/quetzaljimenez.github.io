@@ -1,112 +1,242 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Proyectos | CNO IV – Seguridad Informática</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portafolio | CNO IV – Seguridad Informática</title>
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root { --accent:#0b3d91; --muted:#666; --card:#fff; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; margin:0; color:#222; background:#fafafa; }
-    header { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem; border-bottom:1px solid #eee; background:#fff; }
-    header h1 { margin:0; font-size:1.25rem; color:#111; }
-    header p { margin:0; color:var(--muted); font-size:0.95rem; }
-    nav a { color:var(--accent); text-decoration:none; margin-left:0.6rem; }
-    main { max-width:980px; margin:1.25rem auto; padding:0 1rem; }
+    /* Estilos añadidos / modificados (mantener el modelo base) */
 
-    .project-list { list-style:none; padding:0; margin:0; border-radius:8px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,0.03); }
-    .project-item { display:flex; justify-content:space-between; gap:1rem; padding:14px 16px; background:#fff; border-bottom:1px solid #f0f0f0; align-items:center; }
-    .project-item:last-child { border-bottom:0; }
-    .project-meta { display:flex; flex-direction:column; gap:6px; max-width:66%; }
-    .project-title { font-weight:700; color:var(--accent); text-decoration:none; }
-    .project-desc { color:var(--muted); font-size:0.95rem; }
-    .project-media { display:flex; gap:10px; align-items:center; }
+    /* Botón PDF */
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 22px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+    }
+    .pdf-button:hover {
+      background-color: black;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    }
+    .pdf-button:active { transform: translateY(1px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+    .pdf-button:focus { outline: 3px solid #888; outline-offset: 3px; }
 
-    .pdf-link { border:1px solid #ddd; padding:6px 10px; border-radius:6px; text-decoration:none; color:#222; background:#fff; font-weight:600; }
-    .open { color:var(--accent); text-decoration:none; font-weight:600; }
+    /* Secciones */
+    .activity-section {
+      padding-top: 25px;
+      padding-bottom: 25px;
+      margin-bottom: 20px;
+    }
+    .activity-section h1 { margin-top: 5px; margin-bottom: 10px; }
+    .activity-section p { margin-top: 5px; margin-bottom: 15px; }
 
-    /* YouTube preview */
-    .yt-preview { position:relative; border:0; padding:0; background:transparent; cursor:pointer; display:inline-block; }
-    .yt-preview img { width:160px; height:90px; border-radius:6px; object-fit:cover; display:block; }
-    .yt-play { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:26px; color:#fff; text-shadow:0 2px 6px rgba(0,0,0,0.6); }
+    /* Renombrado: contenedor de documentos (antes .pdf-container) */
+    .document-container {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      background: #f8f8f8;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .document-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-    /* Modal */
+    /* Header / nav actualizado (añadido Proyectos con sublista) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      background: #fafafa;
+    }
+    .logo { display:flex; gap:0.75rem; align-items:center; }
+    .logo-image { border-radius:6px; }
+    nav { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:#0b3d91; padding:0.25rem 0.5rem; border-radius:4px; }
+    nav a:hover { background:#eef4ff; }
+
+    /* Dropdown Proyectos (simple) */
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+      background: transparent;
+      border: 1px solid #ccc;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #222;
+    }
+    .dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      min-width: 140px;
+      z-index: 20;
+    }
+    .dropdown-menu[hidden] { display: none; }
+    .dropdown-menu li a { display:block; padding:0.4rem 0.8rem; color:#222; text-decoration:none; }
+    .dropdown-menu li a:hover { background:#f2f6ff; }
+
+    /* YouTube preview dentro de la sección PR01 */
+    .video-preview {
+      display: inline-block;
+      position: relative;
+      width: 320px;
+      max-width: 100%;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      margin-left: 12px;
+      vertical-align: middle;
+    }
+    .video-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    .video-preview .play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      pointer-events: none;
+    }
+
+    /* Modal para reproducir video */
     .yt-modal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; }
     .yt-modal[aria-hidden="false"] { display:flex; }
     .yt-modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.6); }
-    .yt-modal-content { position:relative; width:92%; max-width:960px; border-radius:8px; padding:0; z-index:2; }
+    .yt-modal-content { position:relative; width:90%; max-width:960px; background:transparent; border-radius:8px; padding:0; z-index:2; }
     .yt-close { position:absolute; right:-10px; top:-10px; background:#fff; border-radius:50%; border:1px solid #ddd; width:36px; height:36px; cursor:pointer; font-size:16px; }
     .yt-iframe-wrap { position:relative; padding-top:56.25%; background:#000; border-radius:8px; overflow:hidden; }
     .yt-iframe-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
 
-    .back { display:inline-block; margin-top:1rem; text-decoration:none; color:#444; border:1px solid #ddd; padding:8px 12px; border-radius:6px; background:#fff; }
-    @media (max-width:640px) {
-      .project-meta { max-width:100%; }
-      .yt-preview img { width:120px; height:68px; }
-    }
+    /* Footer */
+    footer { margin-top: 20px; padding: 12px; text-align: center; color: #666; border-top: 1px solid #f0f0f0; background: #fafafa; }
   </style>
 </head>
+
 <body>
 
+  <!-- HEADER -->
   <header>
-    <div>
-      <h1>Proyectos</h1>
-      <p>Listado de proyectos del curso. Haz clic en un proyecto para ver su informe o evidencia.</p>
+    <div class="navbar">
+
+      <div class="logo">
+        <img src="img/logo.png"
+             alt="Logo"
+             class="logo-image"
+             width="38"
+             height="38">
+
+        <div>
+          <strong>Quetzal · Alias сумерки</strong>
+          <span>CNO IV – Seguridad Informática</span><br>
+          <small>
+            Universidad Politécnica de San Luis Potosí · Semestre 2026
+          </small>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#presentacion">Presentación</a>
+        <a href="index.html#perfil">Perfil</a>
+        <a href="index.html#tecnologias">Tecnologías</a>
+
+        <!-- Enlace a Proyectos -->
+        <a href="proyectos.html">Proyectos</a>
+
+        <!-- Desplegable Proyectos (accesos rápidos) -->
+        <div class="nav-dropdown" aria-haspopup="true">
+          <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
+          <ul id="proyectos-list" class="dropdown-menu" hidden>
+            <li><a href="proyectos.html#pr01">PR01</a></li>
+            <li><a href="proyectos.html#pr02">PR02</a></li>
+            <li><a href="proyectos.html#pr03">PR03</a></li>
+          </ul>
+        </div>
+
+        <a href="evidencias.html">Evidencias</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
     </div>
-    <nav aria-label="Navegación secundaria">
-      <a href="index.html">Inicio</a>
-      <a href="evidencias.html">Evidencias</a>
-      <a href="index.html#contacto">Contacto</a>
-    </nav>
   </header>
 
+
+  <!-- CONTENIDO -->
   <main>
-    <ul class="project-list" role="list">
 
-      <!-- PR01: PDF + YouTube preview -->
-      <li id="pr01" class="project-item" role="listitem">
-        <div class="project-meta">
-          <a href="PR01_184286.pdf" target="_blank" rel="noopener" class="project-title">PR01 · Walkthrough Snakeoil</a>
-          <div class="project-desc">Informe y video: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub).</div>
+    <section class="hero activity-section">
+
+      <h1>PR 01</h1>
+
+      <p>
+        <strong>PR De la teoría a la práctica: walkthrough en acción (guía y video). Informe y video de investigación: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub)</strong>
+      </p>
+
+      <a href="PR01_184286.pdf"
+         target="_blank"
+         class="pdf-button"
+         rel="noopener">
+        Abrir PDF
+      </a>
+
+      <div style="display:flex; align-items:flex-start; gap:12px; margin-top:12px;">
+        <div class="document-container" style="flex:1; max-width:720px;">
+          <iframe
+            src="PR01_184286.pdf"
+            title="PR_01">
+          </iframe>
         </div>
 
-        <div class="project-media">
-          <a href="PR01_184286.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
+        <!-- Vista previa de video de YouTube -->
+        <!-- Reemplaza YOUTUBE_VIDEO_ID por el ID real del video -->
+        <button class="video-preview" data-video-id="YOUTUBE_VIDEO_ID" aria-label="Ver video PR01">
+          <img src="https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/hqdefault.jpg" alt="Vista previa video PR01">
+          <span class="play">▶</span>
+        </button>
+      </div>
 
-          <!-- Reemplaza YOUTUBE_VIDEO_ID por el ID real -->
-          <button class="yt-preview" data-video-id="YOUTUBE_VIDEO_ID" aria-label="Ver video PR01">
-            <img src="https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/hqdefault.jpg" alt="Vista previa video PR01">
-            <span class="yt-play">▶</span>
-          </button>
-        </div>
-      </li>
+    </section>
 
-      <!-- PR02 -->
-      <li id="pr02" class="project-item" role="listitem">
-        <div class="project-meta">
-          <a href="PR02_184287.pdf" target="_blank" rel="noopener" class="project-title">PR02 · Título del proyecto 2</a>
-          <div class="project-desc">Descripción breve del proyecto 2.</div>
-        </div>
-        <div class="project-media">
-          <a href="PR02_184287.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
-        </div>
-      </li>
-
-      <!-- PR03 -->
-      <li id="pr03" class="project-item" role="listitem">
-        <div class="project-meta">
-          <a href="PR03_184288.pdf" target="_blank" rel="noopener" class="project-title">PR03 · Título del proyecto 3</a>
-          <div class="project-desc">Descripción breve del proyecto 3.</div>
-        </div>
-        <div class="project-media">
-          <a href="PR03_184288.pdf" target="_blank" rel="noopener" class="pdf-link">Abrir PDF</a>
-        </div>
-      </li>
-
-    </ul>
-
-    <a class="back" href="index.html">← Volver al inicio</a>
   </main>
+
 
   <!-- Modal para reproducir YouTube -->
   <div id="yt-modal" class="yt-modal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
@@ -117,13 +247,46 @@
     </div>
   </div>
 
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      © 2026 · Quetzal · Universidad Politécnica de San Luis Potosí
+    </p>
+
+    <p class="security">
+      Conexión segura · HTTPS
+    </p>
+  </footer>
+
   <script>
+    // Script para el desplegable Proyectos
+    (function () {
+      const toggle = document.querySelector('.dropdown-toggle');
+      const menu = document.getElementById('proyectos-list');
+      if (toggle && menu) {
+        document.addEventListener('click', function (e) {
+          if (e.target === toggle) {
+            const hidden = menu.hasAttribute('hidden');
+            if (hidden) { menu.removeAttribute('hidden'); toggle.setAttribute('aria-expanded','true'); }
+            else { menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); }
+            return;
+          }
+          if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false');
+          }
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); toggle.focus(); }
+        });
+      }
+    })();
+
+    // Script para modal de YouTube (vista previa)
     (function () {
       const modal = document.getElementById('yt-modal');
       const iframeWrap = document.getElementById('yt-iframe-wrap');
 
-      // Abrir modal al hacer clic en miniatura
-      document.querySelectorAll('.yt-preview').forEach(btn => {
+      document.querySelectorAll('.video-preview').forEach(btn => {
         btn.addEventListener('click', function () {
           const videoId = this.getAttribute('data-video-id');
           if (!videoId) return;
@@ -134,7 +297,6 @@
         });
       });
 
-      // Cerrar modal
       function closeModal() {
         modal.setAttribute('aria-hidden', 'true');
         iframeWrap.innerHTML = '';
@@ -150,4 +312,3 @@
 
 </body>
 </html>
-
