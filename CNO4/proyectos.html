@@ -5,84 +5,100 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portafolio | CNO IV – Seguridad Informática</title>
   <link rel="stylesheet" href="style.css">
-</head>
   <style>
+    /* Estilos añadidos (mantienen el modelo base) */
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 22px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+    }
+    .pdf-button:hover {
+      background-color: black;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    }
+    .pdf-button:active { transform: translateY(1px); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    .pdf-button:focus { outline: 3px solid #888; outline-offset: 3px; }
 
-.pdf-button {
-  display: inline-block;
-  padding: 10px 22px;
+    .activity-section { padding-top: 25px; padding-bottom: 25px; margin-bottom: 20px; }
+    .activity-section h1 { margin-top: 5px; margin-bottom: 10px; }
+    .activity-section p { margin-top: 5px; margin-bottom: 15px; }
 
-  background-color: white;
-  color: black;
+    /* Renombrado: contenedor de documentos (antes .pdf-container) */
+    .document-container {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+      background: #f8f8f8;
+      border: 1px solid #e6e6e6;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .document-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
 
-  text-decoration: none;
-  font-weight: bold;
+    /* Header / nav actualizado (añadido Proyectos con sublista) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px;
+      border-bottom: 1px solid #eee;
+      background: #fafafa;
+    }
+    .logo { display:flex; gap:0.75rem; align-items:center; }
+    .logo-image { border-radius:6px; }
+    nav { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
+    nav a { text-decoration:none; color:#0b3d91; padding:0.25rem 0.5rem; border-radius:4px; }
+    nav a:hover { background:#eef4ff; }
 
-  border: 2px solid black;
-  border-radius: 6px;
+    .nav-dropdown { position: relative; display: inline-block; }
+    .dropdown-toggle {
+      background: transparent;
+      border: 1px solid #ccc;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #222;
+    }
+    .dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
+      min-width: 140px;
+      z-index: 20;
+    }
+    .dropdown-menu[hidden] { display: none; }
+    .dropdown-menu li a { display:block; padding:0.4rem 0.8rem; color:#222; text-decoration:none; }
+    .dropdown-menu li a:hover { background:#f2f6ff; }
 
-  cursor: pointer;
-
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
-
-
-/* AL PASAR EL MOUSE */
-.pdf-button:hover {
-  background-color: black;
-  color: white;
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-}
-
-
-/* AL PRESIONAR */
-.pdf-button:active {
-  transform: translateY(1px);
-
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-
-/* AL SELECCIONAR CON TAB */
-.pdf-button:focus {
-  outline: 3px solid #888;
-  outline-offset: 3px;
-}
-
-
-.activity-section {
-  padding-top: 25px;
-  padding-bottom: 25px;
-
-  margin-bottom: 20px;
-}
-
-
-/* Reduce el espacio entre título y contenido */
-.activity-section h1 {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
-
-
-/* Reduce el espacio del texto */
-.activity-section p {
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-
-/* Espacio entre botón y PDF */
-.activity-section .pdf-container {
-  margin-top: 20px;
-}
     /* YouTube preview dentro de la sección PR01 */
     .video-preview {
       display: inline-block;
@@ -95,12 +111,7 @@
       margin-left: 12px;
       vertical-align: middle;
     }
-    .video-preview img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+    .video-preview img { display: block; width: 100%; height: auto; object-fit: cover; }
     .video-preview .play {
       position: absolute;
       left: 50%;
@@ -121,7 +132,9 @@
     .yt-iframe-wrap { position:relative; padding-top:56.25%; background:#000; border-radius:8px; overflow:hidden; }
     .yt-iframe-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
 
+    footer { margin-top: 20px; padding: 12px; text-align: center; color: #666; border-top: 1px solid #f0f0f0; background: #fafafa; }
   </style>
+</head>
 
 <body>
 
@@ -145,18 +158,31 @@
         </div>
       </div>
 
-      <nav>
+      <nav aria-label="Navegación principal">
         <a href="index.html#inicio">Inicio</a>
         <a href="index.html#presentacion">Presentación</a>
         <a href="index.html#perfil">Perfil</a>
         <a href="index.html#tecnologias">Tecnologías</a>
+
+        <!-- Enlace a Proyectos -->
+        <a href="proyectos.html">Proyectos</a>
+
+        <!-- Desplegable Proyectos (accesos rápidos) -->
+        <div class="nav-dropdown" aria-haspopup="true">
+          <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
+          <ul id="proyectos-list" class="dropdown-menu" hidden>
+            <li><a href="proyectos.html#pr01">PR01</a></li>
+            <li><a href="proyectos.html#pr02">PR02</a></li>
+            <li><a href="proyectos.html#pr03">PR03</a></li>
+          </ul>
+        </div>
+
         <a href="evidencias.html">Evidencias</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
 
     </div>
   </header>
-<body>
 
   <!-- CONTENIDO -->
   <main>
@@ -178,16 +204,13 @@
 
       <div style="display:flex; align-items:flex-start; gap:12px; margin-top:12px;">
         <div class="document-container" style="flex:1; max-width:720px;">
-          <iframe
-            src="PR01_184286.pdf"
-            title="PR_01">
-          </iframe>
+          <iframe src="PR01_184286.pdf" title="PR_01"></iframe>
         </div>
 
         <!-- Vista previa de video de YouTube -->
-        <!-- Reemplaza YOUTUBE_VIDEO_ID por el ID real del video -->
-        <button class="video-preview" data-video-id="uhl4L2AJOAk&t=1837s" aria-label="Ver video PR01">
-          <img src="https://img.youtube.com/vi/uhl4L2AJOAk&t=1837s/hqdefault.jpg" alt="Vista previa video PR01">
+        <!-- ID correcto: uhl4L2AJOAk. Si quieres que empiece en 1837s, el modal usará start=1837 -->
+        <button class="video-preview" data-video-id="uhl4L2AJOAk" data-start="1837" aria-label="Ver video PR01">
+          <img src="https://img.youtube.com/vi/uhl4L2AJOAk/hqdefault.jpg" alt="Vista previa video PR01">
           <span class="play">▶</span>
         </button>
       </div>
@@ -195,7 +218,6 @@
     </section>
 
   </main>
-
 
   <!-- Modal para reproducir YouTube -->
   <div id="yt-modal" class="yt-modal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
@@ -207,16 +229,9 @@
   </div>
 
   <!-- FOOTER -->
-
-  <!-- FOOTER -->
   <footer>
-    <p>
-      © 2026 · Quetzal · Universidad Politécnica de San Luis Potosí
-    </p>
-
-    <p class="security">
-      Conexión segura · HTTPS
-    </p>
+    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
+    <p class="security">Conexión segura · HTTPS</p>
   </footer>
 
   <script>
@@ -250,8 +265,10 @@
       document.querySelectorAll('.video-preview').forEach(btn => {
         btn.addEventListener('click', function () {
           const videoId = this.getAttribute('data-video-id');
+          const start = parseInt(this.getAttribute('data-start') || '0', 10);
           if (!videoId) return;
-          const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0';
+          // Construir URL con start si aplica
+          const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0' + (start > 0 ? '&start=' + start : '');
           iframeWrap.innerHTML = '<iframe src="' + src + '" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
           modal.setAttribute('aria-hidden', 'false');
           document.documentElement.style.overflow = 'hidden';
