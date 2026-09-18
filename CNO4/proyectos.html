@@ -57,16 +57,23 @@
       border: 0;
     }
 
-    /* Header / nav actualizado (añadido Proyectos con sublista) */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      padding: 12px;
-      border-bottom: 1px solid #eee;
-      background: #fafafa;
-    }
+/* Header / nav actualizado (Estilo Negro) */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 12px;
+  border-bottom: 1px solid #333; /* Borde oscuro para contrastar */
+  background: #121212; /* Fondo negro elegante */
+  color: #ffffff; /* Texto en blanco */
+}
+
+/* Regla adicional para asegurar que los enlaces se vean blancos */
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+}
     .logo { display:flex; gap:0.75rem; align-items:center; }
     .logo-image { border-radius:6px; }
     nav { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
