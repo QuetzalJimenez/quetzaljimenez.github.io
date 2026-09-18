@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -150,7 +149,6 @@
     border-radius: 12px;
     padding: 30px;
     margin-bottom: 40px;
-    text-align: center;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
@@ -166,38 +164,66 @@
     color: #d4af37;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-align: center;
   }
 
-  .activity-section p {
+  .activity-section .subtitle {
     color: #cccccc;
     font-size: 1.1rem;
     max-width: 800px;
     margin: 10px auto 25px auto;
+    text-align: center;
   }
 
-  /* Botón Descargar / Abrir PDF */
-  .pdf-button {
+  /* Grupo de Botones */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+
+  .action-button {
     display: inline-block;
-    padding: 10px 24px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  }
+
+  .action-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .pdf-button {
     background-color: #ffffff;
     color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #ffffff;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 25px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    border-color: #ffffff;
   }
 
   .pdf-button:hover {
     background-color: #d4af37;
     color: #000000;
     border-color: #d4af37;
-    transform: translateY(-2px);
   }
 
-  /* Contenedor e iframe del Visor de PDF */
+  .html-button {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border-color: #0d6efd;
+  }
+
+  .html-button:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
+
+  /* Contenedor e iframe del Visor */
   .pdf-container {
     position: relative;
     width: 100%;
@@ -214,15 +240,93 @@
     border: none;
   }
 
-    /* Estilo específico para HTML */
-.html-button {
-  background-color: #0d6efd;
-  color: #ffffff;
-}
+  /* Separador */
+  .section-divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #222222;
+  }
 
-.html-button:hover {
-  background-color: #0b5ed7;
-}
+  /* Estilos de Previsualización de la Actividad (Dark Theme) */
+  .activity-preview {
+    background-color: #050505;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
+  }
+
+  .activity-preview h2 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+  }
+
+  .preview-block {
+    margin-bottom: 28px;
+  }
+
+  .preview-block h3 {
+    border-left: 4px solid #d4af37;
+    padding-left: 10px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 1.15rem;
+  }
+
+  .preview-block p {
+    color: #b0b0b0;
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .lab-image-container {
+    margin: 20px 0;
+    text-align: center;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .lab-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #333333;
+  }
+
+  figcaption {
+    font-size: 0.85rem;
+    color: #888888;
+    margin-top: 8px;
+  }
+
+  code {
+    background-color: #1a1a1a;
+    color: #d4af37;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  .tools-list {
+    padding-left: 20px;
+    color: #b0b0b0;
+  }
+
+  .tools-list li {
+    margin-bottom: 10px;
+  }
+
+  .tools-list strong {
+    color: #ffffff;
+  }
 
   /* ==========================================================================
      4. FOOTER
@@ -249,7 +353,7 @@
 </head>
 <body>
 
-<header>
+  <header>
     <div class="navbar">
       <div class="logo">
         <img src="img/logo.png" alt="Logo" class="logo-image" width="38" height="38">
@@ -285,54 +389,137 @@
     </div>
   </header>
 
-
-  <!-- CONTENIDO -->
+  <!-- CONTENIDO PRINCIPAL -->
   <main>
 
-  <h1>Act07</h1>
+    <section class="activity-section">
+      <h1>Act07</h1>
 
-  <p>
-    <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE </strong>
-  </p>
+      <p class="subtitle">
+        <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE</strong>
+      </p>
 
-  <div class="button-group">
-    <a href="../Act07_cno4.pdf" 
-       target="_blank" 
-       class="action-button pdf-button">
-      Abrir PDF
-    </a>
+      <!-- BOTONES DE ACCIÓN PARA EL VISOR -->
+      <div class="button-group">
+        <button type="button" 
+                class="action-button pdf-button" 
+                onclick="cargarVista('../Act07_cno4.pdf')">
+          Ver PDF
+        </button>
 
-    <button type="button" 
-            class="action-button html-button" 
-            onclick="cargarVista('actividades/act07.html')">
-      Ver Página HTML
-    </button>
-  </div>
+        <button type="button" 
+                class="action-button html-button" 
+                onclick="cargarVista('actividades/act07.html')">
+          Ver Página HTML
+        </button>
 
-  <div class="pdf-container">
-    <iframe id="viewer-frame"
-      src="../Act07_cno4.pdf" 
-      title="Visualizador de contenido">
-    </iframe>
-  </div>
+        <a href="../Act07_cno4.pdf" 
+           target="_blank" 
+           class="action-button pdf-button">
+          Abrir PDF en pestaña ↗
+        </a>
+      </div>
 
-</section>
+      <!-- VISOR DINÁMICO (IFRAME) -->
+      <div class="pdf-container">
+        <iframe id="viewer-frame"
+                src="../Act07_cno4.pdf" 
+                title="Visualizador de contenido">
+        </iframe>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- PREVISUALIZACIÓN DETALLADA DE LA ACTIVIDAD -->
+      <article class="activity-preview">
+        <h2>Previsualización de la Investigación</h2>
+
+        <section class="preview-block">
+          <h3>OBJETIVO</h3>
+          <p>
+            <strong>File Path Traversal</strong> (también llamado <em>Directory Traversal</em>) es una vulnerabilidad que permite a un atacante navegar por los directorios del servidor para acceder a archivos que no deberían ser accesibles, usando rutas manipuladas como: <code>../../../</code>
+          </p>
+          <p>
+            Observar el tráfico de paquetes y el uso de <code>GET</code> como un exponencial método que puede ser atacado de múltiples formas entendiendo las vulnerabilidades de páginas web sin seguridad implementada.
+          </p>
+        </section>
+
+        <section class="preview-block">
+          <h3>AMBIENTE DE LABORATORIO</h3>
+          
+          <figure class="lab-image-container">
+            <img src="img/act07/lab_step1.png" alt="Inicialización del laboratorio en BurpSuite" class="lab-img">
+            <figcaption>Página inicial al inicializar BurpSuite; el laboratorio aparece de manera virtualizada.</figcaption>
+          </figure>
+
+          <p>
+            Encontramos que las imágenes se comparten por método <code>GET</code>, esto nos permite un vector de ataque. De manera pasiva utilizamos un repeater a una de las imágenes que aparecen.
+          </p>
+
+          <figure class="lab-image-container">
+            <img src="img/act07/lab_step2.png" alt="Captura de tráfico GET e inspección de imágenes" class="lab-img">
+            <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
+          </figure>
+
+          <p>
+            Modificamos el <code>filename</code> que es donde se hace la llamada a la imagen y buscamos llamar a <code>/etc/passwd</code> suponiendo que el root se puede regresar y que está en un nivel de capa 4 por si hubo modificaciones. Sin embargo, puedes hacer regresión a N número de directorios si deseas.
+          </p>
+
+          <figure class="lab-image-container">
+            <img src="img/act07/lab_step3.png" alt="Modificación de parámetros en Repeater" class="lab-img">
+            <figcaption>Inyección de secuencias ../ en el parámetro filename dentro de Repeater.</figcaption>
+          </figure>
+
+          <p>
+            Nos regresa la información que se encuentra en este directorio y en este archivo, hemos completado la intrusión al laboratorio.
+          </p>
+
+          <figure class="lab-image-container">
+            <img src="img/act07/lab_step4.png" alt="Respuesta del servidor mostrando /etc/passwd" class="lab-img">
+            <figcaption>Respuesta exitosa del servidor expuesto con el contenido de /etc/passwd.</figcaption>
+          </figure>
+        </section>
+
+        <section class="preview-block">
+          <h3>COMANDOS Y HERRAMIENTAS UTILIZADAS</h3>
+          <ul class="tools-list">
+            <li>
+              <strong>Burp Suite – Proxy (Intercept ON):</strong> Se activó la opción <em>Intercept ON</em> para capturar las peticiones HTTP generadas por el navegador.
+            </li>
+            <li>
+              <strong>Forward:</strong> Se utilizó el botón <em>Forward</em> para permitir que la página cargara después de interceptar las solicitudes.
+            </li>
+            <li>
+              <strong>Observación de tráfico GET:</strong> Se identificaron múltiples peticiones de tipo <code>GET</code> hacia recursos estáticos.
+            </li>
+            <li>
+              <strong>Prueba de acceso a directorios:</strong> Se intentó navegar hacia el directorio raíz regresando niveles (<code>../</code>) para comprobar la estructura de directorios y posibles accesos indebidos.
+            </li>
+          </ul>
+        </section>
+      </article>
+
+    </section>
 
   </main>
 
-
   <!-- FOOTER -->
   <footer>
-    <p>
-      © 2026 · Quetzal · Universidad Politécnica de San Luis Potosí
-    </p>
-
-    <p class="security">
-      Conexión segura · HTTPS
-    </p>
+    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
+    <p class="security">Conexión segura · HTTPS</p>
   </footer>
-    <script>
-    // 1. Script Menú Desplegable Proyectos
+
+  <!-- SCRIPTS -->
+  <script>
+    // 1. Script para cambiar el origen del Visor (PDF / HTML)
+    function cargarVista(url) {
+      const iframe = document.getElementById('viewer-frame');
+      if (iframe) {
+        iframe.src = url;
+      }
+    }
+
+    // 2. Script Menú Desplegable Proyectos
     (function () {
       const toggle = document.querySelector('.dropdown-toggle');
       const menu = document.getElementById('proyectos-list');
@@ -366,7 +553,7 @@
       }
     })();
 
-    // 2. Control de Modales de Evidencia
+    // 3. Control de Modales de Evidencia
     function openLabModal(modalId) {
       const modal = document.getElementById(modalId);
       if (modal) {
