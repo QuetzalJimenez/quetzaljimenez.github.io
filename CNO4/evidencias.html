@@ -3,91 +3,169 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio | CNO IV – Seguridad Informática</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+  <title>Road to Hall of Fame | Portafolio CNO IV</title>
   <style>
+    /* ==========================================================================
+       1. ESTILOS BASE Y PALETA DE COLORES (PROPORCIONADOS EN TU PLANTILLA)
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+    }
 
-.pdf-button {
-  display: inline-block;
-  padding: 10px 22px;
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+      line-height: 1.6;
+    }
 
-  background-color: white;
-  color: black;
+    /* Header / nav actualizado (Estilo Negro) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px 24px;
+      border-bottom: 1px solid #333;
+      background: #121212;
+      color: #ffffff;
+    }
 
-  text-decoration: none;
-  font-weight: bold;
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
 
-  border: 2px solid black;
-  border-radius: 6px;
+    .navbar a:hover, .navbar a.active {
+      color: #00f2fe;
+    }
 
-  cursor: pointer;
+    .logo {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
 
-  transition:
-    background-color 0.2s ease,
-    color 0.2s ease,
-    transform 0.15s ease,
-    box-shadow 0.2s ease;
-}
+    .logo-image {
+      border-radius: 6px;
+    }
 
+    .logo-text strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+    }
 
-/* AL PASAR EL MOUSE */
-.pdf-button:hover {
-  background-color: black;
-  color: white;
+    .logo-text span {
+      color: #bbb;
+      font-size: 0.85rem;
+    }
 
-  transform: translateY(-2px);
+    .logo-text small {
+      color: #888;
+      font-size: 0.75rem;
+    }
 
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-}
+    nav {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
 
+    nav a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
 
-/* AL PRESIONAR */
-.pdf-button:active {
-  transform: translateY(1px);
+    /* Dropdown Navegación */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
 
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
+    .dropdown-toggle {
+      background: transparent;
+      border: 1px solid #444;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
 
+    .dropdown-toggle:hover {
+      background: #222;
+    }
 
-/* AL SELECCIONAR CON TAB */
-.pdf-button:focus {
-  outline: 3px solid #888;
-  outline-offset: 3px;
-}
+    .dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      min-width: 160px;
+      z-index: 20;
+      border-radius: 4px;
+    }
 
+    .dropdown-menu[hidden] {
+      display: none;
+    }
 
-.activity-section {
-  padding-top: 25px;
-  padding-bottom: 25px;
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.4rem 0.8rem;
+      color: #222;
+      text-decoration: none;
+    }
 
-  margin-bottom: 20px;
-}
+    .dropdown-menu li a:hover {
+      background: #f2f6ff;
+      color: #0b3d91;
+    }
 
+    /* Botón Descarga PDF (Estilo Base) */
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 22px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
 
-/* Reduce el espacio entre título y contenido */
-.activity-section h1 {
-  margin-top: 5px;
-  margin-bottom: 10px;
-}
+    .pdf-button:hover {
+      background-color: black;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    }
 
+    .pdf-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-/* Reduce el espacio del texto */
-.activity-section p {
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-
-
-/* Espacio entre botón y PDF */
-.activity-section .pdf-container {
-  margin-top: 20px;
-}
+    .pdf-button:focus {
+      outline: 3px solid #888;
+      outline-offset: 3px;
+    }
   </style>
-
+</head>
 <body>
 
-  <!-- HEADER -->
+  <!-- NAVEGACIÓN PRINCIPAL -->
   <header>
     <div class="navbar">
 
