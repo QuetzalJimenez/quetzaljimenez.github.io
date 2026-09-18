@@ -3,302 +3,230 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Road to Hall of Fame | Portafolio CNO IV</title>
-<style>
-  /* ==========================================================================
-     1. ESTILOS BASE Y REINICIO
-     ========================================================================== */
-  * {
-    box-sizing: border-box;
-  }
+  <title>Portafolio Académico - Quetzal</title>
+  
+  <style>
+    /* ==========================================================================
+       1. ESTILOS BASE Y REINICIO
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+    }
 
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #000000;
-    color: #ffffff;
-    line-height: 1.6;
-  }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-  /* ==========================================================================
-     2. NAVEGACIÓN Y HEADER (NEGRO CON ACENTOS DORADOS)
-     ========================================================================== */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 12px 24px;
-    border-bottom: 1px solid #222;
-    background: #0a0a0a;
-    color: #ffffff;
-  }
+    /* ==========================================================================
+       2. CONTENEDOR Y TARJETAS DE SECCIÓN
+       ========================================================================== */
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
 
-  .navbar a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
+    section {
+      background: #0a0a0a;
+      border: 1px solid #222222;
+      border-radius: 12px;
+      padding: 35px;
+      margin-bottom: 35px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
 
-  .navbar a:hover, 
-  .navbar a.active {
-    color: #d4af37;
-  }
+    section:hover {
+      border-color: #d4af37;
+      box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
+    }
 
-  .logo {
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-  }
+    h1, h2 {
+      margin-top: 0;
+      color: #d4af37;
+      letter-spacing: 0.5px;
+    }
 
-  .logo-image {
-    border-radius: 6px;
-  }
+    h1 {
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
 
-  .logo-text strong {
-    display: block;
-    color: #fff;
-    font-size: 0.95rem;
-  }
+    h2 {
+      font-size: 1.5rem;
+      border-bottom: 1px solid #222;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
 
-  .logo-text span {
-    color: #bbb;
-    font-size: 0.85rem;
-  }
+    p, li {
+      color: #cccccc;
+      font-size: 1.05rem;
+    }
 
-  .logo-text small {
-    color: #888;
-    font-size: 0.75rem;
-  }
+    /* Tags / Etiquetas */
+    .tags {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
 
-  nav {
-    display: flex;
-    gap: 0.6rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
+    .tags span {
+      background: #111111;
+      color: #d4af37;
+      border: 1px solid #d4af37;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
 
-  nav a {
-    padding: 0.25rem 0.5rem;
-    border-radius: 4px;
-  }
+    /* Listas Técnicas */
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
 
-  /* Dropdown Navegación */
-  .nav-dropdown {
-    position: relative;
-    display: inline-block;
-  }
+    ul li {
+      margin-bottom: 8px;
+    }
 
-  .dropdown-toggle {
-    background: transparent;
-    border: 1px solid #444;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-    border-radius: 4px;
-    color: #fff;
-    font-size: 0.9rem;
-  }
+    /* ==========================================================================
+       3. FORMULARIO DE CONTACTO
+       ========================================================================== */
+    #contactForm {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
 
-  .dropdown-toggle:hover {
-    background: #222;
-  }
+    label {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
 
-  .dropdown-menu {
-    position: absolute;
-    left: 0;
-    top: calc(100% + 6px);
-    list-style: none;
-    margin: 0;
-    padding: 0.25rem 0;
-    background: #111;
-    border: 1px solid #333;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    min-width: 160px;
-    z-index: 20;
-    border-radius: 4px;
-  }
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 12px;
+      background-color: #111111;
+      border: 1px solid #333333;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.2s ease, outline 0.2s ease;
+    }
 
-  .dropdown-menu[hidden] {
-    display: none;
-  }
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #d4af37;
+      background-color: #161616;
+    }
 
-  .dropdown-menu li a {
-    display: block;
-    padding: 0.4rem 0.8rem;
-    color: #fff;
-    text-decoration: none;
-  }
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
 
-  .dropdown-menu li a:hover {
-    background: #222;
-    color: #d4af37;
-  }
+    /* Botón */
+    .btn-primary {
+      align-self: flex-start;
+      padding: 12px 28px;
+      background-color: #ffffff;
+      color: #000000;
+      border: 2px solid #ffffff;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      margin-top: 10px;
+    }
 
-  /* ==========================================================================
-     3. SECCIONES DE ACTIVIDADES (HERO / CARDS DE CONTENIDO)
-     ========================================================================== */
-  main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 0 20px;
-  }
+    .btn-primary:hover {
+      background-color: #d4af37;
+      color: #000000;
+      border-color: #d4af37;
+      transform: translateY(-2px);
+    }
 
-  .activity-section {
-    background: #0a0a0a;
-    border: 1px solid #222222;
-    border-radius: 12px;
-    padding: 30px;
-    margin-bottom: 40px;
-    text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
-  }
+    .btn-primary:disabled {
+      background-color: #444;
+      border-color: #444;
+      color: #888;
+      cursor: not-allowed;
+      transform: none;
+    }
 
-  .activity-section:hover {
-    border-color: #d4af37;
-    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
-  }
+    /* Mensajes de estado del formulario */
+    #formStatus {
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-  .activity-section h1 {
-    margin-top: 0;
-    font-size: 2rem;
-    color: #d4af37;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
+    /* ==========================================================================
+       4. FOOTER
+       ========================================================================== */
+    footer {
+      margin-top: 60px;
+      padding: 30px 20px;
+      text-align: center;
+      color: #777777;
+      border-top: 1px solid #1a1a1a;
+      background: #000000;
+      font-size: 0.9rem;
+    }
 
-  .activity-section p {
-    color: #cccccc;
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: 10px auto 25px auto;
-  }
+    footer p {
+      margin: 5px 0;
+    }
 
-  /* Botón Descargar / Abrir PDF */
-  .pdf-button {
-    display: inline-block;
-    padding: 10px 24px;
-    background-color: #ffffff;
-    color: #000000;
-    text-decoration: none;
-    font-weight: bold;
-    border: 2px solid #ffffff;
-    border-radius: 6px;
-    cursor: pointer;
-    margin-bottom: 25px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
-  }
-
-  .pdf-button:hover {
-    background-color: #d4af37;
-    color: #000000;
-    border-color: #d4af37;
-    transform: translateY(-2px);
-  }
-
-  /* Contenedor e iframe del Visor de PDF */
-  .pdf-container {
-    position: relative;
-    width: 100%;
-    height: 600px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid #333333;
-    background: #111111;
-  }
-
-  .pdf-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-  }
-
-  /* ==========================================================================
-     4. FOOTER
-     ========================================================================== */
-  footer {
-    margin-top: 60px;
-    padding: 30px 20px;
-    text-align: center;
-    color: #777777;
-    border-top: 1px solid #1a1a1a;
-    background: #000000;
-    font-size: 0.9rem;
-  }
-
-  footer p {
-    margin: 5px 0;
-  }
-
-  footer .security {
-    color: #555555;
-    font-size: 0.8rem;
-  }
-</style>
+    footer .security {
+      color: #555555;
+      font-size: 0.8rem;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAVEGACIÓN PRINCIPAL -->
-<header>
-    <div class="navbar">
-      <div class="logo">
-        <img src="img/logo.png" alt="Logo" class="logo-image" width="38" height="38">
-        <div class="logo-text">
-          <strong>Quetzal · Alias сумерки</strong>
-          <span>CNO IV – Seguridad Informática</span><br>
-          <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
-        </div>
-      </div>
-
-      <nav aria-label="Navegación principal">
-        <a href="index.html#inicio">Inicio</a>
-        <a href="index.html#presentacion">Presentación</a>
-        <a href="index.html#perfil">Perfil</a>
-        <a href="index.html#tecnologias">Tecnologías</a>
-
-        <!-- Enlace a Proyectos -->
-        <a href="evidencias.html">Evidencias</a>
-
-        <!-- Desplegable Proyectos -->
-        <div class="nav-dropdown" aria-haspopup="true">
-          <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
-          <ul id="proyectos-list" class="dropdown-menu" hidden>
-            <li><a href="proyectos.html#pr01">PR01</a></li>
-            <li><a href="proyectos.html#pr02">PR02</a></li>
-            <li><a href="proyectos.html#pr03">PR03</a></li>
-          </ul>
-        </div>
-
-        <a href="Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
-        <a href="index.html#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
-
-
-  <main>
-    <!-- 2. PRESENTACIÓN -->
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>    
+    <!-- PRESENTACIÓN -->
     <section id="inicio" class="hero">
       <h1>Portafolio Académico</h1>
       <p>
         Este portafolio digital documenta mi proceso de aprendizaje en 
-        <strong>Seguridad Informática</strong>.  
-        Su propósito es mostrar evidencias de prácticas, proyectos y conocimientos adquiridos.  
-        El enfoque del curso incluye <em>análisis de vulnerabilidades</em>, <em>ciberseguridad</em> y <em>pruebas de penetración</em>.  
+        <strong>Seguridad Informática</strong>. 
+        Su propósito es mostrar evidencias de prácticas, proyectos y conocimientos adquiridos. 
+        El enfoque del curso incluye <em>análisis de vulnerabilidades</em>, <em>ciberseguridad</em> y <em>pruebas de penetración</em>. 
         Representa una evidencia clara de mi evolución académica.
       </p>
     </section>
 
-    <!-- 3. PERFIL -->
+    <!-- PERFIL -->
     <section id="perfil">
       <h2>Perfil del estudiante</h2>
       <p>Soy estudiante interesado en la seguridad informática, ciberseguridad y la investigación aplicada.</p>
       <div class="tags">
-        <span>Ciberseguridad</span><span>Redes</span><span>Pentesting</span><span>Investigación</span>
+        <span>Ciberseguridad</span>
+        <span>Redes</span>
+        <span>Pentesting</span>
+        <span>Investigación</span>
       </div>
     </section>
 
-    <!-- 4. INFORMACIÓN TÉCNICA -->
+    <!-- INFORMACIÓN TÉCNICA -->
     <section id="tecnologias">
       <h2>Información técnica</h2>
       <ul>
@@ -308,33 +236,34 @@
       </ul>
     </section>
 
-    <!-- 5. FORMULARIO DE CONTACTO -->
+    <!-- FORMULARIO DE CONTACTO -->
     <section id="contacto">
       <h2>Contacto</h2>
-<form id="contactForm">
-  <label for="name">Nombre</label>
-  <input type="text" id="name" name="name" required>
+      <form id="contactForm">
+        <label for="name">Nombre</label>
+        <input type="text" id="name" name="from_name" required placeholder="Tu nombre">
 
-  <label for="email">Correo</label>
-  <input type="email" id="email" name="correo" required>
+        <label for="email">Correo</label>
+        <input type="email" id="email" name="reply_to" required placeholder="tu@email.com">
 
-  <label for="message">Mensaje</label>
-  <textarea id="message" name="mensaje" required></textarea>
+        <label for="message">Mensaje</label>
+        <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
 
-  <button type="submit" class="btn btn-primary">Enviar →</button>
-</form>
+        <button type="submit" id="submitBtn" class="btn btn-primary">Enviar →</button>
+        <div id="formStatus"></div>
+      </form>
     </section>
   </main>
 
-  <!-- 6. FOOTER -->
+  <!-- FOOTER -->
   <footer>
     <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
     <p class="security">Conexión segura · HTTPS</p>
   </footer>
 
-  <!-- SCRIPT -->
+  <!-- SCRIPTS DE EMAILJS (Cargar primero SDK y luego tu script) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="form.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </body>
 </html>
 
