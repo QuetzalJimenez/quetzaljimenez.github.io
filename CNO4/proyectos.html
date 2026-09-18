@@ -3,165 +3,259 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portafolio | CNO IV – Seguridad Informática</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Road to Hall of Fame | Portafolio CNO IV</title>
   <style>
-    /* Estilos añadidos (mantienen el modelo base) */
-    .pdf-button {
-      display: inline-block;
-      padding: 10px 22px;
-      background-color: white;
-      color: black;
-      text-decoration: none;
-      font-weight: bold;
-      border: 2px solid black;
-      border-radius: 6px;
-      cursor: pointer;
-      transition:
-        background-color 0.2s ease,
-        color 0.2s ease,
-        transform 0.15s ease,
-        box-shadow 0.2s ease;
-    }
-    .pdf-button:hover {
-      background-color: black;
-      color: white;
-      transform: translateY(-2px);
-      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
-    }
-    .pdf-button:active { transform: translateY(1px); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-    .pdf-button:focus { outline: 3px solid #888; outline-offset: 3px; }
+  /* ==========================================================================
+     1. ESTILOS BASE Y REINICIO
+     ========================================================================== */
+  * {
+    box-sizing: border-box;
+  }
 
-    .activity-section { padding-top: 25px; padding-bottom: 25px; margin-bottom: 20px; }
-    .activity-section h1 { margin-top: 5px; margin-bottom: 10px; }
-    .activity-section p { margin-top: 5px; margin-bottom: 15px; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+  }
 
-    /* Renombrado: contenedor de documentos (antes .pdf-container) */
-    .document-container {
-      margin-top: 20px;
-      width: 100%;
-      max-width: 1000px;
-      position: relative;
-      padding-top: 56.25%; /* 16:9 */
-      background: #f8f8f8;
-      border: 1px solid #e6e6e6;
-      border-radius: 6px;
-      overflow: hidden;
-    }
-    .document-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+  /* ==========================================================================
+     2. NAVEGACIÓN Y HEADER (NEGRO CON ACENTOS DORADOS)
+     ========================================================================== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 12px 24px;
+    border-bottom: 1px solid #222;
+    background: #0a0a0a;
+    color: #ffffff;
+  }
 
-/* Header / nav actualizado (Estilo Negro) */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-  padding: 12px;
-  border-bottom: 1px solid #333; /* Borde oscuro para contrastar */
-  background: #121212; /* Fondo negro elegante */
-  color: #ffffff; /* Texto en blanco */
-}
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
 
-/* Regla adicional para asegurar que los enlaces se vean blancos */
-.navbar a {
+  .navbar a:hover, 
+  .navbar a.active {
+    color: #d4af37;
+  }
+
+  .logo {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .logo-image {
+    border-radius: 6px;
+  }
+
+  .logo-text strong {
+    display: block;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+
+  .logo-text span {
+    color: #bbb;
+    font-size: 0.85rem;
+  }
+
+  .logo-text small {
+    color: #888;
+    font-size: 0.75rem;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* Dropdown Navegación */
+  .nav-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    background: transparent;
+    border: 1px solid #444;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-toggle:hover {
+    background: #222;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: #111;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    min-width: 160px;
+    z-index: 20;
+    border-radius: 4px;
+  }
+
+  .dropdown-menu[hidden] {
+    display: none;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background: #222;
+    color: #d4af37;
+  }
+
+  /* ==========================================================================
+     3. SECCIONES DE ACTIVIDADES (HERO / CARDS DE CONTENIDO)
+     ========================================================================== */
+  main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .activity-section {
+    background: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .activity-section:hover {
+    border-color: #d4af37;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
+  }
+
+  .activity-section h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #d4af37;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .activity-section p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 10px auto 25px auto;
+  }
+
+  /* Botón Descargar / Abrir PDF */
+  .pdf-button {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .pdf-button:hover {
+    background-color: #d4af37;
+    color: #000000;
+    border-color: #d4af37;
+    transform: translateY(-2px);
+  }
+
+  /* Contenedor e iframe del Visor de PDF */
+  .pdf-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333333;
+    background: #111111;
+  }
+
+  .pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+    /* Estilo específico para HTML */
+.html-button {
+  background-color: #0d6efd;
   color: #ffffff;
-  text-decoration: none;
 }
-    .logo { display:flex; gap:0.75rem; align-items:center; }
-    .logo-image { border-radius:6px; }
-    nav { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
-    nav a { text-decoration:none; color:#0b3d91; padding:0.25rem 0.5rem; border-radius:4px; }
-    nav a:hover { background:#eef4ff; }
 
-    .nav-dropdown { position: relative; display: inline-block; }
-    .dropdown-toggle {
-      background: transparent;
-      border: 1px solid #ccc;
-      padding: 0.25rem 0.5rem;
-      cursor: pointer;
-      border-radius: 4px;
-      color: #222;
-    }
-    .dropdown-menu {
-      position: absolute;
-      left: 0;
-      top: calc(100% + 6px);
-      list-style: none;
-      margin: 0;
-      padding: 0.25rem 0;
-      background: #fff;
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.06);
-      min-width: 140px;
-      z-index: 20;
-    }
-    .dropdown-menu[hidden] { display: none; }
-    .dropdown-menu li a { display:block; padding:0.4rem 0.8rem; color:#222; text-decoration:none; }
-    .dropdown-menu li a:hover { background:#f2f6ff; }
+.html-button:hover {
+  background-color: #0b5ed7;
+}
 
-    /* YouTube preview dentro de la sección PR01 */
-    .video-preview {
-      display: inline-block;
-      position: relative;
-      width: 320px;
-      max-width: 100%;
-      border-radius: 6px;
-      overflow: hidden;
-      cursor: pointer;
-      margin-left: 12px;
-      vertical-align: middle;
-    }
-    .video-preview img { display: block; width: 100%; height: auto; object-fit: cover; }
-    .video-preview .play {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 36px;
-      color: rgba(255,255,255,0.95);
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-      pointer-events: none;
-    }
+  /* ==========================================================================
+     4. FOOTER
+     ========================================================================== */
+  footer {
+    margin-top: 60px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #777777;
+    border-top: 1px solid #1a1a1a;
+    background: #000000;
+    font-size: 0.9rem;
+  }
 
-    /* Modal para reproducir video */
-    .yt-modal { display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center; }
-    .yt-modal[aria-hidden="false"] { display:flex; }
-    .yt-modal-backdrop { position:absolute; inset:0; background:rgba(0,0,0,0.6); }
-    .yt-modal-content { position:relative; width:90%; max-width:960px; background:transparent; border-radius:8px; padding:0; z-index:2; }
-    .yt-close { position:absolute; right:-10px; top:-10px; background:#fff; border-radius:50%; border:1px solid #ddd; width:36px; height:36px; cursor:pointer; font-size:16px; }
-    .yt-iframe-wrap { position:relative; padding-top:56.25%; background:#000; border-radius:8px; overflow:hidden; }
-    .yt-iframe-wrap iframe { position:absolute; top:0; left:0; width:100%; height:100%; border:0; }
+  footer p {
+    margin: 5px 0;
+  }
 
-    footer { margin-top: 20px; padding: 12px; text-align: center; color: #666; border-top: 1px solid #f0f0f0; background: #fafafa; }
-  </style>
+  footer .security {
+    color: #555555;
+    font-size: 0.8rem;
+  }
+</style>
 </head>
-
 <body>
 
-  <!-- HEADER -->
-  <header>
+<header>
     <div class="navbar">
-
       <div class="logo">
-        <img src="img/logo.png"
-             alt="Logo"
-             class="logo-image"
-             width="38"
-             height="38">
-
-        <div>
+        <img src="img/logo.png" alt="Logo" class="logo-image" width="38" height="38">
+        <div class="logo-text">
           <strong>Quetzal · Alias сумерки</strong>
           <span>CNO IV – Seguridad Informática</span><br>
-          <small>
-            Universidad Politécnica de San Luis Potosí · Semestre 2026
-          </small>
+          <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
         </div>
       </div>
 
@@ -172,9 +266,9 @@
         <a href="index.html#tecnologias">Tecnologías</a>
 
         <!-- Enlace a Proyectos -->
-        <a href="proyectos.html">Proyectos</a>
+        <a href="evidencias.html">Evidencias</a>
 
-        <!-- Desplegable Proyectos (accesos rápidos) -->
+        <!-- Desplegable Proyectos -->
         <div class="nav-dropdown" aria-haspopup="true">
           <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
           <ul id="proyectos-list" class="dropdown-menu" hidden>
@@ -184,12 +278,12 @@
           </ul>
         </div>
 
-        <a href="evidencias.html">Evidencias</a>
+        <a href="Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
-
     </div>
   </header>
+
 
   <!-- CONTENIDO -->
   <main>
@@ -199,100 +293,106 @@
       <h1>PR 01</h1>
 
       <p>
-        <strong>PR De la teoría a la práctica: walkthrough en acción (guía y video). Informe y video de investigación: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub)</strong>
+        <strong>PR De la teoría a la práctica: walkthroughen acción (guía y video). Informe y video de investigación: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub)</strong>
       </p>
 
       <a href="PR01_184286.pdf"
          target="_blank"
-         class="pdf-button"
-         rel="noopener">
+         class="pdf-button">
         Abrir PDF
       </a>
 
-      <div style="display:flex; align-items:flex-start; gap:12px; margin-top:12px;">
-        <div class="document-container" style="flex:1; max-width:720px;">
-          <iframe src="PR01_184286.pdf" title="PR_01"></iframe>
-        </div>
-
-        <!-- Vista previa de video de YouTube -->
-        <!-- ID correcto: uhl4L2AJOAk. Si quieres que empiece en 1837s, el modal usará start=1837 -->
-        <button class="video-preview" data-video-id="uhl4L2AJOAk" data-start="1837" aria-label="Ver video PR01">
-          <img src="https://img.youtube.com/vi/uhl4L2AJOAk/hqdefault.jpg" alt="Vista previa video PR01">
-          <span class="play">▶</span>
-        </button>
+      <div class="pdf-container">
+        <iframe
+          src="PR01_184286.pdf"
+          title="PR_01">
+        </iframe>
       </div>
 
     </section>
 
+    <section class="hero activity-section">
+
+
   </main>
 
-  <!-- Modal para reproducir YouTube -->
-  <div id="yt-modal" class="yt-modal" aria-hidden="true" role="dialog" aria-label="Reproductor de video">
-    <div class="yt-modal-backdrop" data-close></div>
-    <div class="yt-modal-content" role="document">
-      <button class="yt-close" data-close aria-label="Cerrar reproductor">✕</button>
-      <div class="yt-iframe-wrap" id="yt-iframe-wrap" aria-live="polite"></div>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
-    <p class="security">Conexión segura · HTTPS</p>
-  </footer>
+    <p>
+      © 2026 · Quetzal · Universidad Politécnica de San Luis Potosí
+    </p>
 
-  <script>
-    // Script para el desplegable Proyectos
+    <p class="security">
+      Conexión segura · HTTPS
+    </p>
+  </footer>
+    <script>
+    // 1. Script Menú Desplegable Proyectos
     (function () {
       const toggle = document.querySelector('.dropdown-toggle');
       const menu = document.getElementById('proyectos-list');
+      
       if (toggle && menu) {
         document.addEventListener('click', function (e) {
           if (e.target === toggle) {
             const hidden = menu.hasAttribute('hidden');
-            if (hidden) { menu.removeAttribute('hidden'); toggle.setAttribute('aria-expanded','true'); }
-            else { menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); }
+            if (hidden) { 
+              menu.removeAttribute('hidden'); 
+              toggle.setAttribute('aria-expanded','true'); 
+            } else { 
+              menu.setAttribute('hidden',''); 
+              toggle.setAttribute('aria-expanded','false'); 
+            }
             return;
           }
           if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-            menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false');
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false');
           }
         });
+
         document.addEventListener('keydown', function (e) {
-          if (e.key === 'Escape') { menu.setAttribute('hidden',''); toggle.setAttribute('aria-expanded','false'); toggle.focus(); }
+          if (e.key === 'Escape') { 
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false'); 
+            toggle.focus(); 
+          }
         });
       }
     })();
 
-    // Script para modal de YouTube (vista previa)
-    (function () {
-      const modal = document.getElementById('yt-modal');
-      const iframeWrap = document.getElementById('yt-iframe-wrap');
+    // 2. Control de Modales de Evidencia
+    function openLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+      }
+    }
 
-      document.querySelectorAll('.video-preview').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const videoId = this.getAttribute('data-video-id');
-          const start = parseInt(this.getAttribute('data-start') || '0', 10);
-          if (!videoId) return;
-          // Construir URL con start si aplica
-          const src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(videoId) + '?autoplay=1&rel=0' + (start > 0 ? '&start=' + start : '');
-          iframeWrap.innerHTML = '<iframe src="' + src + '" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-          modal.setAttribute('aria-hidden', 'false');
-          document.documentElement.style.overflow = 'hidden';
-        });
-      });
-
-      function closeModal() {
+    function closeLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
         modal.setAttribute('aria-hidden', 'true');
-        iframeWrap.innerHTML = '';
         document.documentElement.style.overflow = '';
       }
+    }
 
-      modal.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeModal));
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modal.getAttribute('aria-hidden') === 'false') closeModal();
-      });
-    })();
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.lab-modal[aria-hidden="false"]');
+        activeModals.forEach(modal => {
+          closeLabModal(modal.id);
+        });
+      }
+    });
+      function cargarVista(url) {
+  const iframe = document.getElementById('viewer-frame');
+  if (iframe) {
+    iframe.src = url;
+  }
+}
   </script>
 
 </body>
