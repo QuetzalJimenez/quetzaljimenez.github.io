@@ -513,6 +513,12 @@
         });
       }
     });
+      function cargarVista(url) {
+  const iframe = document.getElementById('viewer-frame');
+  if (iframe) {
+    iframe.src = url;
+  }
+}
   </script>
 
 </body>
