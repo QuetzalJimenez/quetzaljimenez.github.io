@@ -22,7 +22,121 @@
     }
 
     /* ==========================================================================
-       2. CONTENEDOR Y TARJETAS DE SECCIÓN
+       2. NAVEGACIÓN Y HEADER (ESTILO DORADO/NEGRO)
+       ========================================================================== */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px 24px;
+      border-bottom: 1px solid #222;
+      background: #0a0a0a;
+      color: #ffffff;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+
+    .navbar a:hover, 
+    .navbar a.active {
+      color: #d4af37;
+    }
+
+    .logo {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .logo-image {
+      border-radius: 6px;
+    }
+
+    .logo-text strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .logo-text span {
+      color: #bbb;
+      font-size: 0.85rem;
+    }
+
+    .logo-text small {
+      color: #888;
+      font-size: 0.75rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* Dropdown Navegación */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      background: transparent;
+      border: 1px solid #444;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 0.9rem;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .dropdown-toggle:hover {
+      background: #222;
+      border-color: #d4af37;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      background: #111;
+      border: 1px solid #333;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+      min-width: 160px;
+      z-index: 20;
+      border-radius: 4px;
+    }
+
+    .dropdown-menu[hidden] {
+      display: none;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.4rem 0.8rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #222;
+      color: #d4af37;
+    }
+
+    /* ==========================================================================
+       3. CONTENEDOR Y TARJETAS DE SECCIÓN
        ========================================================================== */
     main {
       max-width: 900px;
@@ -98,7 +212,7 @@
     }
 
     /* ==========================================================================
-       3. FORMULARIO DE CONTACTO
+       4. FORMULARIO DE CONTACTO
        ========================================================================== */
     #contactForm {
       display: flex;
@@ -161,22 +275,8 @@
       transform: translateY(-2px);
     }
 
-    .btn-primary:disabled {
-      background-color: #444;
-      border-color: #444;
-      color: #888;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    /* Mensajes de estado del formulario */
-    #formStatus {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-
     /* ==========================================================================
-       4. FOOTER
+       5. FOOTER
        ========================================================================== */
     footer {
       margin-top: 60px;
@@ -217,7 +317,7 @@
         <a href="index.html#perfil">Perfil</a>
         <a href="index.html#tecnologias">Tecnologías</a>
 
-        <!-- Enlace a Proyectos -->
+        <!-- Enlace a Evidencias -->
         <a href="evidencias.html">Evidencias</a>
 
         <!-- Desplegable Proyectos -->
@@ -230,7 +330,7 @@
           </ul>
         </div>
 
-        <a href="Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
+        <a href="Road_to_hall_of_fame.html">Road to Hall of Fame</a>
         <a href="index.html#contacto">Contacto</a>
       </nav>
     </div>
@@ -277,16 +377,15 @@
       <h2>Contacto</h2>
       <form id="contactForm">
         <label for="name">Nombre</label>
-        <input type="text" id="name" name="from_name" required placeholder="Tu nombre">
+        <input type="text" id="name" name="name" required placeholder="Tu nombre">
 
         <label for="email">Correo</label>
-        <input type="email" id="email" name="reply_to" required placeholder="tu@email.com">
+        <input type="email" id="email" name="correo" required placeholder="tu@email.com">
 
         <label for="message">Mensaje</label>
-        <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..."></textarea>
+        <textarea id="message" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
 
         <button type="submit" id="submitBtn" class="btn btn-primary">Enviar →</button>
-        <div id="formStatus"></div>
       </form>
     </section>
   </main>
@@ -297,10 +396,9 @@
     <p class="security">Conexión segura · HTTPS</p>
   </footer>
 
-  <!-- SCRIPTS DE EMAILJS (Cargar primero SDK y luego tu script) -->
+  <!-- SCRIPTS DE EMAILJS -->
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="form.js"></script>
 </body>
 </html>
-
 
