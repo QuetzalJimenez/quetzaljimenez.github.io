@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road to Hall of Fame | Portafolio CNO IV</title>
+  <style>
+    /* ==========================================================================
+       1. ESTILOS BASE Y PALETA DE COLORES (PROPORCIONADOS EN TU PLANTILLA)
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #fdfdfd;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* Header / nav actualizado (Estilo Negro) */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      padding: 12px 24px;
+      border-bottom: 1px solid #333;
+      background: #121212;
+      color: #ffffff;
+    }
+
+    .navbar a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .navbar a:hover, .navbar a.active {
+      color: #00f2fe;
+    }
+
+    .logo {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .logo-image {
+      border-radius: 6px;
+    }
+
+    .logo-text strong {
+      display: block;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .logo-text span {
+      color: #bbb;
+      font-size: 0.85rem;
+    }
+
+    .logo-text small {
+      color: #888;
+      font-size: 0.75rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 0.6rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+    }
+
+    /* Dropdown Navegación */
+    .nav-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-toggle {
+      background: transparent;
+      border: 1px solid #444;
+      padding: 0.25rem 0.5rem;
+      cursor: pointer;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 0.9rem;
+    }
+
+    .dropdown-toggle:hover {
+      background: #222;
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      left: 0;
+      top: calc(100% + 6px);
+      list-style: none;
+      margin: 0;
+      padding: 0.25rem 0;
+      background: #fff;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      min-width: 160px;
+      z-index: 20;
+      border-radius: 4px;
+    }
+
+    .dropdown-menu[hidden] {
+      display: none;
+    }
+
+    .dropdown-menu li a {
+      display: block;
+      padding: 0.4rem 0.8rem;
+      color: #222;
+      text-decoration: none;
+    }
+
+    .dropdown-menu li a:hover {
+      background: #f2f6ff;
+      color: #0b3d91;
+    }
+
+    /* Botón Descarga PDF (Estilo Base) */
+    .pdf-button {
+      display: inline-block;
+      padding: 10px 22px;
+      background-color: white;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid black;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+
+    .pdf-button:hover {
+      background-color: black;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .pdf-button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    .pdf-button:focus {
+      outline: 3px solid #888;
+      outline-offset: 3px;
+    }
+
+    /* ==========================================================================
+       2. ESTILOS ESPECÍFICOS PARA ROAD TO HALL OF FAME (ACTIVIDAD 06)
+       ========================================================================== */
+    .hero-hall {
+      background: #fafafa;
+      border-bottom: 1px solid #eee;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .hero-hall .badge {
+      display: inline-block;
+      background: #121212;
+      color: #fff;
+      padding: 4px 12px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      border-radius: 4px;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    .hero-hall h1 {
+      margin: 10px 0;
+      font-size: 2.2rem;
+      color: #111;
+    }
+
+    .hero-hall p {
+      max-width: 750px;
+      margin: 0 auto 20px auto;
+      color: #555;
+      font-size: 1rem;
+    }
+
+    /* Contenedor del Roadmap */
+    .roadmap-wrapper {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    /* Línea Central de Progreso */
+    .roadmap-timeline {
+      position: absolute;
+      left: 40px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #e0e0e0;
+    }
+
+    /* Tarjeta de Laboratorio */
+    .lab-node {
+      position: relative;
+      margin-bottom: 35px;
+      padding-left: 70px;
+    }
+
+    .lab-badge-num {
+      position: absolute;
+      left: 18px;
+      top: 0;
+      width: 48px;
+      height: 48px;
+      background: #121212;
+      color: #ffffff;
+      border: 3px solid #ffffff;
+      box-shadow: 0 0 0 2px #121212;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.95rem;
+      z-index: 2;
+    }
+
+    .lab-card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .lab-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      border-color: #121212;
+    }
+
+    .lab-category {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #0b3d91;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .lab-title {
+      margin: 5px 0 12px 0;
+      font-size: 1.2rem;
+      color: #111;
+    }
+
+    .lab-content {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .lab-thumb {
+      width: 220px;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      background: #f8f8f8;
+      flex-shrink: 0;
+    }
+
+    .lab-info {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .lab-info p {
+      margin: 0 0 12px 0;
+      font-size: 0.92rem;
+      color: #444;
+    }
+
+    .lab-info strong {
+      color: #111;
+    }
+
+    /* Botón de Evidencia */
+    .btn-evidence {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #f2f2f2;
+      color: #222;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .btn-evidence:hover {
+      background: #121212;
+      color: #fff;
+      border-color: #121212;
+    }
+
+    /* ==========================================================================
+       3. MODALES DE EVIDENCIA TÉCNICA
+       ========================================================================== */
+    .lab-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lab-modal[aria-hidden="false"] {
+      display: flex;
+    }
+
+    .lab-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .lab-modal-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      max-height: 90vh;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 24px;
+      z-index: 2;
+      overflow-y: auto;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: #f0f0f0;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .modal-close:hover {
+      background: #121212;
+      color: #fff;
+    }
+
+    .modal-img-full {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin: 15px 0;
+    }
+
+    .tech-box {
+      background: #f8f9fa;
+      border-left: 4px solid #121212;
+      padding: 12px 16px;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    .tech-box code {
+      background: #e9ecef;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 40px;
+      padding: 16px;
+      text-align: center;
+      color: #666;
+      border-top: 1px solid #f0f0f0;
+      background: #fafafa;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVEGACIÓN PRINCIPAL -->
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo" class="logo-image" width="38" height="38">
+        <div class="logo-text">
+          <strong>Quetzal · Alias сумерки</strong>
+          <span>CNO IV – Seguridad Informática</span><br>
+          <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#presentacion">Presentación</a>
+        <a href="index.html#perfil">Perfil</a>
+        <a href="index.html#tecnologias">Tecnologías</a>
+
+        <!-- Enlace a Proyectos -->
+        <a href="proyectos.html">Proyectos</a>
+
+        <!-- Desplegable Proyectos -->
+        <div class="nav-dropdown" aria-haspopup="true">
+          <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
+          <ul id="proyectos-list" class="dropdown-menu" hidden>
+            <li><a href="proyectos.html#pr01">PR01</a></li>
+            <li><a href="proyectos.html#pr02">PR02</a></li>
+            <li><a href="proyectos.html#pr03">PR03</a></li>
+          </ul>
+        </div>
+
+        <a href="road-to-hall-of-fame.html" class="active">Road to Hall of Fame</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- SECCIÓN PRINCIPAL / ENCABEZADO -->
+  <main>
+    <section class="hero-hall">
+      <span class="badge">ACTIVIDAD 06</span>
+      <h1>ROAD TO HALL OF FAME</h1>
+      <p>
+        Ruta de aprendizaje y progreso técnico en seguridad informática. A continuación se presentan los 18 laboratorios especializados con sus correspondientes descripciones técnicas y evidencias de ejecución.
+      </p>
+
+      <!-- BOTÓN DE DESCARGA PDF CUMPLIENDO RÚBRICA Y ESTILO BASE -->
+      <a href="docs/Road_To_Hall_Of_Fame_Documento_Completo.pdf" target="_blank" class="pdf-button" rel="noopener" download>
+        Descargar Documento Completo (PDF)
+      </a>
+    </section>
+
+    <!-- MÓDULO VISUAL ROADMAP CON LOS 18 LABORATORIOS -->
+    <section class="roadmap-wrapper">
+      <div class="roadmap-timeline"></div>
+
+      <!-- LAB 01 -->
+      <article class="lab-node">
+        <div class="lab-badge-num">01</div>
+        <div class="lab-card">
+          <span class="lab-category">Reconocimiento & Escaneo</span>
+          <h3 class="lab-title">Lab 01: Escaneo de Vulnerabilidades y Puertos con Nmap</h3>
+          <div class="lab-content">
+            <img src="img/lab1-thumb.jpg" alt="Lab 01" class="lab-thumb">
+            <div class="lab-info">
+              <p><strong>Descripción Técnica:</strong> Identificación de vectores de entrada, mapeo de puertos abiertos y detección de versiones de servicios activos en el segmento de red de prueba.</p>
+              <button class="btn-evidence" onclick="openLabModal('modal-lab1')">Ver Evidencia Técnica</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LAB 02 -->
+      <article class="lab-node">
+        <div class="lab-badge-num">02</div>
+        <div class="lab-card">
+          <span class="lab-category">Ingeniería Social</span>
+          <h3 class="lab-title">Lab 02: Análisis del Social-Engineer Toolkit (SET) en Kali Linux</h3>
+          <div class="lab-content">
+            <img src="img/lab2-thumb.jpg" alt="Lab 02" class="lab-thumb">
+            <div class="lab-info">
+              <p><strong>Descripción Técnica:</strong> Simulación de vectores de ataque orientados al factor humano mediante clonación de portales de autenticación e inspección de credenciales capturadas.</p>
+              <button class="btn-evidence" onclick="openLabModal('modal-lab2')">Ver Evidencia Técnica</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LAB 03 -->
+      <article class="lab-node">
+        <div class="lab-badge-num">03</div>
+        <div class="lab-card">
+          <span class="lab-category">Análisis de Tráfico</span>
+          <h3 class="lab-title">Lab 03: Inspección de Paquetes de Red con Wireshark</h3>
+          <div class="lab-content">
+            <img src="img/lab3-thumb.jpg" alt="Lab 03" class="lab-thumb">
+            <div class="lab-info">
+              <p><strong>Descripción Técnica:</strong> Captura y filtrado de tráfico sin cifrar en protocolos HTTP y FTP para la recuperación de firmas de sesión y análisis forense de red.</p>
+              <button class="btn-evidence" onclick="openLabModal('modal-lab3')">Ver Evidencia Técnica</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- LAB 04 -->
+      <article class="lab-node">
+        <div class="lab-badge-num">04</div>
+        <div class="lab-card">
+          <span class="lab-category">Auditoría Web</span>
+          <h3 class="lab-title">Lab 04: Inyección SQL (SQLi) Manual y Automatizada</h3>
+          <div class="lab-content">
+            <img src="img/lab4-thumb.jpg" alt="Lab 04" class="lab-thumb">
+            <div class="lab-info">
+              <p><strong>Descripción Técnica:</strong> Explotación de parámetros vulnerables en aplicaciones web para la extracción no autorizada del esquema de base de datos MySQL.</p>
+              <button class="btn-evidence" onclick="openLabModal('modal-lab4')">Ver Evidencia Técnica</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+     4. MODALES DE EVIDENCIAS TÉCNICAS (PLANTILLA REUTILIZABLE)
+     ========================================================================== -->
+  
+  <!-- MODAL LAB 01 -->
+  <div id="modal-lab1" class="lab-modal" aria-hidden="true">
+    <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab1')"></div>
+    <div class="lab-modal-container">
+      <button class="modal-close" onclick="closeLabModal('modal-lab1')">✕</button>
+      <h2>Evidencia Técnica - Laboratorio 01</h2>
+      <span class="lab-category">Reconocimiento & Escaneo</span>
+      <img src="img/lab1-evidence-full.jpg" alt="Evidencia Lab 01" class="modal-img-full">
+      <div class="tech-box">
+        <p><strong>Comando de Ejecución:</strong> <code>nmap -sC -sV -p- -T4 192.168.1.45</code></p>
+        <p><strong>Resultado Obtenido:</strong> Se identificaron los puertos 22/tcp (OpenSSH 7.2p2) y 80/tcp (Apache 2.4.18) abiertos. La inspección de cabeceras reveló vulnerabilidades conocidas en módulos desactualizados.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL LAB 02 -->
+  <div id="modal-lab2" class="lab-modal" aria-hidden="true">
+    <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab2')"></div>
+    <div class="lab-modal-container">
+      <button class="modal-close" onclick="closeLabModal('modal-lab2')">✕</button>
+      <h2>Evidencia Técnica - Laboratorio 02</h2>
+      <span class="lab-category">Ingeniería Social</span>
+      <img src="img/lab2-evidence-full.jpg" alt="Evidencia Lab 02" class="modal-img-full">
+      <div class="tech-box">
+        <p><strong>Herramienta:</strong> Social-Engineer Toolkit (SET) en Kali Linux.</p>
+        <p><strong>Resultado Obtenido:</strong> Se lanzó un vector de ataque tipo Credential Harvester. Las credenciales de prueba ingresadas por la víctima en la interfaz clonada fueron capturadas en texto plano en la consola de control.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- (SE PUEDEN AÑADIR LOS MODALES DEL LAB 03 AL 18 SIGUIENDO EL MISMO PATRÓN ID) -->
+  <div id="modal-lab3" class="lab-modal" aria-hidden="true">
+    <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab3')"></div>
+    <div class="lab-modal-container">
+      <button class="modal-close" onclick="closeLabModal('modal-lab3')">✕</button>
+      <h2>Evidencia Técnica - Laboratorio 03</h2>
+      <span class="lab-category">Análisis de Tráfico</span>
+      <img src="img/lab3-evidence-full.jpg" alt="Evidencia Lab 03" class="modal-img-full">
+      <div class="tech-box">
+        <p><strong>Filtro Utilizado:</strong> <code>http.request.method == "POST"</code></p>
+        <p><strong>Resultado Obtenido:</strong> Reconstrucción exitosa del flujo TCP mostrando el envío de credenciales sin cifrar en un formulario web de autenticación.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER PRINCIPAL -->
+  <footer>
+    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
+    <p style="color: #888; font-size: 0.8rem; margin-top: 4px;">Conexión segura · HTTPS</p>
+  </footer>
+
+  <!-- ==========================================================================
+     5. SCRIPTS INTERACTIVOS (DESPLEGABLES Y MODALES)
+     ========================================================================== -->
+  <script>
+    // 1. Script para la Navegación y Menú Desplegable de Proyectos
+    (function () {
+      const toggle = document.querySelector('.dropdown-toggle');
+      const menu = document.getElementById('proyectos-list');
+      
+      if (toggle && menu) {
+        document.addEventListener('click', function (e) {
+          if (e.target === toggle) {
+            const hidden = menu.hasAttribute('hidden');
+            if (hidden) { 
+              menu.removeAttribute('hidden'); 
+              toggle.setAttribute('aria-expanded','true'); 
+            } else { 
+              menu.setAttribute('hidden',''); 
+              toggle.setAttribute('aria-expanded','false'); 
+            }
+            return;
+          }
+          if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false');
+          }
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { 
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false'); 
+            toggle.focus(); 
+          }
+        });
+      }
+    })();
+
+    // 2. Funciones para Abrir y Cerrar Modales de Evidencias
+    function openLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+      }
+    }
+
+    // Cerrar modal al presionar la tecla ESC
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.lab-modal[aria-hidden="false"]');
+        activeModals.forEach(modal => {
+          closeLabModal(modal.id);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
