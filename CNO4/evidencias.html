@@ -213,6 +213,16 @@
     border: none;
   }
 
+    /* Estilo específico para HTML */
+.html-button {
+  background-color: #0d6efd;
+  color: #ffffff;
+}
+
+.html-button:hover {
+  background-color: #0b5ed7;
+}
+
   /* ==========================================================================
      4. FOOTER
      ========================================================================== */
@@ -398,6 +408,37 @@
       </div>
 
     </section>
+
+    <section class="hero activity-section">
+
+  <h1>Act07</h1>
+
+  <p>
+    <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE </strong>
+  </p>
+
+  <div class="button-group">
+    <a href="Act07_cno4.pdf" 
+       target="_blank" 
+       class="action-button pdf-button">
+      Abrir PDF
+    </a>
+
+    <button type="button" 
+            class="action-button html-button" 
+            onclick="cargarVista('/actividades/act07.html')">
+      Ver Página HTML
+    </button>
+  </div>
+
+  <div class="pdf-container">
+    <iframe id="viewer-frame"
+      src="Act07_cno4.pdf" 
+      title="Visualizador de contenido">
+    </iframe>
+  </div>
+
+</section>
 
   </main>
 
