@@ -392,35 +392,52 @@
   <!-- CONTENIDO PRINCIPAL -->
   <main>
 
-    <section class="activity-section">
-      <h1>Act07</h1>
+<section class="hero activity-section">
 
-      <p class="subtitle">
-        <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE</strong>
-      </p>
+  <h1>Act07</h1>
 
-      <!-- BOTONES DE ACCIÓN PARA EL VISOR -->
-      <div class="button-group">
-        <button type="button" 
-                class="action-button pdf-button" 
-                onclick="cargarVista('../Act07_cno4.pdf')">
-          Ver PDF
-        </button>
+  <p>
+    <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE </strong>
+  </p>
 
-        <a href="../Act07_cno4.pdf" 
-           target="_blank" 
-           class="action-button pdf-button">
-          Abrir PDF en pestaña ↗
-        </a>
-      </div>
+  <div class="button-group">
+    <!-- 1. Cargar PDF en el visor interno -->
+    <button type="button" 
+            class="action-button pdf-button" 
+            onclick="cargarVista('Act07_cno4.pdf')">
+      Ver PDF
+    </button>
 
-      <!-- VISOR DINÁMICO (IFRAME) -->
-      <div class="pdf-container">
-        <iframe id="viewer-frame"
-                src="../Act07_cno4.pdf" 
-                title="Visualizador de contenido">
-        </iframe>
-      </div>
+    <!-- 2. Cargar HTML en el visor interno -->
+    <button type="button" 
+            class="action-button html-button" 
+            onclick="cargarVista('actividades/act07.html')">
+      Ver en Visor HTML
+    </button>
+
+    <!-- 3. Redirigir a la página HTML (Abre en pestaña nueva) -->
+    <a href="actividades/act07.html" 
+       target="_blank" 
+       class="action-button html-button">
+      Ir a la página HTML ↗
+    </a>
+
+    <!-- 4. Abrir PDF directamente -->
+    <a href="Act07_cno4.pdf" 
+       target="_blank" 
+       class="action-button pdf-button">
+      Abrir PDF ↗
+    </a>
+  </div>
+
+  <div class="pdf-container">
+    <iframe id="viewer-frame"
+      src="Act07_cno4.pdf" 
+      title="Visualizador de contenido">
+    </iframe>
+  </div>
+
+</section>
 
       <hr class="section-divider">
 
