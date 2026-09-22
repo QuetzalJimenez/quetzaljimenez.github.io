@@ -391,9 +391,6 @@
   </header>
 
   <!-- CONTENIDO PRINCIPAL -->
-  ### Main actualizado
-
-```html
 <main>
 
   <section class="hero activity-section">
@@ -401,34 +398,20 @@
     <h1>Act07</h1>
 
     <p>
-      <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE </strong>
+      <strong>LAB: FILE PATH TRAVERSAL SIMPLE CASE</strong>
     </p>
 
     <div class="button-group">
       <!-- 1. Cargar PDF en el visor interno -->
-      <button type="button" 
-              class="action-button pdf-button" 
-              onclick="cargarVista('Act08_cno4.pdf')">
+      <button type="button"
+              class="action-button pdf-button"
+              onclick="cargarVista('https://quetzaljimenez.github.io/CNO4/Act08_cno4.pdf')">
         Ver PDF
       </button>
 
-      <!-- 2. Cargar HTML en el visor interno -->
-      <button type="button" 
-              class="action-button html-button" 
-              onclick="cargarVista('actividades/act07.html')">
-        Ver en Visor HTML
-      </button>
-
-      <!-- 3. Redirigir a la página HTML (Abre en pestaña nueva) -->
-      <a href="actividades/act08.html" 
-         target="_blank" 
-         class="action-button html-button">
-        Ir a la página HTML ↗
-      </a>
-
-      <!-- 4. Abrir PDF directamente -->
-      <a href="Act08_cno4.pdf" 
-         target="_blank" 
+      <!-- 2. Abrir PDF directamente (abre en pestaña nueva) -->
+      <a href="https://quetzaljimenez.github.io/CNO4/Act08_cno4.pdf"
+         target="_blank"
          class="action-button pdf-button">
         Abrir PDF ↗
       </a>
@@ -436,8 +419,12 @@
 
     <div class="pdf-container">
       <iframe id="viewer-frame"
-        src="Act07_cno4.pdf" 
-        title="Visualizador de contenido">
+              src="https://quetzaljimenez.github.io/CNO4/Act08_cno4.pdf"
+              title="Visualizador de contenido"
+              width="100%"
+              height="700"
+              frameborder="0"
+              allowfullscreen>
       </iframe>
     </div>
 
@@ -455,67 +442,68 @@
         <strong>File Path Traversal</strong> (también llamado <em>Directory Traversal</em>) es una vulnerabilidad que permite a un atacante navegar por los directorios del servidor para acceder a archivos que no deberían ser accesibles, usando rutas manipuladas como: <code>../../../</code>
       </p>
       <p>
-        Observar el tráfico de paquetes y el uso de <code>GET</code> como un exponencial método que puede ser atacado de múltiples formas entendiendo las vulnerabilidades de páginas web sin seguridad implementada.
+        Observar el tráfico de paquetes y el uso de <code>GET</code> como un vector que puede ser explotado de múltiples formas para entender vulnerabilidades en aplicaciones web sin controles adecuados.
       </p>
     </section>
 
     <section class="preview-block">
       <h3>AMBIENTE DE LABORATORIO</h3>
-      
+
       <figure class="lab-image-container">
-        <img src="../img/act08_1.png" alt="Inicialización del laboratorio en BurpSuite" class="lab-img">
+        <img src="https://quetzaljimenez.github.io/CNO4/imgen/act08_1.png"
+             alt="Inicialización del laboratorio en BurpSuite"
+             class="lab-img">
         <figcaption>Página inicial al inicializar BurpSuite; el laboratorio aparece de manera virtualizada.</figcaption>
       </figure>
 
       <p>
-        Encontramos que las imágenes se comparten por método <code>GET</code>, esto nos permite un vector de ataque. De manera pasiva utilizamos un repeater a una de las imágenes que aparecen.
+        Encontramos que las imágenes se solicitan mediante <code>GET</code>, lo que nos proporciona un vector de ataque. De forma pasiva enviamos una de las peticiones a Repeater para su análisis.
       </p>
 
       <figure class="lab-image-container">
-        <img src="../img/act08_2.png" alt="Captura de tráfico GET e inspección de imágenes" class="lab-img">
+        <img src="https://quetzaljimenez.github.io/CNO4/imgen/act08_2.png"
+             alt="Captura de tráfico GET e inspección de imágenes"
+             class="lab-img">
         <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
       </figure>
 
       <p>
-        Modificamos el <code>filename</code> que es donde se hace la llamada a la imagen y buscamos llamar a <code>/etc/passwd</code> suponiendo que el root se puede regresar y que está en un nivel de capa 4 por si hubo modificaciones. Sin embargo, puedes hacer regresión a N número de directorios si deseas.
+        Modificamos el parámetro <code>filename</code> que referencia la imagen y probamos rutas relativas y absolutas para intentar acceder a archivos sensibles como <code>/etc/passwd</code>.
       </p>
 
       <figure class="lab-image-container">
-        <img src="../img/act08_3.png" alt="Modificación de parámetros en Repeater" class="lab-img">
-        <figcaption>Inyección de secuencias ../ en el parámetro filename dentro de Repeater.</figcaption>
+        <img src="https://quetzaljimenez.github.io/CNO4/imgen/act08_3.png"
+             alt="Modificación de parámetros en Repeater"
+             class="lab-img">
+        <figcaption>Inyección de secuencias <code>../</code> en el parámetro <code>filename</code> dentro de Repeater.</figcaption>
       </figure>
 
       <p>
-        Nos regresa la información que se encuentra en este directorio y en este archivo, hemos completado la intrusión al laboratorio.
+        Finalmente, la petición con ruta absoluta devolvió el contenido esperado, confirmando el bypass.
       </p>
 
       <figure class="lab-image-container">
-        <img src="../img/act08_4.png" alt="Respuesta del servidor mostrando /etc/passwd" class="lab-img">
-        <figcaption>Respuesta exitosa del servidor expuesto con el contenido de /etc/passwd.</figcaption>
+        <img src="https://quetzaljimenez.github.io/CNO4/imgen/act08_4.png"
+             alt="Respuesta del servidor mostrando /etc/passwd"
+             class="lab-img">
+        <figcaption>Respuesta exitosa del servidor con el contenido de <code>/etc/passwd</code> (datos sensibles redactados).</figcaption>
       </figure>
     </section>
 
     <section class="preview-block">
       <h3>COMANDOS Y HERRAMIENTAS UTILIZADAS</h3>
       <ul class="tools-list">
-        <li>
-          <strong>Burp Suite – Proxy (Intercept ON):</strong> Se activó la opción <em>Intercept ON</em> para capturar las peticiones HTTP generadas por el navegador.
+        <li><strong>Burp Suite – Proxy (Intercept ON):</strong> Captura y modificación de peticiones HTTP.</li>
+        <li><strong>Burp Repeater:</strong> Pruebas iterativas sobre la misma petición.</li>
+        <li><strong>curl:</strong> Verificación rápida de rutas absolutas, por ejemplo:
+          <code>curl -v "https://quetzaljimenez.github.io/CNO4/download?file=/etc/passwd"</code>
         </li>
-        <li>
-          <strong>Forward:</strong> Se utilizó el botón <em>Forward</em> para permitir que la página cargara después de interceptar las solicitudes.
-        </li>
-        <li>
-          <strong>Observación de tráfico GET:</strong> Se identificaron múltiples peticiones de tipo <code>GET</code> hacia recursos estáticos.
-        </li>
-        <li>
-          <strong>Prueba de acceso a directorios:</strong> Se intentó navegar hacia el directorio raíz regresando niveles (<code>../</code>) para comprobar la estructura de directorios y posibles accesos indebidos.
-        </li>
+        <li><strong>Logs del servidor:</strong> <code>tail -f /var/log/apache2/access.log | grep "GET"</code> para corroborar accesos.</li>
       </ul>
     </section>
   </article>
 
 </main>
-```
 
   <!-- FOOTER -->
   <footer>
