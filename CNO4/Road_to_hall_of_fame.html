@@ -569,18 +569,28 @@
     </div>
   </div>
 
-  <!-- MODAL LAB 03 -->
+<!-- MODAL LAB 03 -->
 <div id="modal-lab3" class="lab-modal" aria-hidden="true">
   <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab3')"></div>
   <div class="lab-modal-container">
     <button class="modal-close" onclick="closeLabModal('modal-lab3')">✕</button>
     <h2>Evidencia Técnica - Laboratorio 03</h2>
-    <div class="lab-category-title">Análisis de Tráfico - Wireshark / GET Requests</div>
+    <div class="lab-category-title">Burp Suite – Proxy (Intercept ON) / Traversal Sequences Bypass</div>
     <img src="lab3.png" alt="Evidencia Lab 03" class="modal-img-full">
     <div class="tech-box">
-      <p><strong>Comando / Filtro utilizado:</strong> <code>tshark -r capture.pcapng -Y "http.request.method == GET"</code></p>
-      <p><strong>Descripción de la evidencia:</strong> Captura de paquetes que muestra peticiones HTTP GET hacia recursos estáticos; se identificaron solicitudes con parámetros <code>filename</code> que fueron objeto de análisis.</p>
-      <p><strong>Resultado Obtenido:</strong> Tráfico interceptado y filtrado que permitió aislar las peticiones GET relevantes para pruebas de File Path Traversal (payloads enviados desde Burp Suite y observados en la captura).</p>
+      <p><strong>Actividad:</strong> Lab 03 — TRAVERSAL SEQUENCES STRIPPED NON-RECURSIVELY</p>
+      <p><strong>Herramienta principal:</strong> Burp Suite (Proxy, Repeater)</p>
+      <p><strong>Pasos realizados:</strong></p>
+      <ul>
+        <li><strong>Intercept ON:</strong> Se activó la opción Intercept para capturar las peticiones HTTP generadas por el navegador.</li>
+        <li><strong>Forward:</strong> Se utilizó el botón Forward para permitir que la página continuara cargando después de inspeccionar las solicitudes.</li>
+        <li><strong>Observación de tráfico GET:</strong> Identificación de múltiples peticiones HTTP GET hacia recursos estáticos; se localizaron solicitudes con el parámetro <code>filename</code>.</li>
+        <li><strong>Prueba de acceso a directorios:</strong> Intentos iniciales con secuencias estándar (<code>../</code>, <code>../../../etc/passwd</code>) que fueron bloqueadas o limpiadas por el filtro.</li>
+        <li><strong>Send to Repeater:</strong> Envío de la solicitud que contiene <code>filename</code> al módulo Repeater para pruebas iterativas sin afectar la navegación principal.</li>
+        <li><strong>Manipulación del parámetro filename:</strong> Sustitución del valor por payloads anidados no recursivos (<code>....//....//....//etc/passwd</code>) para evadir la limpieza única del filtro y obtener <code>../../../etc/passwd</code> tras la normalización.</li>
+      </ul>
+      <p><strong>Comando / Filtro de ejemplo (verificación):</strong> <code>curl -v "https://target.example/download?file=....//....//etc/passwd"</code></p>
+      <p><strong>Resultado Obtenido:</strong> Confirmación de bypass del filtro no recursivo y visualización del contenido sensible de <code>/etc/passwd</code> (datos sensibles redactados en evidencia).</p>
     </div>
   </div>
 </div>
