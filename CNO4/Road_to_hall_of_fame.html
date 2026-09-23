@@ -517,23 +517,23 @@
         </div>
       </article>
 
-      <!-- LAB 03 -->
-      <article class="lab-block">
-        <div class="lab-header-centered">
-          <div class="lab-category-title">Análisis de Tráfico</div>
-          <h2 class="lab-name-title">Lab 03: Inspección de Paquetes de Red con Wireshark</h2>
-        </div>
-        <div class="star-wrapper">
-          <div class="hollywood-star"></div>
-          <div class="star-number">03</div>
-          <div class="star-overlay">
-            <button class="btn-star-action" onclick="openLabModal('modal-lab3')">Ver Evidencia</button>
-            <a href="docs/Lab03_Wireshark.pdf" download class="btn-star-action">Descargar PDF</a>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
+<!-- LAB 03 -->
+<article class="lab-block">
+  <div class="lab-header-centered">
+    <div class="lab-category-title">Análisis de Tráfico</div>
+    <h2 class="lab-name-title">Lab 03: Inspección de Paquetes de Red con Wireshark</h2>
+  </div>
+  <div class="star-wrapper">
+    <div class="hollywood-star"></div>
+    <div class="star-number">03</div>
+    <div class="star-overlay">
+      <button class="btn-star-action" onclick="openLabModal('modal-lab3')">Ver Evidencia</button>
+      <a href="Act09_cno4.pdf" download class="btn-star-action">Descargar PDF</a>
+    </div>
+  </div>
+</article>
+</section>
+</main>
 
   <!-- ==========================================================================
      4. MODALES DE EVIDENCIAS TÉCNICAS
@@ -568,6 +568,22 @@
       </div>
     </div>
   </div>
+
+  <!-- MODAL LAB 03 -->
+<div id="modal-lab3" class="lab-modal" aria-hidden="true">
+  <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab3')"></div>
+  <div class="lab-modal-container">
+    <button class="modal-close" onclick="closeLabModal('modal-lab3')">✕</button>
+    <h2>Evidencia Técnica - Laboratorio 03</h2>
+    <div class="lab-category-title">Análisis de Tráfico - Wireshark / GET Requests</div>
+    <img src="lab3.png" alt="Evidencia Lab 03" class="modal-img-full">
+    <div class="tech-box">
+      <p><strong>Comando / Filtro utilizado:</strong> <code>tshark -r capture.pcapng -Y "http.request.method == GET"</code></p>
+      <p><strong>Descripción de la evidencia:</strong> Captura de paquetes que muestra peticiones HTTP GET hacia recursos estáticos; se identificaron solicitudes con parámetros <code>filename</code> que fueron objeto de análisis.</p>
+      <p><strong>Resultado Obtenido:</strong> Tráfico interceptado y filtrado que permitió aislar las peticiones GET relevantes para pruebas de File Path Traversal (payloads enviados desde Burp Suite y observados en la captura).</p>
+    </div>
+  </div>
+</div>
 
   <!-- FOOTER PRINCIPAL -->
   <footer>
