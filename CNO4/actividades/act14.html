@@ -1,1 +1,604 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Road to Hall of Fame | Portafolio CNO IV</title>
+  <style>
+  /* ==========================================================================
+     1. ESTILOS BASE Y REINICIO
+     ========================================================================== */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+
+  /* ==========================================================================
+     2. NAVEGACIÓN Y HEADER (NEGRO CON ACENTOS DORADOS)
+     ========================================================================== */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 12px 24px;
+    border-bottom: 1px solid #222;
+    background: #0a0a0a;
+    color: #ffffff;
+  }
+
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .navbar a:hover, 
+  .navbar a.active {
+    color: #d4af37;
+  }
+
+  .logo {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .logo-image {
+    border-radius: 6px;
+  }
+
+  .logo-text strong {
+    display: block;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+
+  .logo-text span {
+    color: #bbb;
+    font-size: 0.85rem;
+  }
+
+  .logo-text small {
+    color: #888;
+    font-size: 0.75rem;
+  }
+
+  nav {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  nav a {
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* Dropdown Navegación */
+  .nav-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    background: transparent;
+    border: 1px solid #444;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+
+  .dropdown-toggle:hover {
+    background: #222;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 6px);
+    list-style: none;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: #111;
+    border: 1px solid #333;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    min-width: 160px;
+    z-index: 20;
+    border-radius: 4px;
+  }
+
+  .dropdown-menu[hidden] {
+    display: none;
+  }
+
+  .dropdown-menu li a {
+    display: block;
+    padding: 0.4rem 0.8rem;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .dropdown-menu li a:hover {
+    background: #222;
+    color: #d4af37;
+  }
+
+  /* ==========================================================================
+     3. SECCIONES DE ACTIVIDADES (HERO / CARDS DE CONTENIDO)
+     ========================================================================== */
+  main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+
+  .activity-section {
+    background: #0a0a0a;
+    border: 1px solid #222222;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .activity-section:hover {
+    border-color: #d4af37;
+    box-shadow: 0 6px 25px rgba(212, 175, 55, 0.15);
+  }
+
+  .activity-section h1 {
+    margin-top: 0;
+    font-size: 2rem;
+    color: #d4af37;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .activity-section .subtitle {
+    color: #cccccc;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 10px auto 25px auto;
+    text-align: center;
+  }
+
+  /* Grupo de Botones */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+  }
+
+  .action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
+  }
+
+  .action-button:hover {
+    transform: translateY(-2px);
+  }
+
+  .pdf-button {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+  }
+
+  .pdf-button:hover {
+    background-color: #d4af37;
+    color: #000000;
+    border-color: #d4af37;
+  }
+
+  .html-button {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border-color: #0d6efd;
+  }
+
+  .html-button:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+  }
+
+  /* Contenedor e iframe del Visor */
+  .pdf-container {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #333333;
+    background: #111111;
+  }
+
+  .pdf-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* Separador */
+  .section-divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #222222;
+  }
+
+  /* Estilos de Previsualización de la Actividad (Dark Theme) */
+  .activity-preview {
+    background-color: #050505;
+    border: 1px solid #1a1a1a;
+    border-radius: 8px;
+    padding: 24px;
+    text-align: left;
+  }
+
+  .activity-preview h2 {
+    color: #d4af37;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+  }
+
+  .preview-block {
+    margin-bottom: 28px;
+  }
+
+  .preview-block h3 {
+    border-left: 4px solid #d4af37;
+    padding-left: 10px;
+    margin-bottom: 12px;
+    color: #ffffff;
+    font-size: 1.15rem;
+  }
+
+  .preview-block p {
+    color: #b0b0b0;
+    font-size: 1rem;
+    margin: 10px 0;
+    text-align: left;
+  }
+
+  .lab-image-container {
+    margin: 20px 0;
+    text-align: center;
+    background: #111111;
+    border: 1px solid #222222;
+    border-radius: 8px;
+    padding: 12px;
+  }
+
+  .lab-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid #333333;
+  }
+
+  figcaption {
+    font-size: 0.85rem;
+    color: #888888;
+    margin-top: 8px;
+  }
+
+  code {
+    background-color: #1a1a1a;
+    color: #d4af37;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+    font-size: 0.9em;
+  }
+
+  .tools-list {
+    padding-left: 20px;
+    color: #b0b0b0;
+  }
+
+  .tools-list li {
+    margin-bottom: 10px;
+  }
+
+  .tools-list strong {
+    color: #ffffff;
+  }
+
+  /* ==========================================================================
+     4. FOOTER
+     ========================================================================== */
+  footer {
+    margin-top: 60px;
+    padding: 30px 20px;
+    text-align: center;
+    color: #777777;
+    border-top: 1px solid #1a1a1a;
+    background: #000000;
+    font-size: 0.9rem;
+  }
+
+  footer p {
+    margin: 5px 0;
+  }
+
+  footer .security {
+    color: #555555;
+    font-size: 0.8rem;
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="navbar">
+      <div class="logo">
+        <img src="../img/logo.png" alt="Logo" class="logo-image" width="38" height="38">
+        <div class="logo-text">
+          <strong>Quetzal · Alias сумерки</strong>
+          <span>CNO IV – Seguridad Informática</span><br>
+          <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación principal">
+        <a href="../index.html#inicio">Inicio</a>
+        <a href="../index.html#presentacion">Presentación</a>
+        <a href="../index.html#perfil">Perfil</a>
+        <a href="../index.html#tecnologias">Tecnologías</a>
+
+        <!-- Enlace a Proyectos -->
+        <a href="../evidencias.html">Evidencias</a>
+
+        <!-- Desplegable Proyectos -->
+        <div class="nav-dropdown" aria-haspopup="true">
+          <button class="dropdown-toggle" aria-expanded="false" aria-controls="proyectos-list">Proyectos ▾</button>
+          <ul id="proyectos-list" class="dropdown-menu" hidden>
+            <li><a href="../proyectos.html#pr01">PR01</a></li>
+            <li><a href="../proyectos.html#pr02">PR02</a></li>
+            <li><a href="../proyectos.html#pr03">PR03</a></li>
+          </ul>
+        </div>
+
+        <a href="../Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
+        <a href="../index.html#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+<main>
+
+  <section class="activity-section">
+
+    <h1>Actividad 14 · Ciberseguridad en una mirada</h1>
+
+    <p class="subtitle">
+      Infografía: Protección de datos y privacidad
+    </p>
+
+    <div class="button-group">
+
+      <!-- Abrir PDF en una nueva pestaña -->
+      <a
+        href="../pdf/Actividad14_Proteccion_Datos.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="action-button pdf-button">
+        Abrir PDF
+      </a>
+
+      <!-- Descargar PDF -->
+      <a
+        href="../pdf/Actividad14_Proteccion_Datos.pdf"
+        download="Actividad14_Proteccion_Datos.pdf"
+        class="action-button html-button">
+        Descargar PDF
+      </a>
+
+    </div>
+
+    <!-- VISOR DEL PDF -->
+    <div class="pdf-container">
+
+      <iframe
+        id="viewer-frame"
+        src="../pdf/Actividad14_Proteccion_Datos.pdf"
+        title="Infografía sobre Protección de Datos y Privacidad">
+      </iframe>
+
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Información de la actividad -->
+    <div class="activity-preview">
+
+      <h2>Actividad 14 · Ciberseguridad en una mirada</h2>
+
+      <div class="preview-block">
+
+        <h3>Protección de datos y privacidad</h3>
+
+        <p>
+          Esta infografía presenta los conceptos fundamentales relacionados
+          con la protección de datos y la privacidad, identificando los
+          principales riesgos que pueden comprometer la información y las
+          medidas de seguridad que pueden aplicarse para reducirlos.
+        </p>
+
+      </div>
+
+      <div class="preview-block">
+
+        <h3>Contenido</h3>
+
+        <ul class="tools-list">
+          <li>
+            <strong>Datos personales:</strong>
+            información que puede identificar o relacionarse con una persona.
+          </li>
+
+          <li>
+            <strong>Confidencialidad:</strong>
+            acceso a la información únicamente por personas autorizadas.
+          </li>
+
+          <li>
+            <strong>Integridad:</strong>
+            protección de los datos frente a modificaciones no autorizadas.
+          </li>
+
+          <li>
+            <strong>Disponibilidad:</strong>
+            garantizar que la información pueda utilizarse cuando sea necesaria.
+          </li>
+
+          <li>
+            <strong>Principales amenazas:</strong>
+            phishing, malware, contraseñas débiles, ingeniería social y
+            pérdida o robo de dispositivos.
+          </li>
+
+          <li>
+            <strong>Medidas de protección:</strong>
+            contraseñas fuertes, autenticación multifactor, actualizaciones,
+            copias de seguridad, cifrado y prevención del phishing.
+          </li>
+
+        </ul>
+
+      </div>
+
+      <div class="preview-block">
+
+        <h3>Objetivo</h3>
+
+        <p>
+          Concientizar sobre la importancia de proteger la información
+          personal y organizacional mediante buenas prácticas de
+          ciberseguridad.
+        </p>
+
+      </div>
+
+      <div class="preview-block">
+
+        <h3>Fuente principal</h3>
+
+        <p>
+          Cisco Networking Academy · Introducción a la Ciberseguridad ·
+          Módulo 3: Protección de sus datos y privacidad.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
+    <p class="security">Conexión segura · HTTPS</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // 1. Script para cambiar el origen del Visor (PDF / HTML)
+    function cargarVista(url) {
+      const iframe = document.getElementById('viewer-frame');
+      if (iframe) {
+        iframe.src = url;
+      }
+    }
+
+    // 2. Script Menú Desplegable Proyectos
+    (function () {
+      const toggle = document.querySelector('.dropdown-toggle');
+      const menu = document.getElementById('proyectos-list');
+      
+      if (toggle && menu) {
+        document.addEventListener('click', function (e) {
+          if (e.target === toggle) {
+            const hidden = menu.hasAttribute('hidden');
+            if (hidden) { 
+              menu.removeAttribute('hidden'); 
+              toggle.setAttribute('aria-expanded','true'); 
+            } else { 
+              menu.setAttribute('hidden',''); 
+              toggle.setAttribute('aria-expanded','false'); 
+            }
+            return;
+          }
+          if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false');
+          }
+        });
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { 
+            menu.setAttribute('hidden',''); 
+            toggle.setAttribute('aria-expanded','false'); 
+            toggle.focus(); 
+          }
+        });
+      }
+    })();
+
+    // 3. Control de Modales de Evidencia
+    function openLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.setAttribute('aria-hidden', 'false');
+        document.documentElement.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLabModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.setAttribute('aria-hidden', 'true');
+        document.documentElement.style.overflow = '';
+      }
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') {
+        const activeModals = document.querySelectorAll('.lab-modal[aria-hidden="false"]');
+        activeModals.forEach(modal => {
+          closeLabModal(modal.id);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
