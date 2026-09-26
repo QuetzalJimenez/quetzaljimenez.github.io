@@ -1,5 +1,4 @@
   <!-- SCRIPTS -->
-  <script>
     // 1. Script para cambiar el origen del Visor (PDF / HTML)
     function cargarVista(url) {
       const iframe = document.getElementById('viewer-frame');
@@ -67,4 +66,3 @@
         });
       }
     });
-  </script>
