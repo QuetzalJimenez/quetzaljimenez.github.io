@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Road to Hall of Fame | Portafolio CNO IV</title>
 
-  <!-- Enlace a CSS externo (opcional) -->
-  <link rel="stylesheet" href="/css/styles.css"> 
+  <!-- Hoja de estilos externa (coloca styles.css en /css/) -->
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- Metadatos adicionales opcionales -->
+  <meta name="author" content="Quetzal" />
 </head>
 <body>
 
   <header>
-    <div class="navbar">
-      <div class="logo">
-        <img src="../img/logo.png" alt="Logo" class="logo-image" width="38" height="38" />
+    <div class="navbar" role="navigation" aria-label="Navegación principal">
+      <div class="logo" aria-hidden="false">
+        <img src="/img/logo.png" alt="Logotipo Quetzal" class="logo-image" width="38" height="38" />
         <div class="logo-text">
           <strong>Quetzal · Alias сумерки</strong>
-          <span>CNO IV – Seguridad Informática</span><br />
+          <div>CNO IV – Seguridad Informática</div>
           <small>Universidad Politécnica de San Luis Potosí · Semestre 2026</small>
         </div>
       </div>
 
       <nav aria-label="Navegación principal">
-        <a href="../index.html#inicio">Inicio</a>
-        <a href="../index.html#presentacion">Presentación</a>
-        <a href="../index.html#perfil">Perfil</a>
-        <a href="../index.html#tecnologias">Tecnologías</a>
-
-        <!-- Enlace a Evidencias -->
-        <a href="../evidencias.html">Evidencias</a>
+        <a href="/index.html#inicio">Inicio</a>
+        <a href="/index.html#presentacion">Presentación</a>
+        <a href="/index.html#perfil">Perfil</a>
+        <a href="/index.html#tecnologias">Tecnologías</a>
+        <a href="/evidencias.html">Evidencias</a>
 
         <!-- Desplegable Proyectos -->
         <div class="nav-dropdown" aria-haspopup="true">
@@ -36,25 +37,23 @@
             Proyectos ▾
           </button>
           <ul id="proyectos-list" class="dropdown-menu" hidden>
-            <li><a href="../proyectos.html#pr01">PR01</a></li>
-            <li><a href="../proyectos.html#pr02">PR02</a></li>
-            <li><a href="../proyectos.html#pr03">PR03</a></li>
+            <li><a href="/proyectos.html#pr01">PR01</a></li>
+            <li><a href="/proyectos.html#pr02">PR02</a></li>
+            <li><a href="/proyectos.html#pr03">PR03</a></li>
           </ul>
         </div>
 
-        <a href="../Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
-        <a href="../index.html#contacto">Contacto</a>
+        <a href="/actividades/Road_to_hall_of_fame.html" class="active">Road to Hall of Fame</a>
+        <a href="/index.html#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="activity-header">
+    <section class="activity-header" id="act09">
       <h1>Act09</h1>
 
-      <p>
-        <strong>LAB: TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE</strong>
-      </p>
+      <p><strong>LAB: TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE</strong></p>
 
       <div class="button-group">
         <!-- 1. Cargar PDF en el visor interno -->
@@ -67,7 +66,7 @@
 
         <!-- 2. Abrir PDF directamente (abre en pestaña nueva) -->
         <a
-          href="https://quetzaljimenez.github.io/CNO4/Act10_cno4.pdf"
+          href="https://quetzaljimenez.github.io/CNO4/Act09_cno4.pdf"
           target="_blank"
           rel="noopener noreferrer"
           class="action-button pdf-button">
@@ -75,11 +74,11 @@
         </a>
       </div>
 
-      <div class="pdf-container">
+      <div class="pdf-container" aria-live="polite">
         <iframe
           id="viewer-frame"
-          src="https://quetzaljimenez.github.io/CNO4/Act10_cno4.pdf"
-          title="Visualizador de contenido"
+          src="https://quetzaljimenez.github.io/CNO4/Act09_cno4.pdf"
+          title="Visualizador de Act09 - TRAVERSAL SEQUENCES STRIPPED"
           width="100%"
           height="700"
           frameborder="0"
@@ -90,18 +89,14 @@
 
     <hr class="section-divider" />
 
-    <!-- PREVISUALIZACIÓN DETALLADA DE LA ACTIVIDAD -->
     <article class="activity-preview">
       <h2>Previsualización de la Investigación</h2>
 
       <section class="preview-block">
         <h3>OBJETIVO</h3>
         <p>
-          Actualizar la guía del laboratorio FILE PATH TRAVERSAL — TRAVERSAL SEQUENCES STRIPPED
-          WITH SUPERFLUOUS URL-DECODE para que cubra técnicas de bypass basadas en secuencias
-          anidadas y codificación URL múltiple. El objetivo sigue siendo explotar una sanitización no
-          recursiva y/o un proceso de decodificación excesiva para leer archivos sensibles como
-          <code>/etc/passwd</code>.
+          Actualizar la guía del laboratorio <strong>FILE PATH TRAVERSAL — TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE</strong>
+          para cubrir técnicas de bypass basadas en secuencias anidadas y codificación URL múltiple. El objetivo es explotar una sanitización no recursiva y/o un proceso de decodificación excesiva para leer archivos sensibles como <code>/etc/passwd</code>.
         </p>
       </section>
 
@@ -109,50 +104,35 @@
         <h3>AMBIENTE DE LABORATORIO</h3>
 
         <figure class="lab-image-container">
-          <img
-            src="https://quetzaljimenez.github.io/CNO4/img/act10_1.png"
-            alt="Inicialización del laboratorio en BurpSuite"
-            class="lab-img" />
+          <img src="/img/act10_1.png" alt="Inicialización del laboratorio en BurpSuite" class="lab-img" />
           <figcaption>Página inicial al inicializar BurpSuite; el laboratorio aparece de manera virtualizada.</figcaption>
         </figure>
 
-        <p>Localizar la petición GET que contiene <code>filename=blog.png</code> o similar.</p>
+        <p>Localizar la petición <code>GET</code> que contiene <code>filename=blog.png</code> o similar.</p>
 
         <figure class="lab-image-container">
-          <img
-            src="https://quetzaljimenez.github.io/CNO4/img/act10_2.png"
-            alt="Captura de tráfico GET e inspección de imágenes"
-            class="lab-img" />
+          <img src="/img/act10_2.png" alt="Captura de tráfico GET e inspección de imágenes" class="lab-img" />
           <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
         </figure>
 
         <p>Probar secuencias simples: reemplazar <code>filename</code> por <code>../../etc/passwd</code> o <code>/etc/passwd</code>.</p>
 
         <figure class="lab-image-container">
-          <img
-            src="https://quetzaljimenez.github.io/CNO4/img/act10_3.png"
-            alt="Modificación de parámetros en Repeater"
-            class="lab-img" />
+          <img src="/img/act10_3.png" alt="Modificación de parámetros en Repeater" class="lab-img" />
           <figcaption>Pruebas de manipulación del parámetro <code>filename</code> en Repeater.</figcaption>
         </figure>
 
         <p>Probar secuencias anidadas: enviar <code>filename=....//....//etc/passwd</code>. Resultado esperado: si el filtro es no recursivo, la petición resuelve y devuelve el contenido de <code>/etc/passwd</code>.</p>
 
         <figure class="lab-image-container">
-          <img
-            src="https://quetzaljimenez.github.io/CNO4/img/act10_4.png"
-            alt="Captura de tráfico GET e inspección de imágenes"
-            class="lab-img" />
+          <img src="/img/act10_4.png" alt="Captura de tráfico GET e inspección de imágenes" class="lab-img" />
           <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
         </figure>
 
-        <p>Probar bypass con codificación URL simple: enviar <code>filename=%2e%2e%2f%2e%2e%2fetc%2fpasswd</code>. Si el servidor decodifica una vez y luego aplica el filtro, puede bloquearlo; si decodifica de forma inadecuada, puede permitirlo.</p>
+        <p>Probar bypass con codificación URL simple: enviar <code>filename=%2e%2e%2f%2e%2e%2fetc%2fpasswd</code>.</p>
 
         <figure class="lab-image-container">
-          <img
-            src="https://quetzaljimenez.github.io/CNO4/img/act10_5.png"
-            alt="Captura de tráfico GET e inspección de imágenes"
-            class="lab-img" />
+          <img src="/img/act10_5.png" alt="Captura de tráfico GET e inspección de imágenes" class="lab-img" />
           <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
         </figure>
       </section>
@@ -163,56 +143,81 @@
         <p><strong>Comportamiento inseguro observado</strong></p>
         <ul>
           <li>El servidor aplica reemplazos simples para <code>../</code> o realiza una única pasada de decodificación.</li>
-          <li>La sanitización no es recursiva y/o el servidor realiza decodificaciones múltiples en momentos distintos del pipeline, lo que permite que payloads especialmente construidos se transformen en secuencias <code>../</code> válidas tras el procesamiento.</li>
-        </ul>
-
-        <p><strong>Por qué funcionan las técnicas</strong></p>
-        <ul>
-          <li><strong>Secuencias anidadas:</strong> <code>....//</code> contiene <code>..</code> y <code>//</code> de forma que, tras eliminar una porción no recursivamente, los fragmentos restantes se concatenan formando <code>../</code>.</li>
-          <li><strong>Doble codificación:</strong> si el servidor decodifica más de una vez o decodifica en etapas, una entrada doblemente codificada puede evadir la detección inicial y convertirse en <code>../</code> después de una decodificación intermedia.</li>
+          <li>La sanitización no es recursiva y/o el servidor realiza decodificaciones múltiples en distintos puntos del pipeline.</li>
         </ul>
 
         <p><strong>Mitigaciones recomendadas</strong></p>
         <ul>
-          <li>Canonicalizar rutas usando funciones nativas del sistema (por ejemplo <code>realpath</code>, <code>Path.resolve</code>) y comparar que la ruta resultante esté dentro del directorio base autorizado.</li>
-          <li>No confiar en reemplazos de cadenas; evitar sanitizaciones basadas solo en <code>replace("../","")</code>.</li>
+          <li>Canonicalizar rutas con <code>realpath</code> o <code>Path.resolve</code> y validar que la ruta final esté dentro del directorio base autorizado.</li>
+          <li>No confiar en reemplazos de cadenas como única defensa.</li>
         </ul>
       </section>
 
       <section class="preview-block">
         <h3>COMANDOS Y HERRAMIENTAS UTILIZADAS</h3>
         <ul>
-          <li>Burp Suite – Proxy (Intercept ON): captura de peticiones HTTP generadas por el navegador.</li>
-          <li>Forward: permitir que la página cargue después de interceptar las solicitudes.</li>
-          <li>Observación de tráfico GET: identificación de peticiones hacia recursos estáticos.</li>
-          <li>Prueba de acceso a directorios: navegación hacia niveles superiores (<code>../</code>).</li>
-          <li>Send to Repeater: envío de la solicitud del parámetro <code>filename</code> al entorno de pruebas.</li>
-          <li>Manipulación de parámetro GET (<code>filename</code>): modificación con secuencias anidadas no recursivas (<code>....//</code>).</li>
+          <li>Burp Suite – Proxy (Intercept ON)</li>
+          <li>Forward para permitir carga de páginas</li>
+          <li>Send to Repeater y manipulación del parámetro <code>filename</code></li>
         </ul>
       </section>
 
       <section class="preview-block">
         <h3>RESULTADOS</h3>
-        <p>Se identificó que la aplicación web implementa una sanitización débil basada en expresiones regulares o reemplazos simples que operan de forma no recursiva.</p>
-        <p>Se comprobó que el uso de payloads anidados (<code>....//</code>) permite superar el bloqueo de secuencias simples de tipo <code>../</code>.</p>
-        <p>Con filtros no recursivos y/o decodificación superflua, payloads como <code>....//....//etc/passwd</code> o variantes doblemente codificadas pueden permitir la lectura de <code>/etc/passwd</code>. Burp Repeater acelera la iteración de payloads y la confirmación del bypass.</p>
+        <p>Se identificó una sanitización débil; payloads anidados y doble codificación pueden permitir la lectura de <code>/etc/passwd</code> en servidores vulnerables.</p>
       </section>
 
       <section class="preview-block">
         <h3>CONCLUSIONES</h3>
-        <p>Las funciones de sanitización que eliminan cadenas prohibidas (como <code>../</code>) sin aplicar un bucle recursivo hasta que no queden coincidencias son altamente vulnerables a técnicas de anidación de caracteres.</p>
-        <p>La combinación de secuencias anidadas y codificación URL múltiple es una técnica efectiva contra filtros débiles. La defensa robusta requiere canonicalización, listas blancas y validación post-normalización.</p>
+        <p>La defensa robusta requiere canonicalización, listas blancas y validación post-normalización.</p>
       </section>
     </article>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
     <p class="security">Conexión segura · HTTPS</p>
   </footer>
 
-  <!-- Script externo (opcional). Un archivo .js no debe contener etiquetas <script> dentro del propio archivo -->
- <script src="/js/main.js" defer></script> 
+  <!-- Script mínimo inline para cambiar el src del iframe (puedes moverlo a /js/main.js) -->
+  <script>
+    function cargarVista(url) {
+      const iframe = document.getElementById('viewer-frame');
+      if (!iframe) return;
+      // Validación básica: solo permitir URLs seguras (ajusta según tu política)
+      try {
+        const u = new URL(url, window.location.href);
+        // ejemplo de validación: permitir solo https
+        if (u.protocol === 'https:') {
+          iframe.src = u.href;
+        } else {
+          console.warn('URL no permitida:', url);
+        }
+      } catch (e) {
+        console.error('URL inválida:', url);
+      }
+    }
+
+    // Ejemplo: comportamiento accesible para el dropdown (mejorar según tu JS externo)
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.querySelector('.dropdown-toggle');
+      const menu = document.getElementById('proyectos-list');
+      if (toggle && menu) {
+        toggle.addEventListener('click', function () {
+          const expanded = this.getAttribute('aria-expanded') === 'true';
+          this.setAttribute('aria-expanded', String(!expanded));
+          if (menu.hasAttribute('hidden')) {
+            menu.removeAttribute('hidden');
+          } else {
+            menu.setAttribute('hidden', '');
+          }
+        });
+      }
+    });
+  </script>
+
+  <!-- Enlaza tu script externo si lo prefieres (coloca main.js en /js/) -->
+   <script src="/js/main.js" defer></script> 
 </body>
 </html>
+
