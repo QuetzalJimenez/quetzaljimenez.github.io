@@ -399,14 +399,12 @@
     </p>
 
     <div class="button-group">
-      <!-- 1. Cargar PDF en el visor interno (ruta relativa) -->
       <button type="button"
               class="action-button pdf-button"
               onclick="cargarVista('./Act11_cno4.pdf')">
         Ver PDF
       </button>
 
-      <!-- 2. Abrir PDF directamente (abre en pestaña nueva, ruta relativa) -->
       <a href="./Act11_cno4.pdf"
          target="_blank"
          rel="noopener noreferrer"
@@ -442,82 +440,52 @@
     <section class="preview-block">
       <h3>AMBIENTE DE LABORATORIO</h3>
       <p>
-        - Burp Suite (Proxy + Repeater).<br>
-        - Navegador configurado para usar Burp como proxy.<br>
-        - Endpoint que sirve recursos mediante un parámetro <code>filename</code> en peticiones <code>GET</code> (p. ej. imágenes).
+        Captura la petición objetivo con Burp Suite (Proxy + Repeater). Localiza la petición <code>GET</code> que incluye <code>filename=</code> y confirma la validación de inicio probando con un valor legítimo (por ejemplo <code>filename=/images/product.png</code>).
       </p>
     </section>
 
     <section class="preview-block">
-      <h3>PROCEDIMIENTO</h3>
-      <ol class="analysis-list">
-        <li><strong>Captura la petición objetivo:</strong> intercepta la petición que carga la imagen y envíala a Repeater.</li>
-        <li><strong>Localiza el parámetro:</strong> identifica el parámetro que controla la ruta (p. ej. <code>filename=</code>).</li>
-        <li><strong>Confirmar validación de inicio:</strong> prueba con un valor legítimo (p. ej. <code>filename=/images/product.png</code>) y con rutas obvias (<code>/etc/passwd</code>, <code>../../etc/passwd</code>) para observar bloqueo o limpieza.</li>
-        <li><strong>Bypass por segmentación y normalización:</strong> enviar rutas que comiencen con el prefijo permitido pero contengan segmentos que, tras normalizarse o decodificarse, salgan del directorio (ver payloads).</li>
-        <li><strong>Iterar en Repeater:</strong> ajustar payloads hasta obtener HTTP 200 con contenido del archivo objetivo o confirmar mitigación.</li>
-      </ol>
-    </section>
-
-    <section class="preview-block">
-      <h3>PAYLOADS DE PRUEBA</h3>
+      <h3>PROCEDIMIENTO Y PAYLOADS</h3>
       <ul>
-        <li><code>/images/..%2f..%2fetc/passwd</code> (mezcla de segmentos y codificación)</li>
-        <li><code>/images/../../../etc/passwd</code></li>
-        <li><code>/images//....//....//....//etc//passwd</code></li>
-        <li><code>/images/....//....//etc/passwd</code> (prefijo válido + traversal por anidación)</li>
-        <li><code>/images/%2e%2e/%2e%2e/etc/passwd</code> (percent‑encoding simple)</li>
-        <li><code>/images/%252e%252e%252f%252e%252e%252fetc%252fpasswd</code> (doble codificación)</li>
+        <li>Bypass por segmentación y normalización: <code>/images/..%2f..%2fetc/passwd</code>, <code>/images/../../../etc/passwd</code>.</li>
+        <li>Inserción de prefijo válido + traversal: <code>/images/....//....//etc/passwd</code>, <code>/images//....//....//....//etc//passwd</code>.</li>
+        <li>Codificación doble: <code>/images/%252e%252e%252f%252e%252e%252fetc%252fpasswd</code>.</li>
       </ul>
     </section>
 
     <section class="preview-block">
-      <h3>ANÁLISIS DE LA VULNERABILIDAD</h3>
+      <h3>IMÁGENES (solo 3)</h3>
+
+      <figure class="lab-image-container">
+        <img src="../img/act11_1.png"
+             alt="Petición GET interceptada con parámetro filename"
+             class="lab-img" />
+        <figcaption>Petición GET interceptada que solicita un recurso mediante <code>filename</code>.</figcaption>
+      </figure>
+
+      <figure class="lab-image-container">
+        <img src="../img/act11_2.png"
+             alt="Pruebas con percent-encoding y doble codificación"
+             class="lab-img" />
+        <figcaption>Pruebas con percent‑encoding simple y doble para observar decodificaciones en etapas.</figcaption>
+      </figure>
+
+      <figure class="lab-image-container">
+        <img src="../img/act11_3.png"
+             alt="Respuesta del servidor con fragmentos del archivo objetivo"
+             class="lab-img" />
+        <figcaption>Respuesta HTTP 200 mostrando fragmentos del archivo objetivo (datos sensibles redactados).</figcaption>
+      </figure>
+    </section>
+
+    <section class="preview-block">
+      <h3>ANÁLISIS Y CONCLUSIONES</h3>
       <p>
-        - <strong>Validación basada en prefijo literal:</strong> comprobaciones tipo <code>startsWith("/images/")</code> son insuficientes si se aplican sobre la entrada sin normalizar.<br>
-        - <strong>Decodificación en etapas:</strong> si el servidor decodifica percent‑encodings en distintos puntos, una entrada doblemente codificada puede evadir la verificación inicial y convertirse en traversal tras una decodificación posterior.<br>
-        - <strong>Sanitización no recursiva:</strong> reemplazos simples (<code>replace("../","")</code>) permiten técnicas de anidación (<code>....//</code>) que se recomponen en <code>../</code> después del filtrado.
+        La comprobación <code>startsWith</code> sobre la entrada sin normalizar es insuficiente. Decodificaciones en etapas y sanitización no recursiva permiten que payloads especialmente construidos escapen del directorio base. Recomendado: canonicalizar rutas (por ejemplo <code>realpath</code>, <code>Path.resolve</code>), aplicar whitelist y realizar una única decodificación controlada.
       </p>
-    </section>
-
-    <section class="preview-block">
-      <h3>COMANDOS Y HERRAMIENTAS UTILIZADAS</h3>
-      <ul class="tools-list">
-        <li>Burp Suite – Proxy (Intercept ON) y Repeater.</li>
-        <li>curl para comprobaciones rápidas desde línea de comandos.</li>
-        <li>Inspección de respuestas HTTP y logs del servidor cuando estén disponibles.</li>
-      </ul>
-    </section>
-
-    <section class="preview-block">
-      <h3>RESULTADOS</h3>
-      <p>
-        - Confirmación de la vulnerabilidad: la validación start‑of‑path sin canonicalización permite construir rutas que comienzan con el prefijo permitido pero que, tras normalización/decodificación, apuntan fuera del directorio autorizado.<br>
-        - Payloads efectivos: combinaciones de prefijo válido + traversal (<code>/images/....//....//etc/passwd</code>), percent‑encoding simple y doble codificación mostraron ser capaces de devolver fragmentos de <code>/etc/passwd</code> en el entorno del laboratorio, según la lógica de decodificación del servidor.
-      </p>
-    </section>
-
-    <section class="preview-block">
-      <h3>CONCLUSIONES</h3>
-      <ul class="conclusions-list">
-        <li><strong>Impacto en confidencialidad:</strong> exposición de archivos sensibles y posible acceso a otros ficheros internos.</li>
-        <li><strong>Riesgo adicional:</strong> dependiendo de permisos, el fallo puede facilitar enumeración de usuarios o lectura de configuraciones con credenciales.</li>
-        <li><strong>Alcance:</strong> afecta a endpoints que validan solo el prefijo sin normalizar y permiten al usuario controlar segmentos de la ruta.</li>
-      </ul>
-    </section>
-
-    <section class="preview-block">
-      <h3>MITIGACIONES RECOMENDADAS</h3>
-      <ul>
-        <li>Canonicalizar la ruta con funciones nativas (<code>realpath</code>, <code>Path.resolve</code>) y validar que la ruta resultante tenga como prefijo el directorio base autorizado.</li>
-        <li>Realizar una única decodificación controlada y rechazar entradas con múltiples capas de codificación sospechosa.</li>
-        <li>Evitar sanitizaciones por reemplazo simple; usar listas blancas de nombres de archivo cuando sea posible.</li>
-        <li>Registrar intentos de traversal y aplicar reglas WAF para bloquear patrones repetidos.</li>
-      </ul>
     </section>
   </article>
 </main>
-
 
 
   <!-- FOOTER -->
