@@ -390,25 +390,26 @@
     </div>
   </header>
 
-  <main>
-  <section class="activity-header">
-    <h1>Act09</h1>
+<main>
+  <section class="activity-header" id="act10">
+    <h1>Act10</h1>
 
     <p>
-      <strong>LAB: TRAVERSAL SEQUENCES STRIPPED NON-RECURSIVELY</strong>
+      <strong>LAB: TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE (Actividad 10)</strong>
     </p>
 
     <div class="button-group">
-      <!-- 1. Cargar PDF en el visor interno -->
+      <!-- 1. Cargar PDF en el visor interno (ruta relativa) -->
       <button type="button"
               class="action-button pdf-button"
-              onclick="cargarVista('https://quetzaljimenez.github.io/CNO4/Act09_cno4.pdf')">
+              onclick="cargarVista('./Act10_cno4.pdf')">
         Ver PDF
       </button>
 
-      <!-- 2. Abrir PDF directamente (abre en pestaña nueva) -->
-      <a href="https://quetzaljimenez.github.io/CNO4/Act09_cno4.pdf"
+      <!-- 2. Abrir PDF directamente (abre en pestaña nueva, ruta relativa) -->
+      <a href="./Act10_cno4.pdf"
          target="_blank"
+         rel="noopener noreferrer"
          class="action-button pdf-button">
         Abrir PDF ↗
       </a>
@@ -416,8 +417,8 @@
 
     <div class="pdf-container">
       <iframe id="viewer-frame"
-              src="https://quetzaljimenez.github.io/CNO4/Act09_cno4.pdf"
-              title="Visualizador de contenido"
+              src="./Act10_cno4.pdf"
+              title="Visualizador de Act10 - TRAVERSAL SEQUENCES STRIPPED"
               width="100%"
               height="700"
               frameborder="0"
@@ -428,14 +429,18 @@
 
   <hr class="section-divider">
 
-  <!-- PREVISUALIZACIÓN DETALLADA DE LA ACTIVIDAD -->
+  <!-- PREVISUALIZACIÓN DETALLADA DE LA ACTIVIDAD 10 -->
   <article class="activity-preview">
-    <h2>Previsualización de la Investigación</h2>
+    <h2>Previsualización de la Investigación — Actividad 10</h2>
 
     <section class="preview-block">
       <h3>OBJETIVO</h3>
       <p>
-        El objetivo de este laboratorio es explotar una vulnerabilidad de <strong>File Path Traversal</strong> (también conocido como <em>Directory Traversal</em>) en la sección de visualización de imágenes de productos. La aplicación implementa un mecanismo de defensa que elimina las secuencias de escape de directorios (<code>../</code>); sin embargo, lo hace de manera <strong>no recursiva</strong> (solo realiza un único reemplazo). El reto consiste en burlar este filtro usando secuencias anidadas (por ejemplo, <code>....//</code>) para recuperar el contenido sensible de <code>/etc/passwd</code>.
+        Actualizar y documentar la explotación de una sanitización que realiza una decodificación
+        superflua (múltiples pasadas de URL‑decode) combinada con limpieza no recursiva de
+        secuencias de traversal. El objetivo es demostrar bypasses prácticos (doble codificación,
+        secuencias anidadas) y proponer correcciones robustas para evitar la lectura de archivos
+        sensibles como <code>/etc/passwd</code>.
       </p>
     </section>
 
@@ -443,98 +448,102 @@
       <h3>AMBIENTE DE LABORATORIO</h3>
 
       <figure class="lab-image-container">
-        <img src="https://quetzaljimenez.github.io/CNO4/img/act09_1.png"
+        <img src="../img/act10_1.png"
              alt="Inicialización del laboratorio en BurpSuite"
-             class="lab-img">
-        <figcaption>Página inicial al inicializar BurpSuite; el laboratorio aparece de manera virtualizada.</figcaption>
+             class="lab-img" />
+        <figcaption>Laboratorio virtualizado; Burp Suite interceptando tráfico.</figcaption>
       </figure>
 
       <p>
-        Iniciamos Burp Suite y capturamos el tráfico generado por el navegador. Al inspeccionar la tienda, observamos que las imágenes de producto se solicitan mediante peticiones HTTP <code>GET</code> con un parámetro <code>filename</code> (por ejemplo, <code>filename=blog.png</code>).
+        El laboratorio expone un endpoint que sirve imágenes mediante un parámetro <code>filename</code>.
+        Se usa Burp Suite (Proxy + Repeater) para capturar y manipular peticiones <code>GET</code>.
       </p>
 
       <figure class="lab-image-container">
-        <img src="https://quetzaljimenez.github.io/CNO4/img/act09_2.png"
+        <img src="../img/act10_2.png"
              alt="Captura de tráfico GET e inspección de imágenes"
-             class="lab-img">
-        <figcaption>Captura de la solicitud HTTP GET interceptada.</figcaption>
+             class="lab-img" />
+        <figcaption>Petición interceptada que solicita un recurso estático con <code>filename</code>.</figcaption>
       </figure>
 
       <p>
-        Enviamos la petición al módulo <strong>Repeater</strong> para realizar pruebas iterativas sin afectar la navegación principal.
+        Se probaron inicialmente secuencias simples y codificadas. La aplicación realiza una
+        decodificación en etapas y una limpieza no recursiva de <code>../</code>, lo que abre la
+        posibilidad de bypass mediante doble codificación y secuencias anidadas.
       </p>
-
-      <figure class="lab-image-container">
-        <img src="https://quetzaljimenez.github.io/CNO4/img/act09_3.png"
-             alt="Modificación de parámetros en Repeater"
-             class="lab-img">
-        <figcaption>Pruebas de manipulación del parámetro <code>filename</code> en Repeater.</figcaption>
-      </figure>
-
-      <p>
-        Probamos rutas como <code>./../etc/passwd</code> y observamos que la aplicación responde con <em>Bad Request</em> o limpia la entrada. A continuación probamos secuencias anidadas como <code>....//....//....//etc/passwd</code>, que al pasar por el filtro no recursivo se transforman en <code>../../../etc/passwd</code> y permiten el acceso.
-      </p>
-
-      <figure class="lab-image-container">
-        <img src="https://quetzaljimenez.github.io/CNO4/img/act09_4.png"
-             alt="Respuesta del servidor mostrando /etc/passwd"
-             class="lab-img">
-        <figcaption>Respuesta exitosa del servidor con el contenido de <code>/etc/passwd</code> (datos sensibles redactados).</figcaption>
-      </figure>
     </section>
 
     <section class="preview-block">
-      <h3>ANÁLISIS DE LA VULNERABILIDAD Y FORMA DE RESOLUCIÓN</h3>
+      <h3>METODOLOGÍA</h3>
 
       <ol class="analysis-list">
-        <li>
-          <strong>Comportamiento del filtro básico:</strong>
-          El servidor bloquea o limpia rutas directas como <code>/etc/passwd</code> o secuencias estándar <code>../../../etc/passwd</code> porque detecta y remueve la subcadena <code>../</code>.
-        </li>
-        <li>
-          <strong>Explotación por eliminación no recursiva:</strong>
-          El filtro realiza un único reemplazo de la secuencia prohibida. Si se envían secuencias anidadas (por ejemplo <code>....//</code>), la eliminación única deja caracteres que, al concatenarse, forman una secuencia válida <code>../</code>.
-        </li>
-        <li>
-          <strong>Ejemplo de bypass:</strong>
-          Entrada enviada: <code>....//....//....//etc/passwd</code><br>
-          Tras la limpieza no recursiva, el resultado concatenado es: <code>../../../etc/passwd</code>, permitiendo el acceso al archivo.
-        </li>
-        <li>
-          <strong>Mitigación recomendada:</strong>
-          Evitar usar entradas de usuario directamente en APIs del sistema de archivos; emplear listas blancas (whitelisting) y funciones de canonicalización de rutas que validen que el archivo final esté dentro del directorio autorizado.
-        </li>
+        <li><strong>Captura:</strong> Interceptar la petición que carga la imagen y enviarla a Repeater.</li>
+        <li><strong>Pruebas básicas:</strong> Intentar <code>../../etc/passwd</code> y <code>/etc/passwd</code> para confirmar bloqueo.</li>
+        <li><strong>Secuencias anidadas:</strong> Probar <code>....//....//etc/passwd</code> y variantes con más niveles.</li>
+        <li><strong>Codificación simple:</strong> Probar <code>%2e%2e%2f%2e%2e%2fetc%2fpasswd</code>.</li>
+        <li><strong>Doble codificación:</strong> Probar <code>%252e%252e%252f%252e%252e%252fetc%252fpasswd</code> y combinaciones con <code>....//</code>.</li>
+        <li><strong>Iteración:</strong> Usar Repeater para ajustar payloads hasta obtener respuesta con contenido del archivo objetivo.</li>
       </ol>
     </section>
 
     <section class="preview-block">
-      <h3>COMANDOS Y HERRAMIENTAS UTILIZADAS</h3>
-      <ul class="tools-list">
-        <li><strong>Burp Suite – Proxy (Intercept ON):</strong> Captura y modificación de peticiones HTTP; uso de Forward para permitir la carga de la página.</li>
-        <li><strong>Burp Repeater:</strong> Pruebas iterativas sobre la misma petición sin alterar la navegación principal.</li>
-        <li><strong>curl:</strong> Verificación rápida de rutas y pruebas desde línea de comandos (ejemplo de uso en laboratorio).</li>
-        <li><strong>Observación de logs:</strong> Revisión de registros del servidor para corroborar accesos a recursos sensibles.</li>
-        <li><strong>Manipulación del parámetro GET (filename):</strong> Sustitución del nombre de la imagen por payloads anidados (<code>....//</code>) para evadir el filtro no recursivo.</li>
+      <h3>PAYLOADS RELEVANTES</h3>
+      <ul>
+        <li><code>....//....//etc/passwd</code></li>
+        <li><code>%2e%2e%2f%2e%2e%2fetc%2fpasswd</code></li>
+        <li><code>%252e%252e%252f%252e%252e%252fetc%252fpasswd</code></li>
+        <li><code>....//%252e%252e%252fetc%252fpasswd</code></li>
+        <li><code>/images/....//....//etc/passwd</code> (cuando el servidor valida solo el inicio de la ruta)</li>
+      </ul>
+    </section>
+
+    <section class="preview-block">
+      <h3>ANÁLISIS DE LA VULNERABILIDAD</h3>
+
+      <p>
+        La aplicación combina dos fallos lógicos: una sanitización por reemplazo no recursiva y una
+        decodificación en etapas. Esto permite que entradas especialmente construidas se transformen
+        en secuencias <code>../</code> válidas tras el procesamiento, eludiendo la comprobación
+        inicial y accediendo a archivos fuera del directorio permitido.
+      </p>
+
+      <p><strong>Por qué funciona:</strong></p>
+      <ul>
+        <li><strong>Secuencias anidadas:</strong> <code>....//</code> deja fragmentos que se recomponen en <code>../</code> tras una única limpieza.</li>
+        <li><strong>Doble codificación:</strong> una entrada codificada dos veces puede pasar una primera verificación y convertirse en traversal tras una decodificación posterior.</li>
       </ul>
     </section>
 
     <section class="preview-block">
       <h3>RESULTADOS</h3>
       <p>
-        Se identificó que la aplicación implementa una sanitización débil basada en reemplazos simples que operan de forma no recursiva. El uso de payloads anidados (<code>....//</code>) permite superar el bloqueo de secuencias simples (<code>../</code>) y acceder al archivo <code>/etc/passwd</code>, confirmando la vulnerabilidad.
+        Tras iterar con Repeater se logró obtener respuestas HTTP 200 que contenían fragmentos del archivo
+        <code>/etc/passwd</code> usando combinaciones de <code>....//</code> y doble codificación,
+        confirmando la vulnerabilidad en el entorno del laboratorio.
       </p>
+    </section>
+
+    <section class="preview-block">
+      <h3>MITIGACIONES PROPUESTAS</h3>
+      <ul>
+        <li>Canonicalizar rutas con funciones nativas (<code>realpath</code>, <code>Path.resolve</code>) y validar que la ruta resultante esté dentro del directorio base autorizado.</li>
+        <li>Realizar una única decodificación controlada y rechazar entradas con múltiples capas de codificación sospechosa.</li>
+        <li>Evitar sanitizaciones por reemplazo simple; usar validación por lista blanca de nombres de archivo cuando sea posible.</li>
+        <li>Registrar intentos de traversal y aplicar reglas WAF para bloquear patrones repetidos.</li>
+      </ul>
     </section>
 
     <section class="preview-block">
       <h3>CONCLUSIONES</h3>
       <ul class="conclusions-list">
-        <li><strong>Debilidad de filtros por reemplazo único:</strong> Las sanitizaciones que eliminan cadenas prohibidas sin iterar hasta que no queden coincidencias son vulnerables a técnicas de anidación.</li>
-        <li><strong>Valor de Burp Repeater:</strong> Facilita la iteración rápida de payloads para comprobar fallos lógicos en mecanismos de defensa.</li>
-        <li><strong>Mitigación adecuada:</strong> Implementar canonicalización de rutas, whitelisting y validaciones que garanticen que la ruta final reside dentro del directorio permitido.</li>
+        <li>La combinación de decodificación superflua y limpieza no recursiva crea una ventana de explotación real.</li>
+        <li>Las defensas deben basarse en normalización y validación post‑canonicalización, no en reemplazos textuales.</li>
+        <li>Burp Repeater y la iteración sistemática de payloads son herramientas clave para identificar y demostrar este tipo de fallos lógicos.</li>
       </ul>
     </section>
   </article>
 </main>
+
 
   <!-- FOOTER -->
   <footer>
