@@ -535,6 +535,53 @@
 </section>
 </main>
 
+<!-- LAB 04 -->
+<article class="lab-block">
+  <div class="lab-header-centered">
+    <div class="lab-category-title">Análisis de Tráfico</div>
+    <h2 class="lab-name-title">Lab 04 — TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE</h2>
+  </div>
+  <div class="star-wrapper">
+    <div class="hollywood-star"></div>
+    <div class="star-number">04</div>
+    <div class="star-overlay">
+      <button class="btn-star-action" onclick="openLabModal('modal-lab4')">Ver Evidencia</button>
+      <a href="Act10_cno4.pdf" download class="btn-star-action">Descargar PDF</a>
+    </div>
+  </div>
+</article>
+
+<!-- LAB 05 -->
+<article class="lab-block">
+  <div class="lab-header-centered">
+    <div class="lab-category-title">Análisis de Tráfico</div>
+    <h2 class="lab-name-title">Lab 05 — VALIDATION OF START OF PATH</h2>
+  </div>
+  <div class="star-wrapper">
+    <div class="hollywood-star"></div>
+    <div class="star-number">05</div>
+    <div class="star-overlay">
+      <button class="btn-star-action" onclick="openLabModal('modal-lab5')">Ver Evidencia</button>
+      <a href="Act11_cno4.pdf" download class="btn-star-action">Descargar PDF</a>
+    </div>
+  </div>
+</article>
+
+<!-- LAB 06 -->
+<article class="lab-block">
+  <div class="lab-header-centered">
+    <div class="lab-category-title">Análisis de Tráfico</div>
+    <h2 class="lab-name-title">Lab 06 — VALIDATION OF FILE EXTENSION WITH NULL BYTE BYPASS</h2>
+  </div>
+  <div class="star-wrapper">
+    <div class="hollywood-star"></div>
+    <div class="star-number">06</div>
+    <div class="star-overlay">
+      <button class="btn-star-action" onclick="openLabModal('modal-lab6')">Ver Evidencia</button>
+      <a href="Act12_cno4.pdf" download class="btn-star-action">Descargar PDF</a>
+    </div>
+  </div>
+</article>
   <!-- ==========================================================================
      4. MODALES DE EVIDENCIAS TÉCNICAS
      ========================================================================== -->
@@ -595,6 +642,50 @@
   </div>
 </div>
 
+  <!-- MODAL LAB 04 -->
+<div id="modal-lab4" class="lab-modal" aria-hidden="true">
+  <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab4')"></div>
+  <div class="lab-modal-container">
+    <button class="modal-close" onclick="closeLabModal('modal-lab4')">✕</button>
+    <h2>Evidencia Técnica - Laboratorio 04</h2>
+    <div class="lab-category-title">File path traversal, traversal sequences stripped with superfluous URL-decode</div>
+    <img src="lab4.png" alt="Evidencia Lab 04" class="modal-img-full">
+    <div class="tech-box">
+      <p><strong>Comando de Ejecución:</strong> <code>filename: %252e%252e%252f%252e%252e%252f%252e%252e%252fetc%252fpasswd</code></p>
+      <p><strong>Resultado Obtenido:</strong> Lectura exitosa del archivo /etc/passwd mediante el uso de doble codificación URL para evadir el filtro no recursivo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LAB 05 -->
+<div id="modal-lab5" class="lab-modal" aria-hidden="true">
+  <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab5')"></div>
+  <div class="lab-modal-container">
+    <button class="modal-close" onclick="closeLabModal('modal-lab5')">✕</button>
+    <h2>Evidencia Técnica - Laboratorio 05</h2>
+    <div class="lab-category-title">File path traversal, validation of start of path</div>
+    <img src="lab5.png" alt="Evidencia Lab 05" class="modal-img-full">
+    <div class="tech-box">
+      <p><strong>Comando de Ejecución:</strong> <code>filename: /images/../../../etc/passwd</code></p>
+      <p><strong>Resultado Obtenido:</strong> Bypass de la validación de prefijo inicial (/images/) permitiendo la navegación hacia la raíz y lectura de /etc/passwd.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL LAB 06 -->
+<div id="modal-lab6" class="lab-modal" aria-hidden="true">
+  <div class="lab-modal-backdrop" onclick="closeLabModal('modal-lab6')"></div>
+  <div class="lab-modal-container">
+    <button class="modal-close" onclick="closeLabModal('modal-lab6')">✕</button>
+    <h2>Evidencia Técnica - Laboratorio 06</h2>
+    <div class="lab-category-title">File path traversal, validation of file extension with null byte bypass</div>
+    <img src="lab6.png" alt="Evidencia Lab 06" class="modal-img-full">
+    <div class="tech-box">
+      <p><strong>Comando de Ejecución:</strong> <code>filename: ../../../etc/passwd%00.png</code></p>
+      <p><strong>Resultado Obtenido:</strong> Evasión de la validación estricta de extensión mediante inyección de Byte Nulo (%00) y lectura del archivo /etc/passwd.</p>
+    </div>
+  </div>
+</div>
   <!-- FOOTER PRINCIPAL -->
   <footer>
     <p>© 2026 · Quetzal · Universidad Politécnica de San Luis Potosí</p>
