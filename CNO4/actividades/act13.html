@@ -389,13 +389,12 @@
       </nav>
     </div>
   </header>
-
-  <main>
+<main>
   <section class="activity-header" id="act13">
     <h1>Act13</h1>
 
     <p>
-      <strong>LAB: FILE PATH TRAVERSAL — TRAVERSAL SEQUENCES STRIPPED WITH SUPERFLUOUS URL-DECODE</strong>
+      <strong>LAB: EXPLOTACIÓN DE MÁQUINA VULNERABLE — SAMBA ENUMERATION + DIRTY COW</strong>
     </p>
 
     <div class="button-group">
@@ -416,7 +415,7 @@
     <div class="pdf-container">
       <iframe id="viewer-frame"
               src="./Act13_cno4.pdf"
-              title="Visualizador de Act13 - FILE PATH TRAVERSAL"
+              title="Visualizador de Act13 - EXPLOTACIÓN DE MÁQUINA VULNERABLE"
               width="100%"
               height="700"
               frameborder="0"
@@ -433,23 +432,25 @@
     <section class="preview-block">
       <h3>OBJETIVO</h3>
       <p>
-        Explotar una vulnerabilidad de File Path Traversal donde el servidor elimina secuencias prohibidas (<code>../</code>) pero lo hace de manera no recursiva. El reto consiste en aprovechar la decodificación redundante de URL para reconstruir secuencias de traversal y acceder a archivos sensibles como <code>/etc/passwd</code>.
+        Demostrar la explotación de una máquina vulnerable mediante la enumeración de recursos compartidos en Samba, extracción de archivos sensibles como <code>sshd_config</code>, y escalada de privilegios local utilizando el exploit <strong>Dirty COW (CVE‑2016‑5195)</strong>.
       </p>
     </section>
 
     <section class="preview-block">
       <h3>AMBIENTE DE LABORATORIO</h3>
       <p>
-        Se utiliza Burp Suite (Proxy + Repeater) para interceptar las peticiones <code>GET</code> con el parámetro <code>filename=</code>. Se observa que el filtro elimina una sola instancia de <code>../</code>, pero al aplicar codificación doble o superflua, el backend decodifica de nuevo y reconstruye la secuencia de traversal.
+        Se utilizó Kali Linux como atacante y un servidor Linux con Samba expuesto. El entorno permitió acceso anónimo a <code>//192.168.100.155/smbdata</code>, revelando archivos de configuración y logs. Posteriormente se compiló y ejecutó el exploit Dirty COW en la víctima para obtener privilegios root.
       </p>
     </section>
 
     <section class="preview-block">
       <h3>PROCEDIMIENTO Y PAYLOADS</h3>
       <ul>
-        <li>Intento inicial bloqueado: <code>filename=../../../etc/passwd</code></li>
-        <li>Bypass con doble decodificación: <code>filename=....//....//....//etc/passwd</code></li>
-        <li>Uso de URL-decode redundante: el servidor limpia una vez, pero al decodificar de nuevo se forma <code>../../../etc/passwd</code>.</li>
+        <li>Enumeración inicial con <code>smbclient //192.168.100.155/smbdata -N</code>.</li>
+        <li>Descarga de <code>sshd_config</code> y otros archivos de sistema.</li>
+        <li>Transferencia del exploit <code>40616.c</code> al servidor mediante Samba.</li>
+        <li>Corrección de includes y compilación exitosa: <code>gcc -pthread 40616.c -o dirty -lcrypt</code>.</li>
+        <li>Ejecución del binario <code>./dirty</code> para escalar privilegios.</li>
       </ul>
     </section>
 
@@ -458,30 +459,30 @@
 
       <figure class="lab-image-container">
         <img src="../img/act13_1.png"
-             alt="Petición interceptada mostrando intento inicial de traversal"
+             alt="Enumeración de recursos Samba mostrando archivos sensibles"
              class="lab-img" />
-        <figcaption>Petición GET interceptada con payload estándar, bloqueada por el filtro.</figcaption>
+        <figcaption>Enumeración con <code>smbclient</code> revelando <code>sshd_config</code> y logs del sistema.</figcaption>
       </figure>
 
       <figure class="lab-image-container">
         <img src="../img/act13_2.png"
-             alt="Respuesta del servidor mostrando rechazo inicial"
+             alt="Compilación del exploit Dirty COW en la víctima"
              class="lab-img" />
-        <figcaption>Respuesta de error al intentar acceder directamente a <code>/etc/passwd</code>.</figcaption>
+        <figcaption>Compilación exitosa del exploit <code>40616.c</code> tras corregir los includes.</figcaption>
       </figure>
 
       <figure class="lab-image-container">
         <img src="../img/act13_3.png"
-             alt="Payload con secuencias anidadas y decodificación redundante"
+             alt="Ejecución del exploit Dirty COW obteniendo root"
              class="lab-img" />
-        <figcaption>Respuesta HTTP 200 tras aplicar el bypass con secuencias anidadas y URL-decode redundante.</figcaption>
+        <figcaption>Salida de <code>id</code> mostrando privilegios root tras ejecutar el exploit.</figcaption>
       </figure>
     </section>
 
     <section class="preview-block">
       <h3>ANÁLISIS Y CONCLUSIONES</h3>
       <p>
-        La vulnerabilidad se debe a una <strong>sanitización no recursiva</strong> combinada con la decodificación redundante de URL. El filtro elimina solo la primera coincidencia de <code>../</code>, pero al decodificar de nuevo se reconstruye la secuencia completa. Esto permite acceder a archivos sensibles y compromete la seguridad del sistema. La mitigación adecuada incluye aplicar sanitización recursiva, bloquear decodificaciones múltiples y usar listas blancas estrictas de archivos permitidos.
+        La explotación combinó dos fases: <strong>enumeración remota</strong> (Samba) y <strong>escalada local</strong> (Dirty COW). La falta de autenticación en Samba permitió acceder a archivos críticos como <code>sshd_config</code>, mientras que la vulnerabilidad del kernel posibilitó obtener root. La demostración evidencia la importancia de aplicar parches de seguridad, restringir accesos anónimos y monitorear configuraciones sensibles.
       </p>
     </section>
   </article>
