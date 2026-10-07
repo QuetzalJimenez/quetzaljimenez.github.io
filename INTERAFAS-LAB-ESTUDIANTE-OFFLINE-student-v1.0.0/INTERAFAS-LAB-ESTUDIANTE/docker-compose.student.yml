@@ -1,0 +1,76 @@
+name: interafas-lab
+
+services:
+  web:
+    image: "${INTERAFAS_IMAGE_REGISTRY:-ghcr.io/servandocontreras}/interafas-web:${INTERAFAS_IMAGE_TAG:-student-v1.0.0}"
+    ports:
+      - "${INTERAFAS_PORT:-8080}:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: interafas
+      DB_USER: interafas
+      DB_PASS: interafas_lab
+      OT_BASE_URL: http://ot-sim:8081
+      NEWS_PORT: ${NEWS_PORT:-8091}
+    depends_on:
+      db:
+        condition: service_healthy
+      ot-sim:
+        condition: service_started
+    restart: unless-stopped
+
+  news:
+    image: "${INTERAFAS_IMAGE_REGISTRY:-ghcr.io/servandocontreras}/interafas-news:${INTERAFAS_IMAGE_TAG:-student-v1.0.0}"
+    ports:
+      - "${NEWS_PORT:-8091}:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: interafas
+      DB_USER: interafas
+      DB_PASS: interafas_lab
+      INTERAFAS_PORT: ${INTERAFAS_PORT:-8080}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  auditor:
+    image: "${INTERAFAS_IMAGE_REGISTRY:-ghcr.io/servandocontreras}/interafas-auditor:${INTERAFAS_IMAGE_TAG:-student-v1.0.0}"
+    ports:
+      - "${AUDITOR_PORT:-8092}:80"
+    environment:
+      DB_HOST: db
+      DB_NAME: interafas
+      DB_USER: interafas
+      DB_PASS: interafas_lab
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN:-}
+      TELEGRAM_CHAT_ID: ${TELEGRAM_CHAT_ID:-}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+  db:
+    image: "${INTERAFAS_IMAGE_REGISTRY:-ghcr.io/servandocontreras}/interafas-db:${INTERAFAS_IMAGE_TAG:-student-v1.0.0}"
+    environment:
+      MARIADB_DATABASE: interafas
+      MARIADB_USER: interafas
+      MARIADB_PASSWORD: interafas_lab
+      MARIADB_ROOT_PASSWORD: root_lab_only
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    volumes:
+      - interafas_db:/var/lib/mysql
+    restart: unless-stopped
+
+  ot-sim:
+    image: "${INTERAFAS_IMAGE_REGISTRY:-ghcr.io/servandocontreras}/interafas-ot-sim:${INTERAFAS_IMAGE_TAG:-student-v1.0.0}"
+    environment:
+      PORT: 8081
+    restart: unless-stopped
+
+volumes:
+  interafas_db:
