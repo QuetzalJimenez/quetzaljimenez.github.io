@@ -390,409 +390,189 @@
   </header>
 
 <main>
-  <section class="activity-header" id="act12">
-    <h1>Act15</h1>
 
-    <p>
-      <strong>
-        ACTIVIDAD 15. LA FOTOGRAFÍA COMO TESTIGO:
-        EXTRACCIÓN DE METADATOS GPS PARA GEOLOCALIZACIÓN
-      </strong>
+  <section class="activity-section">
+
+    <h1>Actividad 16 · La verdad en los bits</h1>
+
+    <p class="subtitle">
+      Adquisición forense bit a bit con FTK Imager
     </p>
 
     <div class="button-group">
-      <button
-        type="button"
-        class="action-button pdf-button"
-        onclick="cargarVista('./Act15.pdf')">
-        Ver PDF
-      </button>
 
+      <!-- Abrir PDF en una nueva pestaña -->
       <a
-        href="./Act15.pdf"
+        href="../pdf/Actividad16_Adquisicion_Forense.pdf"
         target="_blank"
         rel="noopener noreferrer"
         class="action-button pdf-button">
-        Abrir PDF ↗
+        Abrir PDF
       </a>
+
+      <!-- Descargar PDF -->
+      <a
+        href="../pdf/Actividad16_Adquisicion_Forense.pdf"
+        download="Actividad16_Adquisicion_Forense.pdf"
+        class="action-button html-button">
+        Descargar PDF
+      </a>
+
     </div>
 
+    <!-- VISOR DEL PDF -->
     <div class="pdf-container">
+
       <iframe
         id="viewer-frame"
-        src="./Act15.pdf"
-        title="Visualizador de Act12 - Extracción de metadatos GPS"
-        width="100%"
-        height="700"
-        frameborder="0"
-        allowfullscreen>
+        src="../pdf/Actividad16_Adquisicion_Forense.pdf"
+        title="Reporte de Adquisición Forense con FTK Imager">
       </iframe>
+
     </div>
-  </section>
 
-  <hr class="section-divider">
+    <hr class="section-divider">
 
-  <article class="activity-preview">
-    <h2>
-      Previsualización de la Investigación — Actividad 15
-    </h2>
+    <!-- Información de la actividad -->
+    <div class="activity-preview">
 
-    <section class="preview-block">
-      <h3>OBJETIVO</h3>
+      <h2>Actividad 16 · La verdad en los bits: Adquisición forense con FTK Imager</h2>
 
-      <p>
-        Analizar los metadatos de un documento de Microsoft Word
-        atribuido a INTERPOL y de una fotografía tomada con un
-        dispositivo Xiaomi Mi A2 Lite, mediante ExifTool 12.68
-        en Windows. El objetivo es identificar información sobre
-        autoría, clasificación, edición, parámetros fotográficos,
-        fechas y coordenadas GPS, así como documentar el proceso
-        de eliminación de metadatos de una copia de la imagen.
-      </p>
-    </section>
+      <div class="preview-block">
 
-    <section class="preview-block">
-      <h3>AMBIENTE DE LABORATORIO</h3>
+        <h3>Descripción del Caso</h3>
 
-      <p>
-        La actividad se desarrolló en Windows utilizando
-        ExifTool 12.68. Se analizaron los siguientes archivos:
-      </p>
+        <p>
+          Como parte del análisis de incidentes de seguridad en el Laboratorio de Informática Forense (LIF),
+          se realizó la adquisición de material digital desde una memoria USB mediante la herramienta 
+          AccessData FTK Imager (v4.3.1.1). El proceso garantiza una copia bit a bit exacta sin alterar
+          la fuente de evidencia original, preservando la cadena de custodia y la integridad de los datos.
+        </p>
 
-      <ul>
-        <li>
-          <code>WOA database application form.docx</code>:
-          documento utilizado para investigar los metadatos de
-          clasificación, plantilla, autoría y modificación.
-        </li>
-        <li>
-          <code>XiaomiMiA2Lite.jpg</code>:
-          fotografía utilizada para identificar los datos EXIF,
-          parámetros de captura, fecha y ubicación GPS.
-        </li>
-      </ul>
-    </section>
-
-    <section class="preview-block">
-      <h3>
-        PARTE I. ANÁLISIS DE METADATOS DEL DOCUMENTO DE INTERPOL
-      </h3>
-
-      <p>
-        Se examinó el archivo
-        <code>WOA database application form.docx</code> para
-        recuperar sus propiedades internas y determinar la
-        información registrada sobre su creación y modificación.
-      </p>
-
-      <figure class="lab-image-container">
-        <a
-          href="../img/act15_1.png"
-          target="_blank"
-          rel="noopener noreferrer">
-          <img
-            src="../img/act15_1.png"
-            alt="Salida de ExifTool con metadatos del documento WOA database application form"
-            class="lab-img">
-        </a>
-
-        <figcaption>
-          Evidencia 1. Salida de ExifTool con los metadatos del
-          documento, incluidos InterpolClassification, Template,
-          TotalEditTime, Company, LastModifiedBy y Creator.
-        </figcaption>
-      </figure>
-
-      <h4>1. ¿Cómo categorizó el archivo INTERPOL?</h4>
-
-      <p>
-        El archivo fue categorizado como
-        <strong>Unclassified (no clasificado)</strong>,
-        según el campo <code>InterpolClassification</code>.
-      </p>
-
-      <h4>
-        2. ¿Qué template fue utilizado para la elaboración del
-        archivo por parte de INTERPOL?
-      </h4>
-
-      <p>
-        La plantilla registrada fue
-        <code>G03 Basic Doc SP.dotx</code>,
-        según el campo <code>Template</code>.
-      </p>
-
-      <h4>3. ¿Cuál fue el tiempo total de edición del fichero?</h4>
-
-      <p>
-        El tiempo total de edición registrado fue de
-        <strong>45 minutos</strong>, según el campo
-        <code>TotalEditTime</code>.
-      </p>
-
-      <h4>4. Identifique la compañía propietaria del fichero.</h4>
-
-      <p>
-        La compañía registrada es
-        <strong>OIPC - INTERPOL</strong>,
-        según el campo <code>Company</code>.
-      </p>
-
-      <h4>5. ¿Quién realizó la última modificación del fichero?</h4>
-
-      <p>
-        La última persona que modificó el documento fue
-        <strong>Carolyn Lejeune</strong>,
-        según el campo <code>LastModifiedBy</code>.
-      </p>
-
-      <h4>
-        6. ¿Cuál fue la fecha de creación del fichero en investigación?
-      </h4>
-
-      <p>
-        La fecha de creación registrada en los metadatos internos
-        del documento fue el <strong>3 de mayo de 2019, a las
-        15:35:00 UTC</strong>, según el campo
-        <code>CreateDate</code>.
-      </p>
-
-      <p>
-        Como dato adicional, <code>FileCreateDate</code> indica
-        que el archivo se creó en el sistema de archivos actual
-        el 22 de octubre de 2023, a las 12:44:28 (UTC-06:00).
-        Para conocer la creación del documento, se utilizó como
-        referencia principal el campo <code>CreateDate</code>.
-      </p>
-
-      <h4>
-        7. De acuerdo con el análisis de metadatos del fichero de
-        INTERPOL, identifique el creador del mismo.
-      </h4>
-
-      <p>
-        El creador registrado es
-        <strong>Carolyn Lejeune</strong>,
-        según el campo <code>Creator</code> del grupo
-        <code>XMP-dc</code>.
-      </p>
-    </section>
-
-    <section class="preview-block">
-      <h3>
-        PARTE II. ANÁLISIS DE METADATOS DE LA FOTOGRAFÍA
-        XIAOMI MI A2 LITE
-      </h3>
-
-      <p>
-        En esta segunda parte se analizaron los metadatos EXIF
-        de <code>XiaomiMiA2Lite.jpg</code> para recuperar los
-        parámetros de captura, la fecha original y la información
-        geográfica asociada a la fotografía.
-      </p>
-
-      <figure class="lab-image-container">
-        <a
-          href="../img/act15_2.png"
-          target="_blank"
-          rel="noopener noreferrer">
-          <img
-            src="../img/act15_2.png"
-            alt="Salida de ExifTool con datos EXIF y coordenadas GPS de XiaomiMiA2Lite.jpg"
-            class="lab-img">
-        </a>
-
-        <figcaption>
-          Evidencia 2. Metadatos EXIF de la fotografía,
-          mostrando ISO, apertura, longitud focal, fecha de captura
-          y posición GPS.
-        </figcaption>
-      </figure>
-
-      <h4>1. ¿Cuál fue la apertura ISO utilizada?</h4>
-
-      <p>
-        La sensibilidad ISO registrada fue de
-        <strong>ISO 100</strong>, según el campo
-        <code>ISO</code>.
-      </p>
-
-      <p>
-        Como precisión técnica, el ISO representa la sensibilidad
-        fotográfica y no la apertura del diafragma. El valor de
-        apertura registrado fue <strong>f/2.2</strong>,
-        según el campo <code>FNumber</code>.
-      </p>
-
-      <h4>
-        2. ¿Cuál es la longitud focal de la cámara con la que fue
-        capturada la imagen?
-      </h4>
-
-      <p>
-        La longitud focal registrada fue de
-        <strong>3.8 mm</strong>, según el campo
-        <code>FocalLength</code>. Su equivalente en formato de
-        35 mm fue de <strong>26 mm</strong>, según
-        <code>FocalLengthIn35mmFormat</code>.
-      </p>
-
-      <h4>
-        3. Señale si se utilizó la captura con Flash para obtener
-        la imagen.
-      </h4>
-
-      <p>
-        No. El campo <code>Flash</code> muestra
-        <code>Off, Did not fire</code>, lo que indica que el flash
-        estaba desactivado o no se disparó durante la captura.
-      </p>
-
-      <h4>4. Señale la fecha de creación del archivo.</h4>
-
-      <p>
-        Los metadatos EXIF indican que la fecha y hora de captura
-        registradas fueron el <strong>28 de mayo de 2020, a las
-        18:11:41</strong>, según los campos
-        <code>DateTimeOriginal</code> y <code>CreateDate</code>.
-      </p>
-
-      <p>
-        Como dato adicional, <code>FileCreateDate</code> indica
-        que el archivo se creó en el sistema de archivos actual
-        el 27 de diciembre de 2020, a las 08:20:12 (UTC-06:00).
-        Ambas fechas representan eventos distintos.
-      </p>
-
-      <h4>
-        5. Identifique los datos de ubicación GPS y señale el lugar
-        exacto donde se tomó la fotografía.
-      </h4>
-
-      <p>
-        ExifTool recuperó las siguientes coordenadas GPS:
-      </p>
-
-      <div class="table-responsive">
-        <table>
-          <thead>
-            <tr>
-              <th>Dato</th>
-              <th>Valor registrado</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Latitud</td>
-              <td>51° 15′ 12,99″ N</td>
-            </tr>
-
-            <tr>
-              <td>Longitud</td>
-              <td>0° 32′ 21,93″ O</td>
-            </tr>
-
-            <tr>
-              <td>Altitud registrada</td>
-              <td>
-                96,754 m (interpretación de referencia por verificar)
-              </td>
-            </tr>
-
-            <tr>
-              <td>Fecha GPS</td>
-              <td>28 de mayo de 2020</td>
-            </tr>
-
-            <tr>
-              <td>Hora GPS</td>
-              <td>17:11:42 UTC</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
-      <p>
-        Las coordenadas convertidas a formato decimal son:
-      </p>
+      <div class="preview-block">
 
-      <ul>
-        <li><strong>Latitud:</strong> 51.253608</li>
-        <li><strong>Longitud:</strong> -0.539425</li>
-      </ul>
+        <h3>Metadatos y Registro del Caso</h3>
 
-      <p>
-        La ubicación indicada por los metadatos corresponde a
-        la zona de Surrey, Reino Unido.
-      </p>
+        <ul class="tools-list">
+          <li>
+            <strong>Número de caso:</strong> InfoCrim-02_15.03.2026
+          </li>
+          <li>
+            <strong>Número de evidencia:</strong>  (3 –Generic Flash Disk USB Device 32GB)
+          </li>
+          <li>
+            <strong>Descripción única:</strong> CNO IV - análisis de artefactos digitales y exfiltración
+          </li>
+          <li>
+            <strong>Examinador:</strong> Rodriguez Jimenez Quetzal Olin
+          </li>
+          <li>
+            <strong>Formato de adquisición:</strong> Raw (dd)
+          </li>
+          <li>
+            <strong>Directorio destino:</strong> D:\a\Semestre7\CNO4\ACT16\
+          </li>
+        </ul>
 
-      <p>
-        <a
-          href="https://www.google.com/maps?q=51.253608,-0.539425"
-          target="_blank"
-          rel="noopener noreferrer">
-          Consultar ubicación GPS en Google Maps ↗
-        </a>
-      </p>
+      </div>
 
-      <h4>6. Elimine todos los metadatos de la muestra que se analiza.</h4>
+      <div class="preview-block">
 
-      <p>
-        Para generar una copia de la fotografía sin sus metadatos
-        se ejecutó el siguiente comando en Windows:
-      </p>
+        <h3>Evidencia Fotográfica y Proceso de Adquisición</h3>
 
-      <pre><code>exiftool.exe -all= -o "XiaomiMiA2Lite_sin_metadatos.jpg" "XiaomiMiA2Lite.jpg"</code></pre>
+        <!-- Imagen 1: Interfaz Principal -->
+        <div class="step-image-block">
+          <h4>1. Interfaz Principal de FTK Imager</h4>
+          <img src="../img/act16_1.png" alt="Interfaz principal de FTK Imager" class="activity-img">
+        </div>
 
-      <p>
-        Después de la operación, ya no aparecen los campos EXIF
-        de la cámara, la fecha original de captura ni las
-        coordenadas GPS en la copia generada. Permanecen algunos
-        datos técnicos del archivo JPEG y del sistema de archivos.
-      </p>
+        <!-- Imagen 2: Physical Drive -->
+        <div class="step-image-block">
+          <h4>2. Selección del Origen (Physical Drive)</h4>
+          <p>Se seleccionó la opción de disco físico para capturar la totalidad del medio de almacenamiento de origen.</p>
+          <img src="../img/act16_2.png" alt="Selección de Physical Drive" class="activity-img">
+        </div>
 
-            <figure class="lab-image-container">
-        <a
-          href="../img/act15_3.png"
-          target="_blank"
-          rel="noopener noreferrer">
-          <img
-            src="../img/act15_3.png"
-            alt="Salida de ExifTool con datos EXIF y coordenadas GPS de XiaomiMiA2Lite.jpg"
-            class="lab-img">
-        </a>
+        <!-- Imagen 3: Identificación de la USB -->
+        <div class="step-image-block">
+          <h4>3. Identificación y Selección del Dispositivo Físico</h4>
+          <p>Se identificó la unidad física asignada a la memoria USB (<code>\\.\PHYSICALDRIVE1</code>).</p>
+          <img src="../img/act16_3.png" alt="Selección del dispositivo USB físico" class="activity-img">
+        </div>
 
-        <figcaption>
-          Evidencia 2. Metadatos EXIF de la fotografía,
-          mostrando ISO, apertura, longitud focal, fecha de captura
-          y posición GPS.
-        </figcaption>
-      </figure>
-    </section>
+        <!-- Imagen 4: Formato Raw (dd) -->
+        <div class="step-image-block">
+          <h4>4. Selección del Formato de Imagen (Raw / dd)</h4>
+          <p>Se eligió el formato Raw (dd) para obtener una copia de sectores puros sin compresión ni metadatos embebidos.</p>
+          <img src="../img/act16_4.png" alt="Selección del formato Raw dd" class="activity-img">
+        </div>
 
-    <section class="preview-block">
-      <h3>ANÁLISIS Y CONCLUSIONES</h3>
+        <!-- Imagen 5: Carpeta Destino y Nombre -->
+        <div class="step-image-block">
+          <h4>5. Ruta de Destino y Nombre de Archivo</h4>
+          <p>Configuración del directorio <code>D:\a\Semestre7\CNO4\ACT16</code> y el nombre base del archivo.</p>
+          <img src="../img/act16_5.png" alt="Configuración de carpeta destino y nombre" class="activity-img">
+        </div>
 
-      <p>
-        El análisis con ExifTool permitió identificar información
-        de autoría, clasificación, plantilla y edición del documento
-        atribuido a INTERPOL. En la fotografía tomada con un Xiaomi
-        Mi A2 Lite se recuperaron los parámetros de captura, la fecha
-        registrada y las coordenadas GPS que permiten localizar el
-        punto geográfico asociado a la imagen.
-      </p>
+        <!-- Imagen 6: Marcas de tiempo y proceso -->
+        <div class="step-image-block">
+          <h4>6. Marcas de Tiempo y Progreso de Adquisición</h4>
+          <p>Registro exacto del tiempo de inicio, tiempo transcurrido y la finalización de la extracción bit a bit.</p>
+          <img src="../img/act16_6.png" alt="Marcas de tiempo del proceso de adquisición" class="activity-img">
+        </div>
 
-      <p>
-        Finalmente, la generación y verificación de una copia sin
-        metadatos permitió documentar el procedimiento de eliminación
-        sin alterar la evidencia original. La actividad demuestra
-        que los metadatos pueden revelar información importante sobre
-        un archivo y su contexto, por lo que resulta necesario
-        revisarlos antes de compartir documentos o fotografías.
-      </p>
-    </section>
-  </article>
+        <!-- Imagen 7: Datos de Verificación (Hashes) -->
+        <div class="step-image-block">
+          <h4>7. Verificación de Integridad y Hashes</h4>
+          <p>Confirmación de coincidencia (Match) en los calculadores de hash MD5 y SHA-1 al concluir la adquisición.</p>
+          <img src="../img/act16_7.png" alt="Resultados de verificación de hashes MD5 y SHA-1" class="activity-img">
+        </div>
+
+        <!-- Imagen 8: Archivo de Reporte generado (.txt) -->
+        <div class="step-image-block">
+          <h4>8. Archivo de Reporte de Verificación (.txt)</h4>
+          <p>Inspección del reporte textual (<code>.txt</code>) generado automáticamente por la herramienta con el resumen técnico del caso.</p>
+          <img src="../img/act16_8.png" alt="Archivo de reporte generado por FTK Imager" class="activity-img">
+        </div>
+
+        <!-- Imagen 9: Comparación de archivos extraídos vs USB -->
+        <div class="step-image-block">
+          <h4>9. Comparación de Archivos (USB de Origen vs. Contenido Extraído)</h4>
+          <p>Validación de la estructura del sistema de archivos y bloques entre la unidad de evidencia y la imagen forense montada/extraída.</p>
+          <img src="../img/act16_9.png" alt="Comparación de archivos de la USB y los extraídos" class="activity-img">
+        </div>
+
+      </div>
+
+      <div class="preview-block">
+
+        <h3>Objetivo</h3>
+
+        <p>
+          Desarrollar habilidades prácticas en la utilización de herramientas de código abierto y comerciales
+          para la extracción de evidencia digital, comprendiendo la importancia de los metadatos y realizando la
+          adquisición forense de una memoria USB mediante una imagen bit a bit con verificación de hashes.
+        </p>
+
+      </div>
+
+      <div class="preview-block">
+
+        <h3>Fuente Principal</h3>
+
+        <p>
+          Laboratorio de Informática Forense (LIF) · Universidad Politécnica de San Luis Potosí (UPSLP) ·
+          CNO IV: Programación WAP · Práctica de Adquisición con AccessData FTK Imager v4.3.1.1.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
 </main>
 
   <!-- FOOTER -->
