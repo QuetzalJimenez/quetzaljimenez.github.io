@@ -174,19 +174,34 @@
     margin: 10px auto 25px auto;
   }
 
-  /* Botón Descargar / Abrir PDF */
-  .pdf-button {
+  /* Botones para abrir el PDF y visualizar el HTML */
+  .button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 0 0 25px;
+  }
+
+  .action-button {
     display: inline-block;
     padding: 10px 24px;
-    background-color: #ffffff;
-    color: #000000;
-    text-decoration: none;
+    font: inherit;
     font-weight: bold;
-    border: 2px solid #ffffff;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid transparent;
     border-radius: 6px;
     cursor: pointer;
-    margin-bottom: 25px;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+    transition: background-color 0.2s ease, color 0.2s ease,
+                border-color 0.2s ease, transform 0.15s ease;
+  }
+
+  .pdf-button {
+    background-color: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
   }
 
   .pdf-button:hover {
@@ -194,6 +209,23 @@
     color: #000000;
     border-color: #d4af37;
     transform: translateY(-2px);
+  }
+
+  .html-button {
+    background-color: #0d6efd;
+    color: #ffffff;
+    border-color: #0d6efd;
+  }
+
+  .html-button:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+    transform: translateY(-2px);
+  }
+
+  .button-group .pdf-button,
+  .button-group .html-button {
+    margin-bottom: 0;
   }
 
   /* Contenedor e iframe del Visor de PDF */
@@ -213,15 +245,6 @@
     border: none;
   }
 
-    /* Estilo específico para HTML */
-.html-button {
-  background-color: #0d6efd;
-  color: #ffffff;
-}
-
-.html-button:hover {
-  background-color: #0b5ed7;
-}
 
   /* ==========================================================================
      4. FOOTER
@@ -243,6 +266,39 @@
   footer .security {
     color: #555555;
     font-size: 0.8rem;
+  }
+
+  @media (max-width: 700px) {
+    .navbar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 14px 16px;
+    }
+
+    nav {
+      width: 100%;
+    }
+
+    main {
+      margin: 24px auto;
+      padding: 0 12px;
+    }
+
+    .activity-section {
+      padding: 20px 14px;
+    }
+
+    .activity-section h1 {
+      font-size: 1.55rem;
+    }
+
+    .pdf-container {
+      height: 460px;
+    }
+
+    .action-button {
+      width: 100%;
+    }
   }
 </style>
 </head>
@@ -296,16 +352,21 @@
         <strong>Análisis del ciberataque a EQUIFAX</strong>
       </p>
 
-      <a href="Act01_cno4.pdf"
-         target="_blank"
+      <div class="button-group">
+<a href="Act01_cno4.pdf"
+         target="_blank" rel="noopener noreferrer"
          class="pdf-button">
         Abrir PDF
       </a>
+        <button type="button" class="action-button html-button" onclick="cargarVista(this, 'actividades/act01.html')">
+          Ver Página HTML
+        </button>
+      </div>
 
       <div class="pdf-container">
         <iframe
           src="Act01_cno4.pdf"
-          title="Actividad 01">
+          title="Actividad 01" class="content-frame">
         </iframe>
       </div>
 
@@ -320,16 +381,21 @@
         <strong>No presiones ESC... Todavía... Documentación</strong>
       </p>
 
-      <a href="Act03_cno4.pdf"
-         target="_blank"
+      <div class="button-group">
+<a href="Act03_cno4.pdf"
+         target="_blank" rel="noopener noreferrer"
          class="pdf-button">
         Abrir PDF
       </a>
+        <button type="button" class="action-button html-button" onclick="cargarVista(this, 'actividades/act03.html')">
+          Ver Página HTML
+        </button>
+      </div>
 
       <div class="pdf-container">
         <iframe
           src="Act03_cno4.pdf"
-          title="Actividad 03">
+          title="Actividad 03" class="content-frame">
         </iframe>
       </div>
 
@@ -344,16 +410,21 @@
         <strong>Una página demasiado convincente Documentación</strong>
       </p>
 
-      <a href="Act04_cno4.pdf"
-         target="_blank"
+      <div class="button-group">
+<a href="Act04_cno4.pdf"
+         target="_blank" rel="noopener noreferrer"
          class="pdf-button">
         Abrir PDF
       </a>
+        <button type="button" class="action-button html-button" onclick="cargarVista(this, 'actividades/act04.html')">
+          Ver Página HTML
+        </button>
+      </div>
 
       <div class="pdf-container">
         <iframe
           src="Act04_cno4.pdf"
-          title="Actividad 04">
+          title="Actividad 04" class="content-frame">
         </iframe>
       </div>
 
@@ -367,16 +438,21 @@
         <strong>PR De la teoría a la práctica: walkthroughen acción (guía y video). Informe y video de investigación: Walkthrough de la máquina DigitalWorldLocal — Snakeoil (VulnHub)</strong>
       </p>
 
-      <a href="PR01_184286.pdf"
-         target="_blank"
+      <div class="button-group">
+<a href="PR01_184286.pdf"
+         target="_blank" rel="noopener noreferrer"
          class="pdf-button">
         Abrir PDF
       </a>
+        <button type="button" class="action-button html-button" onclick="cargarVista(this, 'actividades/PR01.html')">
+          Ver Página HTML
+        </button>
+      </div>
 
       <div class="pdf-container">
         <iframe
           src="PR01_184286.pdf"
-          title="PR_01">
+          title="PR_01" class="content-frame">
         </iframe>
       </div>
 
@@ -392,23 +468,23 @@
   </p>
 
   <div class="button-group">
-    <a href="Act07_cno4.pdf" 
-       target="_blank" 
+    <a href="Road_to_hall_of_fame.pdf" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('Road_to_hall_of_fame.html')">
+            onclick="cargarVista(this, 'Road_to_hall_of_fame.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Road_to_hall_of_fame.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -425,22 +501,22 @@
 
   <div class="button-group">
     <a href="Act07_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('https://quetzaljimenez.github.io/CNO4/actividades/act07.html')">
+            onclick="cargarVista(this, 'actividades/act07.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act07_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -457,22 +533,22 @@
 
   <div class="button-group">
     <a href="Act08_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act08.html')">
+            onclick="cargarVista(this, 'actividades/act08.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act08_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -489,22 +565,22 @@
 
   <div class="button-group">
     <a href="Act09_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act09.html')">
+            onclick="cargarVista(this, 'actividades/act09.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act09_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -521,22 +597,22 @@
 
   <div class="button-group">
     <a href="Act10_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('/actividades/act10.html')">
+            onclick="cargarVista(this, 'actividades/act10.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act10_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -554,22 +630,22 @@
 
   <div class="button-group">
     <a href="Act11_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act11.html')">
+            onclick="cargarVista(this, 'actividades/act11.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act11_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -586,22 +662,22 @@
 
   <div class="button-group">
     <a href="Act12_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act12.html')">
+            onclick="cargarVista(this, 'actividades/act12.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act12_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -618,22 +694,22 @@
 
   <div class="button-group">
     <a href="Act13_cno4.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act13.html')">
+            onclick="cargarVista(this, 'actividades/act13.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="Act13_cno4.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -651,24 +727,60 @@
 
   <div class="button-group">
     <a href="pdf/Actividad14_Proteccion_Datos.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act14.html')">
+            onclick="cargarVista(this, 'actividades/act14.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/Actividad14_Proteccion_Datos.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
+
+</section>
+
+
+<section class="hero activity-section">
+
+  <h1>PR02</h1>
+
+  <p>
+    <strong>PR02 · Investigación y análisis de vulnerabilidades, laboratorio Interefas 20 CTF</strong>
+  </p>
+
+
+  <p>
+    El objetivo fue resolver y documentar 20 banderas mediante
+    el análisis de peticiones HTTP, cookies, parámetros,
+    controles de acceso, registros de auditoría y otros
+    elementos técnicos del entorno. Cada reto permitió estudiar
+    diferentes fallos de seguridad y recopilar evidencias
+    para respaldar los resultados obtenidos. De acuerdo con la ISO 27001.
+  </p>
+
+  <div class="project-image">
+    <img
+      src="INTERAFAS_184286_MINUTA.png"
+      alt="Minuta del proyecto de ciberseguridad INTERAFAS"
+      loading="lazy">
+  </div>
+
+  <a
+    href="https://drive.google.com/file/d/1Lg0dS_ss24z1n5005cfbYfHTf56p458x/view?usp=sharing"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="pdf-button">
+    Descargar laboratorio INTERAFAS (.ZIP)
+  </a>
 
 </section>
 
@@ -683,22 +795,22 @@
 
   <div class="button-group">
     <a href="actividades/Act15.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act15.html')">
+            onclick="cargarVista(this, 'actividades/act15.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="actividades/Act15.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -715,22 +827,22 @@
 
   <div class="button-group">
     <a href="pdf/Actividad16_Adquisicion_Forense.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act16.html')">
+            onclick="cargarVista(this, 'actividades/act16.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/Actividad16_Adquisicion_Forense.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -747,22 +859,22 @@
 
   <div class="button-group">
     <a href="pdf/Actividad17_Analisis_Forense_RAM.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act17.html')">
+            onclick="cargarVista(this, 'actividades/act17.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/Actividad17_Analisis_Forense_RAM.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -780,22 +892,22 @@
 
   <div class="button-group">
     <a href="pdf/Actividad18_Investigacion_Forense.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act18.html')">
+            onclick="cargarVista(this, 'actividades/act18.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/Actividad18_Investigacion_Forense.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -812,22 +924,22 @@
 
   <div class="button-group">
     <a href="pdf/Actividad19.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/act19.html')">
+            onclick="cargarVista(this, 'actividades/act19.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/Actividad19.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -844,22 +956,22 @@
 
   <div class="button-group">
     <a href="pdf/PR03_Operacion_Narcos.pdf" 
-       target="_blank" 
+       target="_blank" rel="noopener noreferrer" 
        class="action-button pdf-button">
       Abrir PDF
     </a>
 
     <button type="button" 
             class="action-button html-button" 
-            onclick="cargarVista('actividades/PR03.html')">
+            onclick="cargarVista(this, 'actividades/PR03.html')">
       Ver Página HTML
     </button>
   </div>
 
   <div class="pdf-container">
-    <iframe id="viewer-frame"
+    <iframe
       src="pdf/PR03_Operacion_Narcos.pdf" 
-      title="Visualizador de contenido">
+      title="Visualizador de contenido" class="content-frame">
     </iframe>
   </div>
 
@@ -938,12 +1050,20 @@
         });
       }
     });
-      function cargarVista(url) {
-  const iframe = document.getElementById('viewer-frame');
-  if (iframe) {
-    iframe.src = url;
-  }
-}
+    // Carga el HTML únicamente en el visor de la actividad cuyo botón se pulsó.
+    function cargarVista(boton, url) {
+      const seccion = boton.closest('.activity-section');
+      if (!seccion) return;
+
+      const iframe = seccion.querySelector('.content-frame');
+      if (!iframe) return;
+
+      iframe.src = url;
+      const titulo = seccion.querySelector('h1');
+      if (titulo) {
+        iframe.title = 'Vista HTML de ' + titulo.textContent.trim();
+      }
+    }
   </script>
 
 </body>
